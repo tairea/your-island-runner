@@ -25,8 +25,8 @@ status: draft
 	- Mission 2.3 - Landmark Hunt - Select 5 real locations that will become obstacle stations
 	- Mission 2.4 - Story Your Route - Create a narrative reason for running through these landmarks
 - Star 3 - World Building Round 1 - Expand your course into an island-shaped world
-	- Mission 3.1 - Terrain Foundations - Use parts or terrain to create the rough shape of your island
-	- Mission 3.2 - Camera and Movement - Master viewport navigation to build at different scales
+	- Mission 3.1 - Reference Image Setup - Import your satellite screenshot as a decal in the world to guide building
+	- Mission 3.2 - Terrain Foundations - Use parts or terrain to create the rough shape of your island from the reference
 	- Mission 3.3 - Part Properties Deep Dive - Explore materials, colors, and transparency for variety
 	- Mission 3.4 - First Landmark Zone - Transform your first real landmark into an obstacle area
 	- Mission 3.5 - Connect the Path - Build a running path from spawn to your first landmark
