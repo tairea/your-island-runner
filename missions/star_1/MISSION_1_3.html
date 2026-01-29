@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 1.3: Add Danger - Your Island Runner</title>
+</head>
+<body>
+    <article class="mission-content">
+
+        <!-- HOOK SECTION -->
+        <section class="mission-hook">
+            <h1>Mission 1.3: Add Danger</h1>
+
+            <p class="hook-opener">
+                What separates a playground from a game? <strong>Consequences.</strong> Right now, your jumping course is just practice - miss a jump and nothing happens. But in a real game, missing a jump should matter. In this mission, you are going to write your first lines of code and create something that makes players think twice before they leap.
+            </p>
+
+            <p>
+                You are about to become a programmer. Not just someone who places blocks, but someone who makes those blocks <em>do things</em>. By the end of this mission, your game will have a deadly kill brick that resets players who touch it. One small script, one huge leap forward.
+            </p>
+
+            <div class="callout callout-motivation">
+                <p><strong>Programming is Power:</strong> Every video game you have ever played runs on code. Code makes enemies chase you, coins disappear when collected, and checkpoints save your progress. Today, you join the ranks of people who write that code.</p>
+            </div>
+        </section>
+
+        <!-- OBJECTIVE SECTION -->
+        <section class="mission-objective">
+            <h2>Your Mission</h2>
+
+            <div class="objective-box">
+                <p><strong>Learning Objective:</strong> Create a kill brick using a simple script that sends players back to the start when touched.</p>
+            </div>
+
+            <h3>What You Will Create</h3>
+            <ul class="objective-checklist">
+                <li>A distinctive red "danger zone" part below your platforms</li>
+                <li>Your first Lua script</li>
+                <li>Code that detects when a player touches the danger zone</li>
+                <li>A consequence: touching the danger resets the player</li>
+            </ul>
+        </section>
+
+        <!-- MAIN CONTENT SECTION -->
+        <section class="mission-content-main">
+            <h2>Step-by-Step Instructions</h2>
+
+            <!-- Step 1: Create the Kill Brick -->
+            <div class="step-block">
+                <h3>Step 1: Create the Danger Zone</h3>
+
+                <p>First, we need a part that represents danger. Let us create a big red zone below your jumping course.</p>
+
+                <ol class="instruction-list">
+                    <li>Go to the <strong>Model</strong> tab and insert a new <strong>Part</strong> (Block)</li>
+                    <li>Use the <strong>Scale</strong> tool to make it large - about 50x1x50 studs</li>
+                    <li>Use the <strong>Move</strong> tool to position it directly below your platforms, about 10 studs down</li>
+                </ol>
+
+                <p>Now let us make it look dangerous:</p>
+
+                <ol class="instruction-list" start="4">
+                    <li>With the part selected, look at the <strong>Properties</strong> panel on the right side of the screen</li>
+                    <li>If you do not see Properties, go to <strong>View</strong> tab and click <strong>Properties</strong></li>
+                    <li>Find the <strong>BrickColor</strong> property and click on it</li>
+                    <li>Select <strong>Bright red</strong> or <strong>Really red</strong></li>
+                    <li>Find the <strong>Name</strong> property at the top and change it from "Part" to <strong>KillBrick</strong></li>
+                </ol>
+
+                <div class="callout callout-tip">
+                    <p><strong>Naming Matters:</strong> Always give your parts descriptive names! When you have hundreds of parts, you will thank yourself for naming them clearly. "KillBrick" is much easier to find than "Part" or "Part47".</p>
+                </div>
+            </div>
+
+            <!-- Step 2: Add a Script -->
+            <div class="step-block">
+                <h3>Step 2: Add a Script to Your Kill Brick</h3>
+
+                <p>Parts just sit there until you add code. Let us give your kill brick a brain!</p>
+
+                <ol class="instruction-list">
+                    <li>In the <strong>Explorer</strong> panel (usually on the right), find your <strong>KillBrick</strong></li>
+                    <li>Right-click on <strong>KillBrick</strong></li>
+                    <li>Hover over <strong>Insert Object</strong></li>
+                    <li>Click <strong>Script</strong></li>
+                </ol>
+
+                <p>A new Script appears inside your KillBrick, and a code editor opens! You will see some default text:</p>
+
+                <div class="code-block">
+                    <pre>print("Hello world!")</pre>
+                </div>
+
+                <p>This default code just prints a message. We are going to replace it with our kill brick code.</p>
+            </div>
+
+            <!-- Step 3: Write the Code -->
+            <div class="step-block">
+                <h3>Step 3: Write Your First Real Code</h3>
+
+                <p>Delete everything in the script and type this code exactly:</p>
+
+                <div class="code-block">
+                    <pre>local killBrick = script.Parent
+
+local function onTouched(otherPart)
+    local humanoid = otherPart.Parent:FindFirstChild("Humanoid")
+    if humanoid then
+        humanoid.Health = 0
+    end
+end
+
+killBrick.Touched:Connect(onTouched)</pre>
+                </div>
+
+                <div class="callout callout-warning">
+                    <p><strong>Type Carefully!</strong> Code must be typed exactly right. Every capital letter, every period, every parenthesis matters. If something does not work, check your spelling and punctuation first!</p>
+                </div>
+
+                <h4>What Does This Code Do?</h4>
+
+                <p>Let us break it down line by line:</p>
+
+                <div class="code-explanation">
+                    <div class="code-line">
+                        <code>local killBrick = script.Parent</code>
+                        <p>This stores a reference to the part containing this script (your KillBrick).</p>
+                    </div>
+
+                    <div class="code-line">
+                        <code>local function onTouched(otherPart)</code>
+                        <p>This creates a function named "onTouched" that runs whenever something touches our brick. The "otherPart" is whatever touched us.</p>
+                    </div>
+
+                    <div class="code-line">
+                        <code>local humanoid = otherPart.Parent:FindFirstChild("Humanoid")</code>
+                        <p>This checks if the thing that touched us is part of a player character. Players have a "Humanoid" component that controls their health and movement.</p>
+                    </div>
+
+                    <div class="code-line">
+                        <code>if humanoid then</code>
+                        <p>This checks: "Did we actually find a Humanoid?" We only want to kill players, not random parts.</p>
+                    </div>
+
+                    <div class="code-line">
+                        <code>humanoid.Health = 0</code>
+                        <p>This sets the player's health to zero, which eliminates them!</p>
+                    </div>
+
+                    <div class="code-line">
+                        <code>killBrick.Touched:Connect(onTouched)</code>
+                        <p>This connects our function to the brick's Touched event. Now, whenever anything touches the brick, our onTouched function runs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Test It -->
+            <div class="step-block">
+                <h3>Step 4: Test Your Kill Brick</h3>
+
+                <p>Time to see if your code works!</p>
+
+                <ol class="instruction-list">
+                    <li>Click <strong>Play</strong></li>
+                    <li>Walk off the edge of the baseplate and fall onto your red kill brick</li>
+                    <li>Watch what happens!</li>
+                </ol>
+
+                <p>If everything worked, you should see your character disappear and respawn at the starting position. Congratulations - your first script works!</p>
+
+                <div class="try-it-box">
+                    <h4>Try It!</h4>
+                    <p>Jump off from different heights. Try landing on the edge of the kill brick. Does it work every time? Try missing a platform jump and falling - does the kill brick catch you?</p>
+                </div>
+            </div>
+
+            <!-- Step 5: Troubleshooting -->
+            <div class="step-block">
+                <h3>Step 5: Troubleshooting (If It Did Not Work)</h3>
+
+                <p>If your kill brick is not working, here are common problems and fixes:</p>
+
+                <div class="troubleshoot-list">
+                    <div class="troubleshoot-item">
+                        <h4>Nothing happens when I touch it</h4>
+                        <ul>
+                            <li>Check that the Script is <strong>inside</strong> the KillBrick in the Explorer</li>
+                            <li>Make sure you typed the code exactly right</li>
+                            <li>Check for the red underline in the script editor - this shows errors</li>
+                        </ul>
+                    </div>
+
+                    <div class="troubleshoot-item">
+                        <h4>Red error messages in the Output</h4>
+                        <ul>
+                            <li>Open the <strong>View</strong> tab and click <strong>Output</strong></li>
+                            <li>Read the error message - it tells you what line has a problem</li>
+                            <li>Common issues: missing parentheses, typos in "Humanoid", wrong capitalization</li>
+                        </ul>
+                    </div>
+
+                    <div class="troubleshoot-item">
+                        <h4>I fall through the kill brick</h4>
+                        <ul>
+                            <li>Make sure the KillBrick's <strong>CanCollide</strong> property is set to <strong>true</strong></li>
+                            <li>Check that the brick is not Anchored to false (it should be Anchored = true)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="callout callout-info">
+                    <p><strong>The Output Window is Your Friend:</strong> Whenever something is not working, check the Output window (View > Output). Error messages appear there in red and tell you exactly what went wrong and on which line.</p>
+                </div>
+            </div>
+
+            <!-- Step 6: Position the Kill Brick -->
+            <div class="step-block">
+                <h3>Step 6: Fine-Tune the Position</h3>
+
+                <p>Make sure your kill brick is positioned well:</p>
+
+                <ul class="instruction-list">
+                    <li>It should be <strong>below all your platforms</strong> so missing any jump is deadly</li>
+                    <li>It should be <strong>large enough</strong> that players cannot fall past it</li>
+                    <li>Consider adding walls around the edges so players cannot escape sideways</li>
+                </ul>
+
+                <p>Play your course a few times. The danger is real now - every jump matters!</p>
+            </div>
+
+            <!-- Reference Box -->
+            <div class="reference-box">
+                <h3>Code Reference: Kill Brick Script</h3>
+                <div class="code-block">
+                    <pre>local killBrick = script.Parent
+
+local function onTouched(otherPart)
+    local humanoid = otherPart.Parent:FindFirstChild("Humanoid")
+    if humanoid then
+        humanoid.Health = 0
+    end
+end
+
+killBrick.Touched:Connect(onTouched)</pre>
+                </div>
+                <p><strong>Key Concepts:</strong></p>
+                <ul>
+                    <li><code>script.Parent</code> - References the part containing this script</li>
+                    <li><code>Touched</code> - An event that fires when something touches the part</li>
+                    <li><code>:Connect()</code> - Connects a function to an event</li>
+                    <li><code>Humanoid</code> - The component that makes a character a "player"</li>
+                    <li><code>Health = 0</code> - Setting health to zero defeats the player</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CHECK SECTION -->
+        <section class="mission-check">
+            <h2>Mission Complete?</h2>
+
+            <p>Verify your kill brick is working properly:</p>
+
+            <div class="checklist-box">
+                <h3>Completion Checklist</h3>
+                <ul class="completion-checklist">
+                    <li><input type="checkbox"> I created a red part named "KillBrick"</li>
+                    <li><input type="checkbox"> The KillBrick has a Script inside it</li>
+                    <li><input type="checkbox"> When I touch the KillBrick in Play mode, my character dies</li>
+                    <li><input type="checkbox"> After dying, I respawn at the starting position</li>
+                    <li><input type="checkbox"> The KillBrick is positioned below all my platforms</li>
+                    <li><input type="checkbox"> Missing a jump in my obstacle course leads to the kill brick</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-success">
+                <p><strong>You Are Now a Programmer!</strong> You just wrote real code that actually does something. The Touched event and Humanoid detection you learned are used in thousands of Roblox games. This is the foundation of everything interactive in your game.</p>
+            </div>
+        </section>
+
+        <!-- BRIDGE SECTION -->
+        <section class="mission-bridge">
+            <h2>What Comes Next</h2>
+
+            <p>Your game now has danger - but it does not yet have a goal. Players can jump from platform to platform, but there is nothing telling them "you made it!" when they reach the end.</p>
+
+            <p>In <strong>Mission 1.4: Victory Part</strong>, you will create a finish line that stands out visually and gives players a clear target to reach. A game needs both challenge AND reward - you have the challenge, now let us add the reward!</p>
+
+            <div class="next-mission-preview">
+                <h3>Coming Up: Mission 1.4 Preview</h3>
+                <ul>
+                    <li>Create a victory platform with a distinctive color</li>
+                    <li>Learn about part properties and visual design</li>
+                    <li>Understand how color communicates meaning in games</li>
+                    <li>Complete the core loop: start, danger, goal</li>
+                </ul>
+            </div>
+
+            <p class="bridge-motivation">Your first script is working! Save your project and get ready to add the finish line.</p>
+        </section>
+
+    </article>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 4.3: Checkpoint Spawns</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Save Your Progress!</h1>
+        <p>Picture this: You've made it halfway through a challenging obstacle course. You're feeling great. Then... you miss a jump and fall. Now you have to start ALL the way back at the beginning.</p>
+        <p>Frustrating, right? That's why every good platformer game has checkpoints - safe spots that save your progress so you don't lose everything when you mess up (and trust me, in a runner game, you WILL mess up).</p>
+        <p>Today, you're going to build a checkpoint system that makes your game actually playable and fun!</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Script spawn points that save player progress</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Understanding Spawns and Checkpoints</h2>
+        <p>In Roblox, there are two ways to control where players spawn (appear) in your game:</p>
+
+        <ol>
+            <li><strong>SpawnLocation objects</strong> - Special parts that players can spawn at</li>
+            <li><strong>Setting player.RespawnLocation</strong> - Telling the game exactly where a specific player should spawn</li>
+        </ol>
+
+        <p>We're going to use SpawnLocation objects because they're easier to work with and give us built-in features like the spawn pad appearance.</p>
+
+        <h2>Step 1: Create Your First Checkpoint</h2>
+        <ol>
+            <li>In the <strong>Home</strong> tab, click <strong>Gameplay</strong> in the toolbar</li>
+            <li>Click <strong>Spawn</strong> to insert a SpawnLocation</li>
+            <li>A gray spawn pad appears in your game!</li>
+            <li>Rename it to <strong>Checkpoint1</strong></li>
+            <li>Move it to a good location on your island path (maybe partway up)</li>
+        </ol>
+
+        <div class="info-box">
+            <h3>Customizing Your Checkpoint</h3>
+            <p>Select your checkpoint and look at its Properties:</p>
+            <ul>
+                <li><strong>Duration</strong> - How long the spawn effect lasts (the swirly particle effect)</li>
+                <li><strong>Neutral</strong> - If checked, any team can spawn here (keep this checked for now)</li>
+                <li><strong>AllowTeamChangeOnTouch</strong> - We won't use this for now</li>
+            </ul>
+            <p>Feel free to change the color and material to match your island theme!</p>
+        </div>
+
+        <h2>Step 2: The Problem We Need to Solve</h2>
+        <p>By default, SpawnLocation objects work randomly - players might spawn at ANY spawn in your game. We need to make it so when a player touches a checkpoint, THAT checkpoint becomes their personal spawn point.</p>
+
+        <p>Also, we need to make sure the checkpoint only activates ONCE per touch (not 50 times as the player walks across it).</p>
+
+        <h2>Step 3: Add the Checkpoint Script</h2>
+        <p>Right-click your <strong>Checkpoint1</strong> and insert a <strong>Script</strong>. Rename it to <strong>CheckpointScript</strong>.</p>
+
+        <p>Here's the complete checkpoint code:</p>
+
+        <div class="code-example">
+            <pre><code>local checkpoint = script.Parent
+local debounce = {}
+
+checkpoint.Touched:Connect(function(hit)
+    local humanoid = hit.Parent:FindFirstChild("Humanoid")
+
+    if humanoid then
+        local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+
+        if player and not debounce[player] then
+            debounce[player] = true
+
+            -- Set this checkpoint as the player's spawn point
+            player.RespawnLocation = checkpoint
+
+            -- Visual feedback
+            checkpoint.BrickColor = BrickColor.new("Bright green")
+            checkpoint.Material = Enum.Material.Neon
+
+            -- Print confirmation
+            print(player.Name .. " reached checkpoint!")
+
+            wait(2)
+            debounce[player] = nil
+        end
+    end
+end)</code></pre>
+        </div>
+
+        <p>Whoa! That's a lot of new stuff. Let's break down every single part:</p>
+
+        <h3>Line by Line Breakdown</h3>
+
+        <h4>Lines 1-2: Setup</h4>
+        <div class="code-example">
+            <pre><code>local checkpoint = script.Parent
+local debounce = {}</code></pre>
+        </div>
+        <ul>
+            <li><strong>checkpoint</strong> - References the SpawnLocation this script is inside</li>
+            <li><strong>debounce = {}</strong> - Creates an empty table (like a list) to track which players recently touched the checkpoint</li>
+        </ul>
+
+        <h4>Lines 4-9: Detect Player Touch</h4>
+        <p>This part should look familiar from Mission 4.2! We detect when something touches the checkpoint, check if it has a Humanoid, then get the player.</p>
+
+        <h4>Line 11: The Debounce Check</h4>
+        <div class="code-example">
+            <pre><code>if player and not debounce[player] then</code></pre>
+        </div>
+        <p>This checks TWO things:</p>
+        <ul>
+            <li><strong>player</strong> - Did we successfully find a player?</li>
+            <li><strong>not debounce[player]</strong> - Is this player NOT in our debounce table? (Meaning they haven't touched this checkpoint recently)</li>
+        </ul>
+        <p>This prevents the checkpoint from activating multiple times in a row!</p>
+
+        <h4>Line 12: Add to Debounce</h4>
+        <div class="code-example">
+            <pre><code>debounce[player] = true</code></pre>
+        </div>
+        <p>We add this player to the debounce table, marking that they just touched the checkpoint.</p>
+
+        <h4>Line 15: The Magic Line</h4>
+        <div class="code-example">
+            <pre><code>player.RespawnLocation = checkpoint</code></pre>
+        </div>
+        <p>THIS is what makes the checkpoint work! We set this player's RespawnLocation to this checkpoint. Now when they die, they'll respawn here instead of at the start!</p>
+
+        <h4>Lines 18-19: Visual Feedback</h4>
+        <p>We change the checkpoint to bright green and make it glow so players know they activated it. Visual feedback is SUPER important for good game design!</p>
+
+        <h4>Line 22: Confirmation Message</h4>
+        <p>Print a message so we can verify it's working.</p>
+
+        <h4>Lines 24-25: Reset Debounce</h4>
+        <div class="code-example">
+            <pre><code>wait(2)
+debounce[player] = nil</code></pre>
+        </div>
+        <p>Wait 2 seconds, then remove the player from the debounce table. Now they can activate the checkpoint again if needed (like if they run back and forth).</p>
+
+        <h2>Step 4: Test Your Checkpoint</h2>
+        <ol>
+            <li>Click <strong>Play</strong></li>
+            <li>Run over to your checkpoint</li>
+            <li>Watch it turn green and glow!</li>
+            <li>Now jump off your island (or walk into a dangerous area if you have one)</li>
+            <li>When you respawn, you should appear at the checkpoint, not at the original spawn!</li>
+        </ol>
+
+        <p>SUCCESS! You just created a working checkpoint system!</p>
+
+        <h2>Step 5: Add More Checkpoints</h2>
+        <p>One checkpoint is good, but a real runner game needs several! Here's how to add more:</p>
+
+        <ol>
+            <li>Select your <strong>Checkpoint1</strong> (including the script inside it)</li>
+            <li>Press <strong>Ctrl+D</strong> (or Cmd+D on Mac) to duplicate it</li>
+            <li>Rename it to <strong>Checkpoint2</strong></li>
+            <li>Move it further along your island path</li>
+            <li>Repeat for <strong>Checkpoint3</strong>, <strong>Checkpoint4</strong>, etc.</li>
+        </ol>
+
+        <p>The great news? Since you duplicated the checkpoint WITH the script, all your checkpoints will automatically work!</p>
+
+        <div class="try-it">
+            <h3>Design Challenge!</h3>
+            <p>Place checkpoints strategically along your island:</p>
+            <ul>
+                <li>After difficult jumps</li>
+                <li>Before dangerous areas</li>
+                <li>At the start of each major section</li>
+                <li>NOT too close together (that's too easy!)</li>
+                <li>NOT too far apart (that's too frustrating!)</li>
+            </ul>
+        </div>
+
+        <h2>Step 6: Add Checkpoint Numbers (Optional but Cool)</h2>
+        <p>Let's track which checkpoint number the player reached! This teaches you about leaderstats - a way to display player stats on the leaderboard.</p>
+
+        <p>Create a new Script in <strong>ServerScriptService</strong> called <strong>LeaderboardSetup</strong>:</p>
+
+        <div class="code-example">
+            <pre><code>game.Players.PlayerAdded:Connect(function(player)
+    local leaderstats = Instance.new("Folder")
+    leaderstats.Name = "leaderstats"
+    leaderstats.Parent = player
+
+    local checkpointReached = Instance.new("IntValue")
+    checkpointReached.Name = "Checkpoint"
+    checkpointReached.Value = 0
+    checkpointReached.Parent = leaderstats
+end)</code></pre>
+        </div>
+
+        <h3>What This Does</h3>
+        <p>When a player joins the game, this code:</p>
+        <ul>
+            <li>Creates a "leaderstats" folder (special name that makes stats show on the leaderboard)</li>
+            <li>Creates an IntValue (integer/number value) called "Checkpoint"</li>
+            <li>Sets it to 0 initially</li>
+            <li>Puts it in the leaderstats folder</li>
+        </ul>
+
+        <p>Now when you play, you'll see a "Checkpoint: 0" stat on the leaderboard!</p>
+
+        <h2>Step 7: Update Checkpoints to Track Numbers</h2>
+        <p>Let's make each checkpoint update this stat! Add this to your checkpoint script (inside the main if statement, after setting the RespawnLocation):</p>
+
+        <div class="code-example">
+            <pre><code>-- Update checkpoint stat
+local leaderstats = player:FindFirstChild("leaderstats")
+if leaderstats then
+    local checkpointStat = leaderstats:FindFirstChild("Checkpoint")
+    if checkpointStat then
+        -- Only update if this checkpoint is higher than current
+        local checkpointNumber = tonumber(checkpoint.Name:match("%d+"))
+        if checkpointNumber and checkpointNumber > checkpointStat.Value then
+            checkpointStat.Value = checkpointNumber
+        end
+    end
+end</code></pre>
+        </div>
+
+        <h3>Breaking Down the New Code</h3>
+        <ul>
+            <li><strong>checkpoint.Name:match("%d+")</strong> - Extracts the number from the checkpoint name ("Checkpoint1" → "1")</li>
+            <li><strong>tonumber()</strong> - Converts the text "1" into the actual number 1</li>
+            <li><strong>checkpointNumber > checkpointStat.Value</strong> - Only update if this is a NEW checkpoint (prevents going backwards)</li>
+        </ul>
+
+        <p>Now when you touch checkpoints, the leaderboard updates to show which checkpoint you've reached!</p>
+
+        <div class="try-it">
+            <h3>Make It Your Own!</h3>
+            <p>Customize your checkpoints:</p>
+            <ul>
+                <li>Use different colors for each checkpoint (rainbow checkpoints!)</li>
+                <li>Add a sound effect when activated (insert a Sound object into the checkpoint)</li>
+                <li>Make the checkpoint play a particle effect</li>
+                <li>Add a TextLabel above the checkpoint showing its number</li>
+            </ul>
+        </div>
+
+        <h2>Common Problems and Solutions</h2>
+
+        <div class="troubleshooting">
+            <h3>Problem: I still respawn at the original spawn</h3>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Make sure you touched the checkpoint BEFORE dying</li>
+                <li>Check that the script is inside the checkpoint part</li>
+                <li>Verify there are no errors in the Output window</li>
+                <li>Make sure the checkpoint is a SpawnLocation, not just a regular Part</li>
+            </ul>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>Problem: The checkpoint doesn't turn green</h3>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Check if the player detection is working (look for the print message in Output)</li>
+                <li>Make sure the visual feedback code is inside the if statement</li>
+                <li>Verify you're testing with a player character, not just the camera</li>
+            </ul>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>Problem: The checkpoint stat doesn't update</h3>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Make sure the LeaderboardSetup script is in ServerScriptService</li>
+                <li>Check that your checkpoints are named with numbers (Checkpoint1, Checkpoint2, etc.)</li>
+                <li>Look for errors in the Output window</li>
+            </ul>
+        </div>
+
+        <h2>Understanding Debounce (The Cooldown System)</h2>
+        <p>Let's talk more about why debounce is so important:</p>
+
+        <p><strong>Without debounce:</strong> As you walk across the checkpoint, your character's legs, torso, and arms all touch it separately. The Touched event fires maybe 20 times in one second! Your code runs 20 times, the checkpoint changes color 20 times, and everything goes crazy.</p>
+
+        <p><strong>With debounce:</strong> The first touch activates the checkpoint. We add the player to the debounce table. For the next 2 seconds, any additional touches are ignored because the player is in the debounce table. After 2 seconds, we remove them from the table so they can activate it again if needed.</p>
+
+        <p>This is a professional coding technique used in every major game!</p>
+
+        <div class="pro-tip">
+            <h3>Pro Game Designer Tip</h3>
+            <p>Checkpoint placement is an art! Too many checkpoints and the game feels too easy - there's no challenge. Too few and players get frustrated repeating the same sections over and over. Test your game with friends and watch where they struggle. Put checkpoints AFTER the hard parts, not before!</p>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before moving on, make sure you can:</p>
+        <ul>
+            <li>Create SpawnLocation objects</li>
+            <li>Add checkpoint scripts that detect player touches</li>
+            <li>Use debounce to prevent code from running too frequently</li>
+            <li>Set a player's RespawnLocation to change where they spawn</li>
+            <li>Provide visual feedback when checkpoints activate</li>
+            <li>Create and update leaderstats values (optional)</li>
+            <li>Place multiple checkpoints along your island path</li>
+            <li>Test that checkpoints work by dying and respawning</li>
+        </ul>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>What's Next?</h2>
+        <p>Your checkpoints save progress - awesome! But what happens when players fall or make mistakes? They just float there or fall forever. That's not great game design. In the next mission, you'll create death zones and kill bricks that automatically reset players back to their last checkpoint. Time to add some real challenge to your game!</p>
+    </div>
+</body>
+</html>

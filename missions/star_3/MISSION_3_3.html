@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 3.3: Part Properties Deep Dive</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Mission 3.3: Part Properties Deep Dive</h1>
+        <p>Look at your island right now. If you're like most beginners, it's a collection of gray blocks roughly shaped like your satellite reference. It's functional, but it doesn't look like a real place yet. This is where the magic happens.</p>
+        <p>Professional environment artists use a technique called "material definition"—using surface properties to tell players what things are made of and how they should feel. A sandy beach doesn't just look different from a grassy hill because of color; it has different texture, reflectivity, and visual character. You're about to learn how to create that distinction in Roblox, turning your gray prototype into a vibrant, believable world.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Apply appropriate materials, colors, and transparency settings to your island terrain parts to create distinct visual zones that communicate what each area represents.</p>
+        <p><strong>Success Criteria:</strong> Your island has clear visual variety with at least 3 different materials applied, colors that feel natural, and appropriate use of properties to create environmental atmosphere.</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Understanding Materials in Roblox</h2>
+        <p>Every part in Roblox has a Material property that controls how its surface looks. Materials aren't just about color—they define texture, how light reflects, and the overall visual character of an object.</p>
+        <p>Roblox provides dozens of materials, but for natural environments, these are the most useful:</p>
+
+        <div class="material-reference">
+            <ul>
+                <li><strong>Grass:</strong> Perfect for fields, hills, and natural areas</li>
+                <li><strong>Sand:</strong> Beaches, desert areas, sandy paths</li>
+                <li><strong>Ground:</strong> Dirt paths, exposed earth, brown terrain</li>
+                <li><strong>Rock:</strong> Cliffs, boulders, mountain areas</li>
+                <li><strong>Slate:</strong> Refined stone, paved areas, urban zones</li>
+                <li><strong>Concrete:</strong> Modern structures, pathways, developed areas</li>
+                <li><strong>Wood:</strong> Bridges, platforms, wooden structures</li>
+                <li><strong>Leafy Grass:</strong> Lush vegetation, forest floors</li>
+            </ul>
+        </div>
+
+        <h2>Step 1: Apply Materials to Base Terrain</h2>
+        <p>Let's start by defining what your main terrain areas are made of.</p>
+
+        <div class="instruction-block">
+            <p><strong>Add materials to your island base:</strong></p>
+            <ol>
+                <li>Select your <code>IslandBase</code> part (or whatever you named your main landmass)</li>
+                <li>In the Properties panel, scroll to find <strong>Material</strong></li>
+                <li>Click the dropdown and select <strong>Grass</strong></li>
+                <li>Notice how the part immediately changes—it now has a grass texture instead of smooth gray</li>
+                <li>Rotate your camera around the part to see how the material looks from different angles</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Material Visual Characteristics</h3>
+            <p>Each material has its own texture pattern that repeats across the surface. The pattern scale is automatic based on the part's size. Very large parts will show the texture pattern more clearly, while small parts might only show a portion of the pattern.</p>
+        </div>
+
+        <h2>Step 2: Create Environmental Zones</h2>
+        <p>Now let's use different materials to create distinct areas on your island, based on what you see in your reference image.</p>
+
+        <div class="instruction-block">
+            <p><strong>Identify and material-ize your zones:</strong></p>
+            <ol>
+                <li>Look at your satellite reference—identify different terrain types</li>
+                <li>Coastal areas: Select beach/shore parts and apply <strong>Sand</strong> material</li>
+                <li>Elevated areas: Select hill parts and try <strong>Grass</strong> or <strong>Rock</strong> depending on what your reference shows</li>
+                <li>Forest/dark areas: Use <strong>Leafy Grass</strong> or darker <strong>Ground</strong> material</li>
+                <li>Developed areas: If your island has buildings or roads, use <strong>Concrete</strong> or <strong>Slate</strong></li>
+            </ol>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Material Experimentation</h3>
+            <p>Select one of your terrain parts and rapidly switch between different materials using the Material dropdown. Notice how dramatically the part's character changes? Cobblestone feels medieval, Concrete feels modern, Glacier feels cold and remote. Materials communicate <em>feeling</em>, not just appearance.</p>
+        </div>
+
+        <h2>Step 3: Apply Color for Atmosphere</h2>
+        <p>Materials provide texture, but color adds life and specificity. Let's learn to use color thoughtfully.</p>
+
+        <div class="instruction-block">
+            <p><strong>Add color to your terrain:</strong></p>
+            <ol>
+                <li>Select a grass-material part</li>
+                <li>In Properties, find <strong>Color</strong> (sometimes labeled as BrickColor)</li>
+                <li>Click on the color swatch to open the color picker</li>
+                <li>Choose a natural green—not too bright, not too dark</li>
+                <li>Apply different shades of green to different grass areas for variety</li>
+                <li>For sand parts, try warm yellows or light tans</li>
+                <li>For rock areas, use grays, browns, or dark earth tones</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Color Theory for Game Environments</h3>
+            <p>Natural environments rarely use pure, saturated colors. Real grass isn't bright lime green; it's a muted, slightly brownish green. Real sand isn't pure yellow; it has gray or orange undertones. When choosing colors, think about what you see in nature. Slightly desaturated colors usually look more realistic than vivid ones.</p>
+        </div>
+
+        <h2>Step 4: Create Variety Within Zones</h2>
+        <p>Real environments aren't uniform. A forest doesn't have every tree the exact same shade of green. Let's add subtle variation.</p>
+
+        <div class="instruction-block">
+            <p><strong>Vary your colors:</strong></p>
+            <ol>
+                <li>Select multiple parts in the same zone (hold Ctrl while clicking)</li>
+                <li>Notice that when multiple parts are selected, Properties shows their shared properties</li>
+                <li>Change each part's color individually to slightly different shades</li>
+                <li>For example, make some grass parts more yellow-green, others more blue-green</li>
+                <li>Keep the variations subtle—they should feel like natural variation, not like different zones</li>
+            </ol>
+        </div>
+
+        <h2>Step 5: Explore Advanced Properties</h2>
+        <p>Beyond material and color, Roblox parts have other properties that affect appearance. Let's experiment with the most useful ones.</p>
+
+        <div class="instruction-block">
+            <p><strong>Transparency:</strong></p>
+            <ol>
+                <li>Find the <strong>Transparency</strong> property (value from 0 to 1)</li>
+                <li>0 = completely solid (opaque)</li>
+                <li>1 = completely invisible (transparent)</li>
+                <li>Try setting a water part to transparency 0.5 for a glass-like effect</li>
+                <li>Use slight transparency (0.1-0.2) on distant terrain for atmospheric depth</li>
+            </ol>
+        </div>
+
+        <div class="instruction-block">
+            <p><strong>Reflectance:</strong></p>
+            <ol>
+                <li>Find the <strong>Reflectance</strong> property (value from 0 to 1)</li>
+                <li>Controls how mirror-like a surface is</li>
+                <li>Try setting a rock part to 0.3 for wet-looking stone</li>
+                <li>Use on water parts for a reflective surface</li>
+                <li>Most natural terrain should have low reflectance (0-0.2)</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>When to Use Advanced Properties</h3>
+            <p>Transparency and reflectance are powerful but should be used sparingly. Too much transparency makes your world feel ghostly and undefined. Too much reflectance makes everything look wet or plastic. Use these properties for specific effects: water, glass, wet surfaces, or magical elements.</p>
+        </div>
+
+        <h2>Step 6: Create Visual Hierarchy</h2>
+        <p>In environment design, important areas should stand out while background areas recede. Let's use properties to create this hierarchy.</p>
+
+        <div class="instruction-block">
+            <p><strong>Establish focal points:</strong></p>
+            <ol>
+                <li>Identify where your first landmark will be (from Mission 3.4)</li>
+                <li>Make terrain around that area slightly brighter or more saturated</li>
+                <li>Use a more interesting material—perhaps <strong>Slate</strong> instead of plain <strong>Ground</strong></li>
+                <li>For distant background terrain, use more muted colors and simpler materials</li>
+                <li>This guides players' eyes toward important gameplay areas</li>
+            </ol>
+        </div>
+
+        <h2>Understanding Visual Consistency</h2>
+        <p>While variety is important, so is consistency. Your island should feel like one cohesive place, not a random collection of parts. Here are guidelines for maintaining visual consistency:</p>
+
+        <div class="best-practices">
+            <ul>
+                <li><strong>Color palette:</strong> Choose 4-6 main colors and use variations of those throughout</li>
+                <li><strong>Material logic:</strong> Use materials that make sense together (grass + sand + rock feels natural; grass + neon + ice feels random)</li>
+                <li><strong>Transition zones:</strong> Where two different materials meet, consider adding a transition (ground between grass and sand)</li>
+                <li><strong>Lighting consideration:</strong> Remember that Roblox's lighting will affect how your colors look—test in actual gameplay</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: The Squint Test</h3>
+            <p>Zoom your camera way out so your entire island is visible. Squint your eyes (or blur your vision slightly). Do you see clear zones of different colors and textures? Or does everything blend together? If it all blends, you need more variety. If it looks chaotic, you need more consistency. This "squint test" is a real technique artists use to check visual hierarchy.</p>
+        </div>
+
+        <h2>Creating an Environmental Mood</h2>
+        <p>The properties you choose create an overall feeling or mood. Let's think about what mood fits your island.</p>
+
+        <div class="mood-guide">
+            <p><strong>Tropical paradise:</strong> Bright grass colors, light sand, high saturation, clean materials</p>
+            <p><strong>Mysterious forest:</strong> Dark greens, browns, Leafy Grass material, low saturation</p>
+            <p><strong>Rocky highlands:</strong> Grays, browns, Rock and Slate materials, rough textures</p>
+            <p><strong>Coastal town:</strong> Mix of natural (grass, sand) and built (concrete, wood), varied colors</p>
+        </div>
+
+        <p>Look at your satellite reference. What mood does that real place have? Use your material and color choices to evoke that same feeling.</p>
+
+        <h2>Common Design Pitfalls</h2>
+        <div class="troubleshooting">
+            <p><strong>Pitfall:</strong> Using too many different materials (10+ materials on a small island).</p>
+            <p><strong>Solution:</strong> Limit yourself to 4-6 main materials. More materials can make your world feel cluttered and unfocused. Master a small palette before expanding.</p>
+
+            <p><strong>Pitfall:</strong> Using extremely bright or saturated colors everywhere.</p>
+            <p><strong>Solution:</strong> Bright colors should be accents, not the base. Most of your world should use medium saturation, with pops of brightness in important areas.</p>
+
+            <p><strong>Pitfall:</strong> Every part being completely opaque and solid.</p>
+            <p><strong>Solution:</strong> Experiment with subtle transparency (0.1-0.3) on some parts to create depth and atmosphere, especially on distant or decorative elements.</p>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Confirm your island has proper visual development:</p>
+        <ul>
+            <li>Applied at least 3 different materials to different terrain zones</li>
+            <li>Used colors that feel natural and appropriate to your island type</li>
+            <li>Created subtle color variation within similar zones (not every grass part identical)</li>
+            <li>Experimented with transparency or reflectance on at least one part</li>
+            <li>Your island has visual zones that are distinct but still feel cohesive</li>
+            <li>Tested in play mode—materials and colors look good during actual gameplay</li>
+        </ul>
+        <p>Your island should now look significantly more developed and believable than it did at the end of Mission 3.2.</p>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Next Mission Preview</h2>
+        <p>Your island foundations are built and visually defined. Now it's time to add gameplay. In Mission 3.4, you'll take one of the landmarks from your satellite reference—maybe a playground, a building, a rock formation, whatever you identified in Star 2—and transform it into an actual obstacle area in your runner game. You'll learn to create structures, arrange them for gameplay flow, and turn a static environment into an interactive challenge.</p>
+        <p><strong>Coming up:</strong> First Landmark Zone—building your first gameplay area with obstacles and challenges.</p>
+    </div>
+</body>
+</html>

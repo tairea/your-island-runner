@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 1.4: Victory Part - Your Island Runner</title>
+</head>
+<body>
+    <article class="mission-content">
+
+        <!-- HOOK SECTION -->
+        <section class="mission-hook">
+            <h1>Mission 1.4: Victory Part</h1>
+
+            <p class="hook-opener">
+                Think about the last time you finished a level in a video game. There was probably a door, a flag, a glowing portal, or some kind of finish line that screamed "YOU MADE IT!" That moment of triumph does not happen by accident - game designers create it deliberately. Now you are going to create that moment for your players.
+            </p>
+
+            <p>
+                Your obstacle course has platforms to jump on and danger to avoid. But right now, the last platform looks exactly like all the others. How would a player know they won? In this mission, you will learn how visual design communicates meaning in games, and create a victory zone that players will feel proud to reach.
+            </p>
+
+            <div class="callout callout-motivation">
+                <p><strong>Design Psychology:</strong> Colors have meaning. Red often means danger or stop. Green means go or success. Blue feels calm. Gold feels rewarding. Every choice you make communicates something to your players, even if they do not consciously notice it.</p>
+            </div>
+        </section>
+
+        <!-- OBJECTIVE SECTION -->
+        <section class="mission-objective">
+            <h2>Your Mission</h2>
+
+            <div class="objective-box">
+                <p><strong>Learning Objective:</strong> Add a distinctively colored finish line part that marks the completion point of your obstacle course.</p>
+            </div>
+
+            <h3>What You Will Create</h3>
+            <ul class="objective-checklist">
+                <li>A victory platform with a distinctive, rewarding color</li>
+                <li>Visual contrast that makes the goal obvious</li>
+                <li>A complete game loop: start, challenge, danger, goal</li>
+            </ul>
+        </section>
+
+        <!-- MAIN CONTENT SECTION -->
+        <section class="mission-content-main">
+            <h2>Step-by-Step Instructions</h2>
+
+            <!-- Step 1: Plan Your Victory Zone -->
+            <div class="step-block">
+                <h3>Step 1: Identify Your Finish Line Location</h3>
+
+                <p>Before we add anything, let us think about where the victory part should go.</p>
+
+                <ul class="instruction-list">
+                    <li>Click <strong>Play</strong> and complete your obstacle course</li>
+                    <li>When you land on the last platform, look around - where should the finish line be?</li>
+                    <li>Click <strong>Stop</strong> and select your last platform</li>
+                </ul>
+
+                <p>We have two options:</p>
+                <ol>
+                    <li><strong>Option A:</strong> Turn your last platform INTO the victory zone (change its color)</li>
+                    <li><strong>Option B:</strong> Add a NEW part on top of or next to your last platform</li>
+                </ol>
+
+                <p>For this mission, we will do <strong>Option A</strong> - transforming your final platform into a victory zone. This keeps things simple and clear.</p>
+            </div>
+
+            <!-- Step 2: Change the Color -->
+            <div class="step-block">
+                <h3>Step 2: Change the Platform Color</h3>
+
+                <p>Let us make that final platform stand out!</p>
+
+                <ol class="instruction-list">
+                    <li>Select your <strong>last platform</strong> (the one players reach at the end)</li>
+                    <li>Open the <strong>Properties</strong> panel (View > Properties if you do not see it)</li>
+                    <li>Find the <strong>BrickColor</strong> property</li>
+                    <li>Click on it to open the color picker</li>
+                    <li>Choose a color that says "victory!" Some great options:
+                        <ul>
+                            <li><strong>Bright green</strong> - Classic "win" color</li>
+                            <li><strong>Gold / Bright yellow</strong> - Feels rewarding</li>
+                            <li><strong>Lime green</strong> - Energetic success</li>
+                            <li><strong>Cyan</strong> - Cool and distinct</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="callout callout-tip">
+                    <p><strong>Contrast is Key:</strong> Your victory color should be completely different from your other platforms. If your regular platforms are gray, almost any bright color works. The goal is that players can see the finish line from the start!</p>
+                </div>
+            </div>
+
+            <!-- Step 3: Rename the Part -->
+            <div class="step-block">
+                <h3>Step 3: Give It a Clear Name</h3>
+
+                <p>Just like we named the kill brick, let us give this part a descriptive name.</p>
+
+                <ol class="instruction-list">
+                    <li>With the victory platform still selected</li>
+                    <li>Look at the <strong>Properties</strong> panel</li>
+                    <li>At the very top, find the <strong>Name</strong> property</li>
+                    <li>Change it from "Part" to <strong>VictoryPlatform</strong> or <strong>FinishLine</strong></li>
+                </ol>
+
+                <div class="callout callout-info">
+                    <p><strong>Why Names Matter:</strong> In later missions, you will write scripts that detect when players reach the finish line. Having clear names like "VictoryPlatform" makes your code much easier to write and understand!</p>
+                </div>
+            </div>
+
+            <!-- Step 4: Make It Visually Special -->
+            <div class="step-block">
+                <h3>Step 4: Add Extra Visual Polish (Optional)</h3>
+
+                <p>Want to make your victory zone even more special? Here are some properties you can experiment with:</p>
+
+                <div class="property-list">
+                    <div class="property-item">
+                        <h4>Material</h4>
+                        <p>In Properties, find <strong>Material</strong> and try these options:</p>
+                        <ul>
+                            <li><strong>Neon</strong> - Glows brightly (great for victory zones!)</li>
+                            <li><strong>SmoothPlastic</strong> - Clean, polished look</li>
+                            <li><strong>Foil</strong> - Shiny metallic surface</li>
+                            <li><strong>Glass</strong> - Transparent and futuristic</li>
+                        </ul>
+                    </div>
+
+                    <div class="property-item">
+                        <h4>Transparency</h4>
+                        <p>Values from 0 (solid) to 1 (invisible). Try 0.3 for a semi-transparent effect.</p>
+                    </div>
+
+                    <div class="property-item">
+                        <h4>Reflectance</h4>
+                        <p>Values from 0 (matte) to 1 (mirror). Try 0.5 for a shiny surface.</p>
+                    </div>
+                </div>
+
+                <div class="try-it-box">
+                    <h4>Try It!</h4>
+                    <p>Set your victory platform to Material = <strong>Neon</strong> and see how it glows! Neon material emits light and looks amazing as a finish line. If it is too bright, change the color to a darker shade.</p>
+                </div>
+            </div>
+
+            <!-- Step 5: Check the Visual Flow -->
+            <div class="step-block">
+                <h3>Step 5: Check the Visual Flow</h3>
+
+                <p>Good game design means players understand what to do just by looking. Let us test that.</p>
+
+                <ol class="instruction-list">
+                    <li>Click <strong>Play</strong></li>
+                    <li>Look at your course from the starting position</li>
+                    <li>Ask yourself: Can I clearly see where I need to go?</li>
+                    <li>The visual path should be: <strong>Gray platforms > Red danger below > Green/Gold victory at the end</strong></li>
+                </ol>
+
+                <p>Your course should now tell a visual story:</p>
+                <ul>
+                    <li><strong>Gray</strong> = Normal, safe to stand on</li>
+                    <li><strong>Red</strong> = Danger, do not touch!</li>
+                    <li><strong>Green/Gold</strong> = Goal, get here to win!</li>
+                </ul>
+
+                <div class="callout callout-success">
+                    <p><strong>Congratulations!</strong> You just applied real game design principles. Professional game designers spend a lot of time thinking about visual communication - what colors mean, what draws the eye, what feels rewarding. You are already doing that work!</p>
+                </div>
+            </div>
+
+            <!-- Step 6: Size and Position -->
+            <div class="step-block">
+                <h3>Step 6: Consider Size and Position</h3>
+
+                <p>A few final thoughts on your victory platform:</p>
+
+                <ul class="instruction-list">
+                    <li><strong>Size:</strong> The victory platform can be a bit larger than other platforms - it is the reward, after all! Players should feel like they are landing somewhere special.</li>
+                    <li><strong>Height:</strong> Consider making it slightly higher than the previous platform, so reaching it feels like an achievement.</li>
+                    <li><strong>Visibility:</strong> Make sure it is visible from the start. If your course curves, the player should still be able to see that green glow in the distance.</li>
+                </ul>
+            </div>
+
+            <!-- Visual Design Reference -->
+            <div class="reference-box">
+                <h3>Quick Reference: Part Appearance Properties</h3>
+                <table class="property-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>What It Does</th>
+                        <th>Suggested Values</th>
+                    </tr>
+                    <tr>
+                        <td>BrickColor</td>
+                        <td>The color of the part</td>
+                        <td>Bright green, Gold, Lime green</td>
+                    </tr>
+                    <tr>
+                        <td>Material</td>
+                        <td>The surface texture/look</td>
+                        <td>Neon (glows), SmoothPlastic, Foil</td>
+                    </tr>
+                    <tr>
+                        <td>Transparency</td>
+                        <td>How see-through it is</td>
+                        <td>0 (solid) to 1 (invisible)</td>
+                    </tr>
+                    <tr>
+                        <td>Reflectance</td>
+                        <td>How shiny/mirrored it is</td>
+                        <td>0 (matte) to 1 (mirror)</td>
+                    </tr>
+                    <tr>
+                        <td>CastShadow</td>
+                        <td>Whether it creates shadows</td>
+                        <td>true/false</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- CHECK SECTION -->
+        <section class="mission-check">
+            <h2>Mission Complete?</h2>
+
+            <p>Let us verify your victory zone is ready:</p>
+
+            <div class="checklist-box">
+                <h3>Completion Checklist</h3>
+                <ul class="completion-checklist">
+                    <li><input type="checkbox"> My final platform has a distinctive color (not gray)</li>
+                    <li><input type="checkbox"> The color suggests "victory" or "goal" (green, gold, etc.)</li>
+                    <li><input type="checkbox"> I renamed the part to "VictoryPlatform" or similar</li>
+                    <li><input type="checkbox"> The victory platform is visible from the starting position</li>
+                    <li><input type="checkbox"> My course has clear visual contrast: normal platforms, danger zone, victory zone</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-success">
+                <p><strong>Your Game is Complete!</strong> You now have all the core elements of an obstacle course: platforms to jump on, danger to avoid, and a goal to reach. This is a real, playable game. In the next mission, you will do a full playtest and share your creation with your classmates!</p>
+            </div>
+        </section>
+
+        <!-- BRIDGE SECTION -->
+        <section class="mission-bridge">
+            <h2>What Comes Next</h2>
+
+            <p>You built it. You coded it. You designed it. Now it is time to <strong>play it</strong> - really play it, as a player would, and then show it off to your classmates.</p>
+
+            <p>In <strong>Mission 1.5: Play Your Game</strong>, you will do a complete playtest of your obstacle course, note what works and what could be better, and then share your creation. This is the moment where your work becomes real - when other people experience something you made.</p>
+
+            <div class="next-mission-preview">
+                <h3>Coming Up: Mission 1.5 Preview</h3>
+                <ul>
+                    <li>Complete multiple full playthroughs of your course</li>
+                    <li>Identify areas for improvement</li>
+                    <li>Learn the playtesting mindset</li>
+                    <li>Share your game with classmates</li>
+                    <li>Celebrate your first completed game!</li>
+                </ul>
+            </div>
+
+            <p class="bridge-motivation">Save your project one more time (Ctrl + S). You are about to become a game developer with a finished game to show!</p>
+        </section>
+
+    </article>
+</body>
+</html>

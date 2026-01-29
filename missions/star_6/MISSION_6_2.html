@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 6.2: Skybox Selection</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>The Sky Is Not the Limit</h1>
+        <p>Look up in your island runner right now. You'll probably see Roblox's default sky—a generic blue gradient with some clouds. It's fine, but it's not <em>yours</em>.</p>
+        <p>Now imagine looking up and seeing the actual sky from your real-world location. The deep blue of a Caribbean afternoon. The hazy layers of mountain ridges fading into the distance. The golden-pink glow of a desert sunset. The dramatic clouds of a coastal storm.</p>
+        <p>The sky is 50% of what players see at any given moment (the other 50% is your island itself). It's worth getting it right.</p>
+        <p>In this mission, you'll choose and apply a skybox that transforms your game's background from "generic Roblox" to "this specific place."</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p><strong>Choose and apply a skybox texture that complements the island theme and lighting configuration</strong></p>
+        <p>By the end of this mission, your island will have:</p>
+        <ul>
+            <li>A custom skybox that matches your real-world location's character</li>
+            <li>Sky colors and features that align with your ClockTime and lighting</li>
+            <li>A cohesive environmental feel from horizon to horizon</li>
+            <li>Visual continuity that enhances immersion without distracting from gameplay</li>
+        </ul>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Understanding Skyboxes</h2>
+        <p>A skybox is a set of six square images (one for each face of a cube: up, down, left, right, front, back) that surrounds your game world. When you look around, you're actually looking at the inside of this enormous cube—but because it's textured seamlessly, it creates the illusion of an infinite sky and distant environment.</p>
+        <p>Think of it like being inside a planetarium: you're in a small room, but the projected images make you feel like you're under a vast sky.</p>
+
+        <h2>Step 1: Evaluate Your Current Lighting</h2>
+        <p>Before choosing a skybox, review the lighting settings you configured in Mission 6.1. Your skybox needs to match these choices, or it will feel visually disconnected.</p>
+
+        <div class="checklist-box">
+            <h3>Lighting-to-Skybox Alignment</h3>
+            <ul>
+                <li><strong>ClockTime 6-8 (dawn):</strong> Look for skyboxes with sunrise colors, soft pinks and oranges low on horizon</li>
+                <li><strong>ClockTime 10-14 (midday):</strong> Clear blue skies, bright white/yellow sun, minimal clouds or fair-weather clouds</li>
+                <li><strong>ClockTime 16-18 (afternoon):</strong> Slightly warmer tones, sun lower in sky, longer shadows</li>
+                <li><strong>ClockTime 18-20 (sunset/golden hour):</strong> Dramatic oranges, reds, purples, sun near horizon</li>
+                <li><strong>ClockTime 20-22 or 4-6 (dusk/night):</strong> Deep blues, purples, stars, moon visible</li>
+            </ul>
+        </div>
+
+        <p>Also consider your location type:</p>
+        <ul>
+            <li><strong>Tropical/Beach:</strong> Vibrant blues, minimal haze, clear horizons</li>
+            <li><strong>Mountain/Forest:</strong> Layered ridges, atmospheric perspective, possible clouds at different elevations</li>
+            <li><strong>Desert:</strong> Warm tones, distant mesas or rock formations, heat shimmer feel</li>
+            <li><strong>Urban:</strong> Possible distant city skyline, slight pollution haze, less pure colors</li>
+            <li><strong>Coastal/Ocean:</strong> Expansive water meeting sky, seabirds, marine clouds</li>
+        </ul>
+
+        <h2>Step 2: Access the Toolbox and Search for Skyboxes</h2>
+        <p>Roblox's Toolbox (also called Creator Marketplace) contains thousands of free skyboxes created by developers and Roblox.</p>
+
+        <ol>
+            <li>Open the <strong>View</strong> tab in the top ribbon</li>
+            <li>Click <strong>Toolbox</strong> to open the asset panel (usually docks on the left side)</li>
+            <li>In the Toolbox, click the dropdown at the top (it might say "Models" or "Marketplace")</li>
+            <li>Select <strong>Marketplace</strong> or <strong>Creator Marketplace</strong></li>
+            <li>In the search bar, try terms like:
+                <ul>
+                    <li>"tropical sky"</li>
+                    <li>"sunset skybox"</li>
+                    <li>"mountain sky"</li>
+                    <li>"desert skybox"</li>
+                    <li>"ocean sky"</li>
+                    <li>"clear blue sky"</li>
+                </ul>
+            </li>
+            <li>Use the filter options to show only <strong>Sky</strong> objects (not Models or Decals)</li>
+        </ol>
+
+        <div class="tip-box">
+            <h3>Search Strategy</h3>
+            <p>Start broad ("sky"), then refine by mood ("sunset sky"), then by location type ("tropical sunset sky"). Preview multiple options before committing—skyboxes look different once they're surrounding your entire world.</p>
+        </div>
+
+        <h2>Step 3: Preview Skybox Options</h2>
+        <p>You can't fully judge a skybox from its thumbnail. You need to see it in your actual game world.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: Test Multiple Skyboxes</h3>
+            <ol>
+                <li>Find a skybox that looks promising in the Toolbox</li>
+                <li>Click on it to see the preview and details page</li>
+                <li>Click the <strong>green checkmark or "Get" button</strong> to add it to your inventory (it's free)</li>
+                <li>The skybox will automatically insert into your game under <strong>Lighting</strong></li>
+                <li>Press <strong>Play</strong> to test it in your world</li>
+                <li>Run through at least two zones to see how it looks during actual gameplay</li>
+                <li>If it's not quite right, <strong>stop</strong> the test, <strong>delete the Sky object</strong> from Lighting (select it in Explorer and press Delete), and try another</li>
+            </ol>
+            <p><em>Important: Only one Sky object should exist in Lighting at a time. Delete the old one before adding a new one.</em></p>
+        </div>
+
+        <h2>Step 4: Evaluate Your Skybox Choice</h2>
+        <p>Once you've narrowed it down to 2-3 options, evaluate them against these criteria:</p>
+
+        <div class="evaluation-checklist">
+            <h3>Skybox Quality Criteria</h3>
+            <ul>
+                <li><strong>Time-of-day match:</strong> Does the sun position in the skybox align with your ClockTime setting?</li>
+                <li><strong>Color harmony:</strong> Do the skybox colors complement your fog color and ambient lighting?</li>
+                <li><strong>Thematic fit:</strong> Does the sky look like it could exist above your real-world location?</li>
+                <li><strong>Clarity vs. drama balance:</strong> Is the sky interesting without being distracting during fast gameplay?</li>
+                <li><strong>Seamlessness:</strong> Are there visible seams where the six skybox faces meet? (Rotate camera to check all angles)</li>
+                <li><strong>Horizon consistency:</strong> Does the skybox create a believable distant environment, or does it look obviously fake?</li>
+            </ul>
+        </div>
+
+        <h2>Step 5: Fine-Tune the Sky Object (Optional)</h2>
+        <p>Once you've chosen a skybox, you can adjust its properties to better fit your game:</p>
+
+        <ol>
+            <li>In the Explorer, expand <strong>Lighting</strong></li>
+            <li>Click on the <strong>Sky</strong> object to select it</li>
+            <li>Open the Properties panel</li>
+        </ol>
+
+        <div class="property-guide">
+            <h3>Useful Sky Properties</h3>
+            <ul>
+                <li><strong>CelestialBodiesShown:</strong> True/False—whether the sun and moon are visible. Turn off if your skybox already has a painted sun.</li>
+                <li><strong>StarCount:</strong> Number of stars visible at night (0-5000). Only matters if your ClockTime is night.</li>
+                <li><strong>SunAngularSize:</strong> How large the sun appears (default 11). Increase for dramatic sunrise/sunset, decrease for high-altitude feel.</li>
+                <li><strong>MoonAngularSize:</strong> How large the moon appears (default 11). Adjust similarly for night scenes.</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Disable Double Suns</h3>
+            <p>Many skyboxes have a sun painted into the texture. If you also have CelestialBodiesShown enabled, you'll see two suns (the skybox sun and Roblox's dynamic sun). Fix this:</p>
+            <ol>
+                <li>Select the Sky object in Explorer</li>
+                <li>Find <strong>CelestialBodiesShown</strong> in Properties</li>
+                <li>Set it to <strong>False</strong></li>
+                <li>Test in Play mode—you should now see only the skybox's sun</li>
+            </ol>
+        </div>
+
+        <h2>Location-Specific Skybox Recommendations</h2>
+        <p>Here are search strategies and evaluation tips for different island types:</p>
+
+        <div class="example-box">
+            <h3>Tropical Beach Islands</h3>
+            <p><strong>Search terms:</strong> "tropical sky," "caribbean sky," "clear blue sky," "island paradise sky"</p>
+            <p><strong>What to look for:</strong> Vibrant saturated blues, white puffy clouds (cumulus), clear horizon line, possibly palm trees in distance on skybox</p>
+            <p><strong>Avoid:</strong> Overcast skies, heavy cloud cover, stormy or dramatic skies (unless your beach is specifically storm-themed)</p>
+        </div>
+
+        <div class="example-box">
+            <h3>Forest and Mountain Regions</h3>
+            <p><strong>Search terms:</strong> "mountain skybox," "forest sky," "pine tree sky," "alpine sky," "valley sky"</p>
+            <p><strong>What to look for:</strong> Layered mountain ridges fading into distance, atmospheric perspective (blue-gray layers), possible morning mist</p>
+            <p><strong>Avoid:</strong> Flat horizons, desert colors, perfectly clear skies (forests/mountains usually have some atmospheric haze)</p>
+        </div>
+
+        <div class="example-box">
+            <h3>Desert and Canyon Landscapes</h3>
+            <p><strong>Search terms:</strong> "desert sunset," "canyon sky," "southwest sky," "red rock sky," "arid sky"</p>
+            <p><strong>What to look for:</strong> Warm color palette, distant mesas or rock formations, golden hour or sunset tones, possible dust/heat haze</p>
+            <p><strong>Avoid:</strong> Lush clouds, cool blue tones, green landscapes in distance</p>
+        </div>
+
+        <div class="example-box">
+            <h3>Urban and City Environments</h3>
+            <p><strong>Search terms:</strong> "city skyline," "urban sky," "downtown sky," "metropolitan sky"</p>
+            <p><strong>What to look for:</strong> Possible distant buildings on horizon, slight atmospheric pollution (desaturated colors), dramatic sunrise/sunset from rooftop perspective</p>
+            <p><strong>Avoid:</strong> Pure wilderness, overly vibrant colors (cities tend to have muted skies)</p>
+        </div>
+
+        <h2>Advanced: Creating a Custom Skybox (Optional)</h2>
+        <p>If you can't find a skybox that perfectly matches your location, you can create your own using six square images. This is advanced but powerful:</p>
+
+        <ol>
+            <li>Find or photograph six images representing the view in each direction from your location</li>
+            <li>Ensure all six images are the same square resolution (512x512 or 1024x1024)</li>
+            <li>Upload each image to Roblox as a Decal (Create tab → Decals on Roblox website)</li>
+            <li>Insert a Sky object into Lighting (right-click Lighting → Insert Object → Sky)</li>
+            <li>In the Sky's properties, paste the Asset IDs for each of the six textures into:
+                <ul>
+                    <li>SkyboxUp (looking up)</li>
+                    <li>SkyboxDn (looking down)</li>
+                    <li>SkyboxLf (looking left)</li>
+                    <li>SkyboxRt (looking right)</li>
+                    <li>SkyboxFt (looking forward)</li>
+                    <li>SkyboxBk (looking backward)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <p><em>Note: This requires some technical skill and image editing. Only pursue this if you have time and interest—the Toolbox has hundreds of quality skyboxes that work well.</em></p>
+
+        <h2>Testing Across All Zones</h2>
+        <p>Don't just test from spawn. Your skybox needs to look good from every zone:</p>
+
+        <ol>
+            <li><strong>Play through all five zones</strong> and look at the sky from different camera angles</li>
+            <li><strong>Check while jumping:</strong> When you're in the air between platforms, the sky is very visible</li>
+            <li><strong>Verify color consistency:</strong> Does the sky still feel cohesive when you're in Zone 5 vs Zone 1?</li>
+            <li><strong>Ask for feedback:</strong> Have a classmate play and ask, "Does the sky fit the vibe?"</li>
+        </ol>
+
+        <div class="tip-box">
+            <h3>Common Skybox Mistakes</h3>
+            <ul>
+                <li><strong>Skybox doesn't match ClockTime:</strong> You set ClockTime to 14 (midday) but chose a sunset skybox</li>
+                <li><strong>Overcomplicating:</strong> Chose a dramatic, high-contrast skybox that distracts from gameplay</li>
+                <li><strong>Ignoring fog color:</strong> Fog is blue but skybox is orange—looks disconnected at the horizon</li>
+                <li><strong>Multiple Sky objects:</strong> Forgot to delete the old one before adding new, causing conflicts</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before moving to the next mission, verify you have:</p>
+        <ul>
+            <li><strong>Searched the Toolbox/Creator Marketplace</strong> for skybox options matching your theme</li>
+            <li><strong>Tested at least 3 different skyboxes</strong> in your actual game world</li>
+            <li><strong>Selected and applied a final skybox</strong> that complements your lighting settings</li>
+            <li><strong>Verified time-of-day consistency</strong> between ClockTime and skybox sun position</li>
+            <li><strong>Checked for double suns/moons</strong> and disabled CelestialBodiesShown if needed</li>
+            <li><strong>Tested the skybox from all five zones</strong> to ensure it looks good throughout the course</li>
+            <li><strong>Confirmed only ONE Sky object exists</strong> in the Lighting service</li>
+        </ul>
+        <p><strong>Quality check:</strong> Take a screenshot looking up at the sky. Does it capture the mood of your real-world location? If yes, you nailed it.</p>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Next Mission: Detail Parts</h2>
+        <p>Your lighting and sky are set—the big environmental pieces are in place. Now it's time to add the small touches that make your island feel specific and lived-in. In the next mission, you'll place decorative detail parts that reference your actual real-world location, transforming your island from "a generic runner" to "a runner set in <em>this exact place</em>."</p>
+    </div>
+</body>
+</html>

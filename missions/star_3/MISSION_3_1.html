@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 3.1: Reference Image Setup</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Mission 3.1: Reference Image Setup</h1>
+        <p>Remember that satellite screenshot you saved in Star 2? It's time to bring it into your world. Not as a second screen or a printout on your desk, but as an actual object in your 3D workspace. Professional game developers use reference images like this all the time—they place them right in the scene so they can build around them, checking proportions and shapes as they work.</p>
+        <p>You're about to learn a crucial workflow technique: using decals as building guides. By the end of this mission, your satellite image will be lying flat on the ground in Roblox Studio, ready to serve as your blueprint for island construction.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Import your satellite screenshot as a decal placed flat on the ground in your Roblox world to guide your island building process.</p>
+        <p><strong>Success Criteria:</strong> Your satellite image appears as a decal on a horizontal part in your workspace, clearly showing your island's shape and landmarks.</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Why Reference Images Matter</h2>
+        <p>Building 3D environments from memory or imagination alone is difficult. Professional 3D artists and level designers use reference images constantly—they import photos, sketches, and maps directly into their 3D software to guide their work. This technique ensures accuracy, saves time, and helps you stay focused on your original vision.</p>
+        <p>In our case, your satellite screenshot contains all the information you need: the island's overall shape, the location of landmarks, how paths connect different areas, and the scale relationships between features. By placing this image in your world, you can literally build on top of it.</p>
+
+        <h2>Step 1: Prepare Your Reference Platform</h2>
+        <p>Before you can add a decal, you need a surface to place it on. We'll create a large, flat part that will hold your satellite image.</p>
+
+        <div class="instruction-block">
+            <p><strong>Create the base part:</strong></p>
+            <ol>
+                <li>In the Home tab, click the <strong>Part</strong> button to insert a new part</li>
+                <li>With the part selected, look at the Properties panel</li>
+                <li>Find the <strong>Size</strong> property</li>
+                <li>Change the size to <code>200, 1, 200</code> (this creates a large, thin platform)</li>
+                <li>In the <strong>Position</strong> property, set it to <code>0, 0.5, 0</code> to place it at ground level</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Understanding Part Dimensions</h3>
+            <p>Roblox parts use Size values in the format X, Y, Z where X is width, Y is height, and Z is depth. Our setting of <code>200, 1, 200</code> creates a very wide, very flat, square platform—perfect for displaying an image.</p>
+        </div>
+
+        <h2>Step 2: Organize Your Workspace</h2>
+        <p>Before importing your image, let's organize this part properly so your workspace doesn't get messy as your project grows.</p>
+
+        <div class="instruction-block">
+            <ol>
+                <li>Right-click on the part in the Explorer panel</li>
+                <li>Select <strong>Rename</strong></li>
+                <li>Name it <code>ReferenceImagePlatform</code></li>
+                <li>In the Properties panel, find <strong>Anchored</strong> and check the box (this prevents it from falling or moving during testing)</li>
+            </ol>
+        </div>
+
+        <h2>Step 3: Import Your Satellite Screenshot</h2>
+        <p>Now comes the exciting part—bringing your satellite image into Roblox Studio.</p>
+
+        <div class="instruction-block">
+            <p><strong>Upload your image:</strong></p>
+            <ol>
+                <li>In the Explorer, make sure your <code>ReferenceImagePlatform</code> is selected</li>
+                <li>In the Home tab, find the <strong>Insert</strong> section</li>
+                <li>Click <strong>Decal</strong> (this inserts a decal as a child of your selected part)</li>
+                <li>Look in the Explorer—you should see "Decal" nested under your platform part</li>
+                <li>With the Decal selected, look at the Properties panel</li>
+                <li>Find the <strong>Texture</strong> property</li>
+                <li>Click the small icon next to the Texture field</li>
+                <li>In the Asset Manager that opens, click <strong>Add Image</strong></li>
+                <li>Navigate to where you saved your satellite screenshot from Star 2</li>
+                <li>Select the image and click <strong>Open</strong></li>
+                <li>Wait for the image to upload (you'll see a progress indicator)</li>
+                <li>Once uploaded, click the image thumbnail to apply it to your decal</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Image Upload Requirements</h3>
+            <p>Roblox accepts common image formats like PNG, JPG, and BMP. The upload may take a few moments depending on your internet connection. Once uploaded, the image is stored in your account and can be reused in any project.</p>
+        </div>
+
+        <h2>Step 4: Orient the Decal Correctly</h2>
+        <p>By default, the decal might appear on the wrong face of your part. We want it lying flat on the top surface so you can look down at it like a map.</p>
+
+        <div class="instruction-block">
+            <ol>
+                <li>With the Decal selected in the Explorer, look at Properties</li>
+                <li>Find the <strong>Face</strong> property</li>
+                <li>Change it to <strong>Top</strong></li>
+                <li>Your satellite image should now be visible on the top surface of the platform</li>
+            </ol>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Adjust Your View</h3>
+            <p>Press <strong>F</strong> on your keyboard to focus the camera on your reference platform. Then hold the right mouse button and use WASD keys to fly above it and look straight down. You should see your satellite image clearly displayed, showing your island's shape and features. This bird's-eye view is how you'll work as you build.</p>
+        </div>
+
+        <h2>Step 5: Fine-Tune the Reference Setup</h2>
+        <p>Let's make a few final adjustments to make this reference as useful as possible.</p>
+
+        <div class="instruction-block">
+            <p><strong>Optimize your reference platform:</strong></p>
+            <ol>
+                <li>Select your <code>ReferenceImagePlatform</code> in the Explorer</li>
+                <li>In Properties, find <strong>Transparency</strong></li>
+                <li>Set it to <code>0.3</code> (this makes the part slightly transparent so you can see if you accidentally build inside it)</li>
+                <li>Find the <strong>CanCollide</strong> property</li>
+                <li>Uncheck it (this prevents the platform from blocking your character during testing)</li>
+                <li>Find <strong>Color</strong> and set it to white or a light gray (this ensures the color doesn't tint your satellite image)</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Creating a Reference Folder</h3>
+            <p>For better organization, you can create a folder in the Workspace called "BuildingReferences" and move your platform into it. Right-click in the Explorer, select Insert Object, choose Folder, rename it, then drag your reference platform into that folder. This keeps your main workspace clean as you add terrain and structures.</p>
+        </div>
+
+        <h2>Understanding Your New Workflow</h2>
+        <p>What you've just created is a professional-level workflow tool. As you build your island in the next missions, you'll constantly refer back to this image. You'll match the outline of your terrain to the coastline in the photo. You'll position landmarks where they appear in the satellite view. You'll create paths that follow the routes visible in your reference.</p>
+        <p>This isn't "cheating"—it's exactly how real game developers work. They gather references, import them into their tools, and use them to guide accurate, thoughtful construction.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: Test Your Reference Scale</h3>
+            <p>Insert a new part into your workspace (don't worry about being precise—just drop one in). Move it around above your reference image. Notice how you can use the satellite photo to judge where things should go? That's the power of in-world references. You can always see your plan while you work.</p>
+        </div>
+
+        <h2>Common Issues and Solutions</h2>
+        <div class="troubleshooting">
+            <p><strong>Issue:</strong> My decal isn't showing up at all.</p>
+            <p><strong>Solution:</strong> Check that the Decal object is a child of your platform part in the Explorer. Also verify the Face property is set to "Top" and the Texture property shows your uploaded image.</p>
+
+            <p><strong>Issue:</strong> The image looks stretched or distorted.</p>
+            <p><strong>Solution:</strong> Your satellite screenshot might not be square. Try adjusting your platform's size to match your image's proportions. If your image is wider than it is tall, make the X value larger than the Z value (e.g., <code>250, 1, 200</code>).</p>
+
+            <p><strong>Issue:</strong> I can't find my saved satellite image.</p>
+            <p><strong>Solution:</strong> Go back to Star 2 and take a new screenshot. Make sure to save it somewhere memorable like your Desktop or Documents folder. You can also create a "Roblox Project Assets" folder to keep all your game development files organized.</p>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before moving forward, verify you've completed these requirements:</p>
+        <ul>
+            <li>Created a large, flat platform part (200x1x200 or similar)</li>
+            <li>Uploaded your satellite screenshot from Star 2 to Roblox</li>
+            <li>Applied the image as a decal on the TOP face of your platform</li>
+            <li>Set the platform to be anchored, non-collidable, and slightly transparent</li>
+            <li>Can clearly see your island's shape and landmarks in the reference image</li>
+            <li>Can navigate your camera to view the reference from directly above</li>
+        </ul>
+        <p>If you can check all these boxes, you're ready to start building actual terrain.</p>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Next Mission Preview</h2>
+        <p>Your reference is in place. Your satellite image is now a physical object in your 3D world, ready to guide your work. In Mission 3.2, you'll use this reference to create the actual terrain foundations of your island—building the rough landmass shape that matches what you see in your satellite photo. You'll learn about terrain tools and part-based building techniques to bring your island from 2D image to 3D reality.</p>
+        <p><strong>Coming up:</strong> Terrain Foundations—creating the base shape of your island world.</p>
+    </div>
+</body>
+</html>

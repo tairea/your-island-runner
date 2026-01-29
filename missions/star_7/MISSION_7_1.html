@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 7.1: Final Bug Hunt</title>
+</head>
+<body>
+    <article class="mission-7-1">
+        <section class="mission-hook">
+            <h2>The Final Countdown</h2>
+            <p>
+                Your island runner is almost ready for the world. You've built the terrain, crafted the obstacles,
+                tuned the mechanics, and polished every detail. But before you hit that publish button, there's
+                one critical step that separates good games from great ones: the final bug hunt.
+            </p>
+            <p>
+                Professional game studios have entire quality assurance teams dedicated to this phase. Today,
+                you'll learn their systematic approach to finding and fixing issues before launch. This isn't
+                just clicking around randomly—it's a methodical process that ensures your players have the best
+                possible experience from the moment they spawn into your world.
+            </p>
+            <div class="mission-insight">
+                <strong>Real-World Insight:</strong> Game studios often delay launch dates to ensure quality.
+                The saying "a delayed game is eventually good, but a rushed game is forever bad" has become
+                industry wisdom. Your final bug hunt is your quality guarantee.
+            </div>
+        </section>
+
+        <section class="mission-objective">
+            <h2>Mission Objective</h2>
+            <p>
+                Conduct a systematic playtest of your island runner, identify any remaining bugs or issues,
+                and fix them to ensure a smooth launch experience. You'll test normal gameplay, edge cases,
+                and create a pre-launch checklist to verify everything works perfectly.
+            </p>
+        </section>
+
+        <section class="mission-content-main">
+            <h2>The Systematic Testing Method</h2>
+
+            <h3>Phase 1: Fresh Start Test</h3>
+            <p>
+                Begin by testing the complete new player experience. Close and restart Roblox Studio to simulate
+                a fresh visit to your game.
+            </p>
+
+            <div class="testing-checklist">
+                <h4>Spawn Experience</h4>
+                <ul>
+                    <li><strong>Spawn safely?</strong> Do players spawn on solid ground, not inside objects or falling through the world?</li>
+                    <li><strong>Clear direction?</strong> Is it immediately obvious where to go and what to do?</li>
+                    <li><strong>Instructions visible?</strong> Can new players see your starting instructions or signs?</li>
+                    <li><strong>Camera position?</strong> Does the camera start at a good angle to see the course?</li>
+                    <li><strong>No immediate death?</strong> Can players take a moment to orient themselves without dying?</li>
+                </ul>
+
+                <h4>First Playthrough</h4>
+                <ul>
+                    <li><strong>Complete the course</strong> from start to finish without developer knowledge</li>
+                    <li><strong>Note any confusion</strong> about where to go or what to do</li>
+                    <li><strong>Check difficulty</strong> - Is the learning curve reasonable?</li>
+                    <li><strong>Test all mechanics</strong> - Do jumps, obstacles, and collectibles work?</li>
+                    <li><strong>Verify win condition</strong> - Does finishing properly trigger victory?</li>
+                </ul>
+            </div>
+
+            <h3>Phase 2: Edge Case Testing</h3>
+            <p>
+                Now it's time to be creative—try to break your game. Edge cases are unusual situations that
+                players might stumble into, and they often reveal bugs.
+            </p>
+
+            <div class="edge-case-scenarios">
+                <h4>Things to Try</h4>
+                <ul>
+                    <li><strong>Jump off the map</strong> - What happens if players deliberately jump into the void?</li>
+                    <li><strong>Go backwards</strong> - Can players break the sequence by going the wrong way?</li>
+                    <li><strong>Stand still</strong> - What if a player just waits at spawn for 30 seconds?</li>
+                    <li><strong>Rapid clicking</strong> - Do your buttons or triggers break with spam clicking?</li>
+                    <li><strong>Die repeatedly</strong> - Does respawning work correctly every time?</li>
+                    <li><strong>Wall climbing</strong> - Can players get stuck on or inside walls?</li>
+                    <li><strong>Collectible sequence</strong> - What if players get collectibles in the wrong order?</li>
+                    <li><strong>Multiple attempts</strong> - Does restarting or replaying cause any issues?</li>
+                </ul>
+
+                <div class="testing-tip">
+                    <strong>Testing Mindset:</strong> Imagine you're a curious player who wants to explore
+                    every corner. Or imagine you're a player who doesn't follow instructions. What could go wrong?
+                </div>
+            </div>
+
+            <h3>Phase 3: Polish Check</h3>
+            <p>
+                This is your final visual and audio sweep. Look at your game with fresh eyes and check that
+                all the polish you added in Star 6 is working correctly.
+            </p>
+
+            <div class="polish-verification">
+                <h4>Visual Elements</h4>
+                <ul>
+                    <li><strong>Lighting</strong> - Does it look good at all points in the course?</li>
+                    <li><strong>Textures</strong> - Are all materials applied correctly with no missing textures?</li>
+                    <li><strong>Effects</strong> - Do particle effects play at the right times?</li>
+                    <li><strong>Signs and UI</strong> - Is all text readable and properly positioned?</li>
+                    <li><strong>Theme consistency</strong> - Does everything fit your island's visual style?</li>
+                </ul>
+
+                <h4>Audio Elements</h4>
+                <ul>
+                    <li><strong>Sound effects</strong> - Do they trigger correctly for actions and events?</li>
+                    <li><strong>Volume levels</strong> - Is everything balanced (not too loud or quiet)?</li>
+                    <li><strong>Music loops</strong> - Does background music play and loop smoothly?</li>
+                    <li><strong>Spatial audio</strong> - Do sounds come from the right locations?</li>
+                </ul>
+            </div>
+
+            <h3>Phase 4: Bug Documentation and Fixing</h3>
+            <p>
+                As you test, keep track of every issue you find. Not all bugs are equal—some need immediate
+                fixes, while others are minor polish items.
+            </p>
+
+            <div class="bug-priority-guide">
+                <h4>Critical (Must Fix Before Launch)</h4>
+                <ul>
+                    <li>Game crashes or breaks completely</li>
+                    <li>Players get stuck and can't continue</li>
+                    <li>Win condition doesn't work</li>
+                    <li>Spawn or respawn fails</li>
+                    <li>Major collision issues (falling through world)</li>
+                </ul>
+
+                <h4>High Priority (Fix If Possible)</h4>
+                <ul>
+                    <li>Frustrating difficulty spikes</li>
+                    <li>Confusing navigation or unclear objectives</li>
+                    <li>Broken mechanics or features</li>
+                    <li>Visual glitches that distract from gameplay</li>
+                    <li>Missing feedback for player actions</li>
+                </ul>
+
+                <h4>Low Priority (Nice to Fix)</h4>
+                <ul>
+                    <li>Minor visual inconsistencies</li>
+                    <li>Small polish improvements</li>
+                    <li>Extra features you'd like to add</li>
+                    <li>Optimization opportunities</li>
+                </ul>
+            </div>
+
+            <h3>Phase 5: Peer Testing</h3>
+            <p>
+                If possible, have a classmate play your game without any guidance. Watch them play but don't
+                help or explain anything. This reveals what's intuitive and what's confusing.
+            </p>
+
+            <div class="peer-testing-guide">
+                <h4>What to Observe</h4>
+                <ul>
+                    <li><strong>First reactions</strong> - Do they understand what to do immediately?</li>
+                    <li><strong>Stuck points</strong> - Where do they pause or seem confused?</li>
+                    <li><strong>Unexpected behavior</strong> - Do they try things you didn't anticipate?</li>
+                    <li><strong>Enjoyment</strong> - Do they seem engaged and having fun?</li>
+                    <li><strong>Completion</strong> - Can they finish without your help?</li>
+                </ul>
+
+                <h4>Questions to Ask After</h4>
+                <ul>
+                    <li>What was your first impression?</li>
+                    <li>Was anything confusing or unclear?</li>
+                    <li>Did you encounter any bugs or issues?</li>
+                    <li>What did you enjoy most?</li>
+                    <li>Any suggestions for improvement?</li>
+                </ul>
+            </div>
+
+            <h3>The Pre-Launch Checklist</h3>
+            <p>
+                Before you move on to publishing, verify every item on this final checklist:
+            </p>
+
+            <div class="launch-readiness-checklist">
+                <h4>Gameplay Verification</h4>
+                <ul>
+                    <li>☐ Game can be completed from start to finish</li>
+                    <li>☐ Spawn location is safe and clear</li>
+                    <li>☐ Respawn system works correctly after death</li>
+                    <li>☐ All obstacles function as intended</li>
+                    <li>☐ Collectibles (if any) work properly</li>
+                    <li>☐ Win condition triggers correctly</li>
+                    <li>☐ No players can get permanently stuck</li>
+                </ul>
+
+                <h4>Technical Verification</h4>
+                <ul>
+                    <li>☐ No critical errors in Output window</li>
+                    <li>☐ All scripts are functioning without errors</li>
+                    <li>☐ Parts have correct collision settings</li>
+                    <li>☐ All sounds and effects load properly</li>
+                    <li>☐ Lighting looks good throughout the map</li>
+                </ul>
+
+                <h4>Polish Verification</h4>
+                <ul>
+                    <li>☐ Instructions or signs are clear and readable</li>
+                    <li>☐ Visual theme is consistent</li>
+                    <li>☐ Audio volumes are balanced</li>
+                    <li>☐ No floating or misplaced objects</li>
+                    <li>☐ Textures and materials applied correctly</li>
+                </ul>
+
+                <h4>Player Experience Verification</h4>
+                <ul>
+                    <li>☐ Difficulty curve feels appropriate</li>
+                    <li>☐ Objectives are clear to new players</li>
+                    <li>☐ Controls feel responsive and smooth</li>
+                    <li>☐ Game length feels right (not too short or long)</li>
+                    <li>☐ Island story/theme comes through</li>
+                </ul>
+            </div>
+
+            <div class="pro-developer-insight">
+                <h4>How Professionals Hunt Bugs</h4>
+                <p>
+                    Professional QA testers use structured test plans and bug tracking systems. They test the
+                    same scenarios repeatedly to ensure fixes don't break other features (regression testing).
+                    Some studios even have "game breaking" teams whose job is to intentionally try to break the
+                    game in creative ways. The process you're learning here mirrors real industry practices.
+                </p>
+            </div>
+        </section>
+
+        <section class="mission-check">
+            <h2>Mission Check</h2>
+            <p>Before moving to the next mission, verify you've completed:</p>
+            <ul>
+                <li>Tested your game from a fresh start (complete playthrough)</li>
+                <li>Attempted to break your game with edge case testing</li>
+                <li>Verified all polish elements (lighting, sound, visuals)</li>
+                <li>Fixed all critical bugs that would prevent players from enjoying your game</li>
+                <li>Had at least one other person playtest (if possible)</li>
+                <li>Completed the pre-launch checklist</li>
+                <li>Your game is stable, playable, and ready for the public</li>
+            </ul>
+            <p>
+                <strong>Quality Threshold:</strong> Your game doesn't need to be perfect, but it should be
+                solid. Critical bugs should be fixed. Players should be able to complete the course. The
+                experience should be smooth and enjoyable. If you can confidently say "I'd be proud to share
+                this," you're ready for launch.
+            </p>
+        </section>
+
+        <section class="mission-bridge">
+            <h2>Coming Up Next</h2>
+            <p>
+                Your game has passed the final bug hunt and is ready for the world. In the next mission,
+                you'll prepare for publication by configuring your game settings, creating an eye-catching
+                thumbnail, and writing a description that will make players want to visit your island.
+                The launch sequence has begun!
+            </p>
+        </section>
+    </article>
+</body>
+</html>

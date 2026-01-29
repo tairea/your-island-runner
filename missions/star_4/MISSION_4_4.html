@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 4.4: Death and Respawn</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Add Some Danger!</h1>
+        <p>Right now, your island runner is pretty safe. Players can walk around, jump wherever they want, and even if they fall off the island, they just fall forever into the void. There's no real challenge, no stakes, no tension.</p>
+        <p>That's about to change.</p>
+        <p>Today you're going to add DEATH to your game. Lava pits. Spike traps. Poison water. Deadly obstacles that punish mistakes and send players back to their last checkpoint. This is what transforms your peaceful island into an actual game that tests player skill!</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Code kill bricks to return players to checkpoints</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Understanding Death in Roblox</h2>
+        <p>In Roblox, every player character has a <strong>Humanoid</strong> object that controls their health. Here's how it works:</p>
+
+        <ul>
+            <li><strong>Humanoid.Health</strong> - The character's current health (default is 100)</li>
+            <li><strong>Humanoid.MaxHealth</strong> - The maximum health (also default 100)</li>
+            <li>When Health reaches 0, the character dies</li>
+            <li>When a character dies, Roblox automatically respawns them at their RespawnLocation</li>
+        </ul>
+
+        <p>So to create a kill brick, all we need to do is find the player's Humanoid and set its Health to 0. Simple!</p>
+
+        <h2>Step 1: Create Your First Kill Brick</h2>
+        <p>Let's create a dangerous lava pit!</p>
+
+        <ol>
+            <li>In the <strong>Workspace</strong>, create a new <strong>Part</strong></li>
+            <li>Rename it to <strong>KillBrick</strong></li>
+            <li>Make it big enough to be a challenge - try size (20, 1, 20)</li>
+            <li>Change its color to <strong>Bright red</strong> or <strong>Really red</strong></li>
+            <li>Change its Material to <strong>Neon</strong> to make it look dangerous</li>
+            <li>Position it somewhere players might fall - like between two platforms or at the bottom of a jump</li>
+            <li>Make sure <strong>CanCollide is checked</strong> so players can actually touch it</li>
+            <li>Make sure <strong>Anchored is checked</strong> so it doesn't fall</li>
+        </ol>
+
+        <div class="info-box">
+            <h3>Design Tip: Make Danger Obvious</h3>
+            <p>Good game design means players should KNOW something is dangerous just by looking at it. Use bright red, orange, or black colors. Add a Neon material to make it glow. Maybe even add fire particles! Players should never die and think "How was I supposed to know that was dangerous?"</p>
+        </div>
+
+        <h2>Step 2: Write the Kill Script</h2>
+        <p>Right-click your <strong>KillBrick</strong> and insert a <strong>Script</strong>. Rename it to <strong>KillScript</strong>.</p>
+
+        <p>Here's the complete code:</p>
+
+        <div class="code-example">
+            <pre><code>local killBrick = script.Parent
+
+killBrick.Touched:Connect(function(hit)
+    local humanoid = hit.Parent:FindFirstChild("Humanoid")
+
+    if humanoid then
+        humanoid.Health = 0
+    end
+end)</code></pre>
+        </div>
+
+        <p>Wait... that's it? That's ALL the code we need? Yes! Let's break it down:</p>
+
+        <h3>Line by Line Explanation</h3>
+
+        <h4>Line 1: Reference the Part</h4>
+        <div class="code-example">
+            <pre><code>local killBrick = script.Parent</code></pre>
+        </div>
+        <p>Standard setup - create a reference to the part containing this script.</p>
+
+        <h4>Lines 3-8: The Touched Event</h4>
+        <p>This should look very familiar! When something touches the kill brick:</p>
+        <ul>
+            <li><strong>Line 4:</strong> Look for a Humanoid in whatever touched the brick</li>
+            <li><strong>Line 6:</strong> If we found a Humanoid, check if it exists</li>
+            <li><strong>Line 7:</strong> Set its Health to 0 (which kills it instantly)</li>
+        </ul>
+
+        <p>That's it! When Health hits 0, Roblox automatically handles the death animation and respawning the player at their last checkpoint.</p>
+
+        <h2>Step 3: Test Your Kill Brick</h2>
+        <ol>
+            <li>Make sure you have at least one checkpoint in your game (from Mission 4.3)</li>
+            <li>Click <strong>Play</strong></li>
+            <li>Touch a checkpoint first (so you have a respawn point)</li>
+            <li>Walk onto the kill brick</li>
+            <li>Your character should die instantly!</li>
+            <li>You should respawn at the checkpoint you touched</li>
+        </ol>
+
+        <p>SUCCESS! You just created your first deadly obstacle!</p>
+
+        <div class="try-it">
+            <h3>Make It Better: Add a Warning Message</h3>
+            <p>Let's add a print message so we can track when players die (useful for testing!):</p>
+            <div class="code-example">
+                <pre><code>local killBrick = script.Parent
+
+killBrick.Touched:Connect(function(hit)
+    local humanoid = hit.Parent:FindFirstChild("Humanoid")
+
+    if humanoid then
+        local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+        if player then
+            print(player.Name .. " died!")
+        end
+        humanoid.Health = 0
+    end
+end)</code></pre>
+            </div>
+        </div>
+
+        <h2>Step 4: Create Different Types of Kill Zones</h2>
+        <p>One kill brick is good, but let's make your game more interesting with different types of hazards!</p>
+
+        <h3>Lava Pit</h3>
+        <ul>
+            <li>Color: Bright red or Really red</li>
+            <li>Material: Neon</li>
+            <li>Add a Fire object inside the part (Insert Object > Fire)</li>
+            <li>Make it wide and flat, like a pool of lava</li>
+        </ul>
+
+        <h3>Spike Trap</h3>
+        <ul>
+            <li>Color: Dark stone grey or Black</li>
+            <li>Material: Slate or Concrete</li>
+            <li>Make it smaller and thinner - like actual spikes</li>
+            <li>You can create multiple thin parts grouped together to look like spikes</li>
+        </ul>
+
+        <h3>Poison Water</h3>
+        <ul>
+            <li>Color: Bright green or Lime green</li>
+            <li>Material: Glass or Neon</li>
+            <li>Transparency: 0.3 (so you can see through it a bit)</li>
+            <li>Make it look like a puddle or pool</li>
+        </ul>
+
+        <h3>The Void (For Falling Off)</h3>
+        <ul>
+            <li>Create a HUGE kill brick far below your island</li>
+            <li>Size: (500, 1, 500) or bigger</li>
+            <li>Color: Black</li>
+            <li>Transparency: 1 (completely invisible)</li>
+            <li>This catches players who fall off the island!</li>
+        </ul>
+
+        <div class="try-it">
+            <h3>Duplicate Your Kill Bricks</h3>
+            <p>Just like with checkpoints, you can duplicate kill bricks (select the brick AND its script, then press Ctrl+D). Place dangerous obstacles throughout your island:</p>
+            <ul>
+                <li>Between difficult jumps</li>
+                <li>Below narrow paths</li>
+                <li>As moving obstacles (we'll learn moving parts later!)</li>
+                <li>Around the edges to catch players who fall off</li>
+            </ul>
+        </div>
+
+        <h2>Step 5: Add Advanced Features (Optional)</h2>
+        <p>Let's make kill bricks even more interesting!</p>
+
+        <h3>Option 1: Damage Over Time (DOT) Instead of Instant Death</h3>
+        <p>What if instead of instant death, the brick slowly drains health?</p>
+
+        <div class="code-example">
+            <pre><code>local damageBrick = script.Parent
+local damageAmount = 10
+local debounce = {}
+
+damageBrick.Touched:Connect(function(hit)
+    local humanoid = hit.Parent:FindFirstChild("Humanoid")
+
+    if humanoid and not debounce[humanoid] then
+        debounce[humanoid] = true
+        humanoid.Health = humanoid.Health - damageAmount
+        print("Player took " .. damageAmount .. " damage!")
+
+        wait(1)
+        debounce[humanoid] = nil
+    end
+end)</code></pre>
+        </div>
+
+        <p><strong>How it works:</strong></p>
+        <ul>
+            <li>Instead of setting Health to 0, we subtract 10 each time</li>
+            <li>Debounce ensures damage only happens once per second</li>
+            <li>Players can walk across it if they're quick, but lingering will kill them!</li>
+        </ul>
+
+        <h3>Option 2: Play a Sound on Death</h3>
+        <p>Add audio feedback to make deaths more impactful!</p>
+
+        <ol>
+            <li>Insert a <strong>Sound</strong> object into your kill brick</li>
+            <li>Set the SoundId to a death sound (search the toolbox for "death sound" or "explosion")</li>
+            <li>Add this line before <code>humanoid.Health = 0</code>:</li>
+        </ol>
+
+        <div class="code-example">
+            <pre><code>script.Parent.Sound:Play()</code></pre>
+        </div>
+
+        <h3>Option 3: Explosion Effect</h3>
+        <p>Make deaths more dramatic with an explosion!</p>
+
+        <div class="code-example">
+            <pre><code>local killBrick = script.Parent
+
+killBrick.Touched:Connect(function(hit)
+    local humanoid = hit.Parent:FindFirstChild("Humanoid")
+
+    if humanoid then
+        -- Create explosion at player position
+        local explosion = Instance.new("Explosion")
+        explosion.Position = hit.Position
+        explosion.BlastRadius = 5
+        explosion.BlastPressure = 0  -- Don't push other parts around
+        explosion.Parent = workspace
+
+        humanoid.Health = 0
+    end
+end)</code></pre>
+        </div>
+
+        <h2>Step 6: Balance Your Game</h2>
+        <p>Now that you have checkpoints AND kill bricks, you need to balance your game. This is game design!</p>
+
+        <div class="info-box">
+            <h3>Game Balance Principles</h3>
+            <ul>
+                <li><strong>Fair Challenge:</strong> Make sure checkpoints come BEFORE hard sections, not after</li>
+                <li><strong>Clear Danger:</strong> Players should always see hazards before touching them</li>
+                <li><strong>Progressive Difficulty:</strong> Start easy, get harder as players progress</li>
+                <li><strong>Test, Test, Test:</strong> Play your own game! If YOU get frustrated, players will too</li>
+            </ul>
+        </div>
+
+        <p>Walk through your island as a player would. Ask yourself:</p>
+        <ul>
+            <li>Is this challenge fair?</li>
+            <li>Can I see the danger before I hit it?</li>
+            <li>Is there a checkpoint close enough that dying isn't too frustrating?</li>
+            <li>Is this section too easy? Too hard?</li>
+        </ul>
+
+        <h2>Common Problems and Solutions</h2>
+
+        <div class="troubleshooting">
+            <h3>Problem: Nothing happens when I touch the kill brick</h3>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Make sure CanCollide is checked (otherwise you'll fall through it)</li>
+                <li>Verify the script is inside the kill brick part</li>
+                <li>Check for errors in the Output window</li>
+                <li>Make sure you're testing with a character, not just moving the camera</li>
+            </ul>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>Problem: I die but respawn at the starting spawn, not my checkpoint</h3>
+            <p><strong>Solution:</strong> You need to touch a checkpoint FIRST to set your RespawnLocation. Go back to Mission 4.3 and make sure your checkpoints are working correctly.</p>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>Problem: Other parts that touch the kill brick disappear</h3>
+            <p><strong>This is normal!</strong> The kill brick will destroy anything with a Humanoid. If you don't want this, add a check to only kill players specifically (check if a Player object exists).</p>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>Problem: My character dies repeatedly even after leaving the kill brick</h3>
+            <p><strong>Solution:</strong> The Touched event might be firing multiple times. Add debounce (like we did in checkpoints) to prevent repeated deaths.</p>
+        </div>
+
+        <h2>The Psychology of Death in Games</h2>
+        <p>Here's something cool to think about: death in games isn't bad! Death creates:</p>
+
+        <ul>
+            <li><strong>Stakes:</strong> If you can't fail, success doesn't feel good</li>
+            <li><strong>Learning:</strong> Players learn what NOT to do</li>
+            <li><strong>Tension:</strong> Danger makes the game exciting</li>
+            <li><strong>Accomplishment:</strong> Beating a hard section feels AMAZING because you could have failed</li>
+        </ul>
+
+        <p>The key is making death feel FAIR. If players die and think "That was my fault, I can do better next time," that's good game design. If they think "That was cheap!" or "How was I supposed to avoid that?" - that's bad design.</p>
+
+        <div class="pro-tip">
+            <h3>Pro Game Designer Tip</h3>
+            <p>Watch other people play your game (siblings, friends, classmates). Don't help them! Just watch where they die and listen to their reactions. If they die in the same spot over and over and get frustrated, you might need to add a checkpoint or remove some hazards. If they die but immediately want to try again, you nailed the difficulty!</p>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before moving on, make sure you can:</p>
+        <ul>
+            <li>Explain how Humanoid.Health controls character life</li>
+            <li>Create kill bricks that instantly eliminate players</li>
+            <li>Design kill zones that look visually dangerous</li>
+            <li>Test the death and respawn system with checkpoints</li>
+            <li>Create different types of hazards (lava, spikes, etc.)</li>
+            <li>Optionally: Create damage-over-time zones or add effects</li>
+            <li>Balance your game so it's challenging but fair</li>
+        </ul>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>What's Next?</h2>
+        <p>Your island now has checkpoints that save progress and hazards that punish mistakes. There's just one thing missing: a way to WIN! In the next mission, you'll script a finish line that detects when players complete your course and celebrates their victory. Time to add a proper ending to your game!</p>
+    </div>
+</body>
+</html>

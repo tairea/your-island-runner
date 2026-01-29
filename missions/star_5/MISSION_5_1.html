@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 5.1: Landmark Zone 2</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>The Second Challenge</h1>
+        <p>Your first landmark zone taught players the basics of your island runner. But great games need variety. If every zone feels the same, players get bored fast. Think about your favorite platformers—they keep introducing new challenges, new environments, new obstacles that make you think differently.</p>
+        <p>Your mission: build a second landmark zone that feels completely different from the first. If your first zone was all about precise jumps, maybe this one tests speed. If the first was wide and open, make this one tight and vertical. The goal is contrast—give players a fresh challenge that makes them adapt.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Design and build Landmark Zone 2 with obstacles that create a distinct challenge from your first zone, then place a checkpoint at the end.</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Planning Your Second Zone</h2>
+        <p>Before you build a single part, think about contrast. Open your game and run through Landmark Zone 1. What kind of challenge is it? Write down three words that describe it. Fast? Tight? Vertical? Easy? Technical?</p>
+
+        <p>Now, for Zone 2, pick the opposite. If Zone 1 was fast-paced with wide jumps, make Zone 2 slower with precision jumps. If Zone 1 was flat, make Zone 2 vertical. This contrast keeps players engaged and shows off your design skills.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: Zone Contrast Chart</h3>
+            <p>Fill this out before building:</p>
+            <ul>
+                <li><strong>Zone 1 is</strong>: [wide/narrow] [fast/slow] [flat/vertical] [easy/hard]</li>
+                <li><strong>Zone 2 will be</strong>: [opposite choices]</li>
+                <li><strong>Main obstacle type</strong>: [what players will do most]</li>
+            </ul>
+        </div>
+
+        <h2>Building Zone 2</h2>
+        <p>Start with the landing platform—the area where players arrive from Zone 1. Make it safe, no kill bricks here. This gives players a moment to see what's ahead and prepare.</p>
+
+        <p>Then build your obstacle sequence. Here are proven patterns you can use:</p>
+
+        <h3>Pattern 1: The Gauntlet</h3>
+        <p>A straight line of obstacles that tests timing. Place kill brick gaps every few studs, forcing players to jump repeatedly without pause. Start with easy gaps (4-5 studs) and gradually increase to harder ones (6-7 studs).</p>
+
+        <h3>Pattern 2: The Maze</h3>
+        <p>Create a path that turns and twists. Use walls to force players to navigate tight corners. Add kill bricks in corners to punish sloppy movement. This works great if Zone 1 was straight and open.</p>
+
+        <h3>Pattern 3: The Vertical Climb</h3>
+        <p>Stack platforms going upward. Players must jump from level to level, climbing higher. Mix in some platforms that are offset left or right, so it's not just straight up. Add kill bricks below each level—if you fall, you fall far.</p>
+
+        <h3>Pattern 4: The Parkour Line</h3>
+        <p>A series of small platforms (4x4 studs or smaller) that players must jump across. Space them so each jump is just barely possible. This creates high tension—one mistake and you're done.</p>
+
+        <div class="tips-box">
+            <h3>Design Tips</h3>
+            <ul>
+                <li><strong>Length matters</strong>: Zone 2 should be slightly longer than Zone 1. Players have more skills now.</li>
+                <li><strong>Color code it</strong>: Use different colors than Zone 1. This helps players know they've progressed.</li>
+                <li><strong>Add landmarks</strong>: Build a cool structure or shape that makes this zone memorable. A tower, an arch, a giant sphere—something visual.</li>
+                <li><strong>Safe spots</strong>: Every 3-4 obstacles, add a larger platform where players can rest. This prevents frustration.</li>
+            </ul>
+        </div>
+
+        <h2>Building Your Obstacles</h2>
+        <p>Let's build a specific example: a gauntlet with increasing difficulty.</p>
+
+        <ol>
+            <li>Create the landing platform (10x10 studs, Material: SmoothPlastic, Color: a new color)</li>
+            <li>Anchor it and position it where Zone 1 ends</li>
+            <li>Build the first jump: Place a platform 5 studs away (easy first jump)</li>
+            <li>Add a kill brick between them (Part, set CanCollide to false, Color: bright red, add kill brick script)</li>
+            <li>Build the second jump: 5.5 studs away (slightly harder)</li>
+            <li>Add another kill brick</li>
+            <li>Continue this pattern, increasing gap size to 6, then 6.5 studs</li>
+            <li>After 4-5 jumps, add a larger rest platform</li>
+            <li>Build a second set of jumps with a different pattern—maybe diagonal instead of straight</li>
+        </ol>
+
+        <div class="try-it-box">
+            <h3>Try It: The Difficulty Curve</h3>
+            <p>Run through your zone. Time yourself. If it takes less than 20 seconds, it might be too easy. If it takes more than 60 seconds, it might be too hard. Aim for 30-45 seconds for a skilled player.</p>
+        </div>
+
+        <h2>Adding Visual Interest</h2>
+        <p>Don't just make functional obstacles—make them cool to look at. Here are quick wins:</p>
+
+        <ul>
+            <li><strong>Shape variety</strong>: Not everything has to be a rectangular part. Use cylinders, spheres, wedges.</li>
+            <li><strong>Rotation</strong>: Rotate platforms at slight angles. A platform tilted 15 degrees is more interesting than a flat one.</li>
+            <li><strong>Size variation</strong>: Mix large platforms with small ones. Variety creates visual rhythm.</li>
+            <li><strong>Height changes</strong>: Don't keep everything at the same Y level. Go up and down.</li>
+        </ul>
+
+        <h2>Placing the Checkpoint</h2>
+        <p>At the end of Zone 2, place a checkpoint part. This is critical—players need to save their progress here.</p>
+
+        <ol>
+            <li>Create a Part, make it stand out (maybe a tall cylinder or a glowing block)</li>
+            <li>Size: 6x8x6 studs works well</li>
+            <li>Color: Green or Gold (different from kill bricks)</li>
+            <li>Material: Neon (makes it glow and obvious)</li>
+            <li>Add your checkpoint script from Star 4</li>
+            <li>Set CanCollide to false (so players can walk through it)</li>
+            <li>Anchor it</li>
+        </ol>
+
+        <p>Position the checkpoint on a large safe platform. Players should feel relief when they reach it, not stress about falling off while touching it.</p>
+
+        <div class="tips-box">
+            <h3>Checkpoint Placement Pro Tip</h3>
+            <p>Place checkpoints AFTER challenges, not before. Players should earn the checkpoint by completing the zone. If you put it at the start, there's no reward for finishing.</p>
+        </div>
+
+        <h2>Testing Your Zone</h2>
+        <p>Hit Play and test your zone. Important questions to ask:</p>
+
+        <ul>
+            <li>Can I complete it in under 1 minute?</li>
+            <li>Do I die at the same spot repeatedly? (If yes, that spot might be too hard)</li>
+            <li>Is there a moment where I don't know where to go next? (If yes, add visual guides)</li>
+            <li>Does it feel different from Zone 1? (If no, revise to increase contrast)</li>
+        </ul>
+
+        <p>If you're dying too much, make jumps slightly shorter or add more safe platforms. If it's too easy, increase gaps or remove safe platforms. Testing and adjusting is how good levels get great.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: The Friend Test</h3>
+            <p>If possible, have a classmate play your zone. Watch where they struggle. Don't help them—just observe. Their struggles show you what needs adjusting. If they breeze through, make it harder. If they rage quit, make it easier.</p>
+        </div>
+
+        <h2>Final Polish</h2>
+        <p>Before moving to the next mission, do these final checks:</p>
+
+        <ul>
+            <li>All platforms are anchored</li>
+            <li>All kill bricks have CanCollide = false and kill scripts</li>
+            <li>Checkpoint is working (touch it and check the output for messages)</li>
+            <li>Zone uses different colors/style from Zone 1</li>
+            <li>You can complete it consistently (if you can't, players definitely can't)</li>
+        </ul>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before proceeding, verify:</p>
+        <ul>
+            <li>Landmark Zone 2 is built and feels different from Zone 1</li>
+            <li>Zone contains multiple obstacles with a clear path</li>
+            <li>Kill bricks are placed strategically throughout the zone</li>
+            <li>A checkpoint is placed at the end of the zone and works correctly</li>
+            <li>You can complete the zone from start to checkpoint</li>
+            <li>The zone takes 30-60 seconds to complete</li>
+        </ul>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>What's Next</h2>
+        <p>Zone 2 is complete, but you're just getting started. Next up: Landmark Zone 3, where you'll push your design skills even further. Each zone should teach you something new about level design. By the time you finish all five zones, you'll have a complete island runner that shows real variety and skill.</p>
+        <p>Great level design isn't about making things hard—it's about making things interesting. Keep that in mind as you build.</p>
+    </div>
+</body>
+</html>

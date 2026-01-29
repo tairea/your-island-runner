@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 6.5: Difficulty Tuning</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>You Can't Playtest Your Own Game</h1>
+        <p>You've spent hours building your island runner. You know every jump, every platform, every obstacle. You've run the course dozens of times. You can probably beat it with your eyes closed.</p>
+        <p>That's the problem.</p>
+        <p>You are the <em>worst</em> person to judge whether your game is fun, fair, or well-balanced. You've internalized every pattern. You know which jumps are tight and which are generous. You know where the moving obstacles will be at any given moment.</p>
+        <p>Your players don't know any of that. They're experiencing it for the first time. And if you've tuned the difficulty based on <em>your</em> skill level, you've probably made it way too hard.</p>
+        <p>In this mission, you'll do something uncomfortable but essential: you'll watch other people play your game. You'll see them fail where you expected them to succeed. You'll see them confused where you thought things were obvious. And then you'll fix it.</p>
+        <p>This is the difference between a game that <em>you</em> enjoy and a game that <em>everyone</em> enjoys.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p><strong>Adjust obstacle spacing, timing, and difficulty progression based on structured playtest feedback to optimize game feel</strong></p>
+        <p>By the end of this mission, your island will have:</p>
+        <ul>
+            <li>Playtesting data from at least 2-3 players who aren't you</li>
+            <li>Identified specific pain points (areas where players struggle unfairly)</li>
+            <li>Adjusted obstacle spacing, platform gaps, and timing based on feedback</li>
+            <li>A smoother difficulty curve that ramps up gradually from Zone 1 to Zone 5</li>
+            <li>Improved "game feel" that makes the experience enjoyable, not frustrating</li>
+        </ul>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Understanding Difficulty Tuning</h2>
+        <p>Difficulty tuning is the process of making micro-adjustments to your game's challenge level so that it feels:</p>
+        <ul>
+            <li><strong>Fair:</strong> When players fail, they feel it's their fault, not the game's</li>
+            <li><strong>Progressive:</strong> Difficulty increases gradually, not in sudden spikes</li>
+            <li><strong>Readable:</strong> Players can see what's coming and understand what to do</li>
+            <li><strong>Achievable:</strong> Most players can reach the end with practice, not just experts</li>
+        </ul>
+
+        <p>Tuning is an iterative process: <strong>playtest → gather feedback → make adjustments → playtest again</strong>.</p>
+
+        <h2>Step 1: Set Up a Playtest Protocol</h2>
+        <p>Before you hand your game to someone, you need a plan for how to observe and collect feedback.</p>
+
+        <div class="protocol-box">
+            <h3>Playtest Protocol</h3>
+            <ol>
+                <li><strong>Find 2-3 playtesters:</strong> Classmates, friends, or family who haven't played your game yet</li>
+                <li><strong>Give minimal instructions:</strong> Just say "Try to run through the course and reach the end." Don't explain the jumps or give tips.</li>
+                <li><strong>Observe silently:</strong> Watch them play. Don't help. Don't give hints. Just take notes.</li>
+                <li><strong>Note where they struggle:</strong> Which jumps do they miss repeatedly? Where do they get stuck? Where do they die and give up?</li>
+                <li><strong>Ask specific questions afterward:</strong> "Which part felt unfair?" "Where were you confused?" "What would you change?"</li>
+                <li><strong>Record their feedback:</strong> Write down specific zones, obstacles, or moments they mention</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>The Golden Rule of Playtesting</h3>
+            <p><strong>Do not defend your design.</strong> If a player says "I didn't know what to do here," don't say "But it's obvious!" Instead, write down "Zone 2 - player confused about next platform." Your job is to listen, not justify.</p>
+        </div>
+
+        <h2>Step 2: Conduct Playtest 1</h2>
+        <p>Let's run your first playtest session.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: Playtest with Player 1</h3>
+            <ol>
+                <li>Open your game in Roblox Studio</li>
+                <li>Press Play to enter test mode</li>
+                <li>Have your playtester sit down and take over the controls (or publish the game temporarily and have them play remotely)</li>
+                <li>Watch them play from spawn to as far as they can get</li>
+                <li>Use this observation checklist while watching:
+                    <ul>
+                        <li>Do they die in Zone 1? (If so, Zone 1 is too hard—it should be easy)</li>
+                        <li>Do they hesitate before jumps? (Indicates unclear visual information)</li>
+                        <li>Do they miss the same jump multiple times? (That jump might be too tight)</li>
+                        <li>Do they run past obstacles without noticing? (Obstacles might be too subtle)</li>
+                        <li>Where do they give up? (That's your "difficulty spike")</li>
+                    </ul>
+                </li>
+                <li>After they finish (or quit), ask:
+                    <ul>
+                        <li>"Which zone was the hardest?"</li>
+                        <li>"Was there a moment that felt unfair?"</li>
+                        <li>"What would make the game more fun?"</li>
+                    </ul>
+                </li>
+                <li>Write down their answers</li>
+            </ol>
+        </div>
+
+        <h2>Step 3: Analyze Common Difficulty Problems</h2>
+        <p>Here are the most common issues playtesting reveals, and how to fix them:</p>
+
+        <div class="problem-solution-guide">
+            <h3>Problem: Players Can't Make the First Jump (Zone 1)</h3>
+            <p><strong>Diagnosis:</strong> Zone 1 is supposed to be easy, but the gap is too wide or the platform is too small.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Reduce the gap between the first platform and spawn (make it 8-10 studs, not 12-15)</li>
+                <li>Make the first platform wider (16x16 or larger)</li>
+                <li>Ensure the first platform is straight ahead—no turning required</li>
+            </ul>
+            <p><strong>How to adjust:</strong> Select the platform, use Move tool, bring it closer to spawn. Test immediately.</p>
+        </div>
+
+        <div class="problem-solution-guide">
+            <h3>Problem: Players Keep Dying in Zone 3 (Mid-Game Spike)</h3>
+            <p><strong>Diagnosis:</strong> Zone 3 is much harder than Zone 2, creating a frustrating difficulty spike.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Reduce the number of obstacles in Zone 3, or spread them out more</li>
+                <li>Slow down any moving obstacles (reduce their speed or increase cycle time)</li>
+                <li>Make platforms slightly larger so jumps are more forgiving</li>
+                <li>Add a checkpoint before Zone 3 so players don't have to restart from the beginning</li>
+            </ul>
+            <p><strong>How to adjust:</strong> Move platforms closer, delete one obstacle, or decrease TweenInfo speed values.</p>
+        </div>
+
+        <div class="problem-solution-guide">
+            <h3>Problem: Players Don't See Obstacles Coming</h3>
+            <p><strong>Diagnosis:</strong> Visual clarity issue—obstacles blend into the background or appear too suddenly.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Change obstacle color to contrast with platform and background (e.g., bright red or yellow)</li>
+                <li>Increase obstacle size slightly so they're more visible</li>
+                <li>Ensure camera angle gives players a clear view ahead</li>
+                <li>Add visual warnings (like a colored platform before the obstacle)</li>
+            </ul>
+            <p><strong>How to adjust:</strong> Select obstacle parts, change BrickColor or Material to stand out more.</p>
+        </div>
+
+        <div class="problem-solution-guide">
+            <h3>Problem: Zone 5 Feels Too Easy</h3>
+            <p><strong>Diagnosis:</strong> The final zone should be the climax, but it's less challenging than earlier zones.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Add one or two additional obstacles in Zone 5</li>
+                <li>Make gaps slightly wider (but still fair)</li>
+                <li>Increase moving obstacle speed slightly</li>
+                <li>Combine obstacle types (e.g., moving platform + spinning obstacle)</li>
+            </ul>
+            <p><strong>How to adjust:</strong> Duplicate existing obstacles, reposition them, or tighten platform spacing.</p>
+        </div>
+
+        <div class="problem-solution-guide">
+            <h3>Problem: Players Give Up Before Finishing</h3>
+            <p><strong>Diagnosis:</strong> The game is too punishing—players lose progress and motivation.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Add checkpoints at the start of Zones 2, 3, and 4 (so players respawn at progress points)</li>
+                <li>Make the course shorter by removing one or two filler platforms per zone</li>
+                <li>Ensure Zone 1 is very easy to build player confidence</li>
+            </ul>
+            <p><strong>How to adjust:</strong> Insert checkpoint Parts with SpawnLocation enabled at the start of each zone.</p>
+        </div>
+
+        <h2>Step 4: Make Adjustments Based on Feedback</h2>
+        <p>Now that you've identified problems, fix them one at a time.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: Adjust One Problem Area</h3>
+            <ol>
+                <li>Review your playtest notes and pick the <strong>most common complaint</strong> (e.g., "Zone 3 is too hard")</li>
+                <li>Navigate to that zone in your game</li>
+                <li>Make ONE specific change:
+                    <ul>
+                        <li>If gap is too wide: Move platform closer (reduce gap by 2-4 studs)</li>
+                        <li>If obstacle is too fast: Edit the TweenInfo time to be longer (e.g., change 2 to 3 seconds)</li>
+                        <li>If platform is too small: Increase Size property (e.g., from 10x10 to 14x14)</li>
+                        <li>If obstacle is hard to see: Change BrickColor to something bright (e.g., Bright red)</li>
+                    </ul>
+                </li>
+                <li>Press Play and test the change yourself</li>
+                <li>Does it feel better? If yes, move to the next issue. If no, try a different adjustment.</li>
+            </ol>
+        </div>
+
+        <h2>Step 5: Verify the Difficulty Curve</h2>
+        <p>A good difficulty curve means Zone 1 is easy, Zone 5 is hard, and everything in between ramps up gradually.</p>
+
+        <div class="difficulty-checklist">
+            <h3>Difficulty Curve Checklist</h3>
+            <ul>
+                <li><strong>Zone 1 (Tutorial):</strong> 90%+ of players should succeed on first or second try. Gaps: 8-12 studs. No moving obstacles.</li>
+                <li><strong>Zone 2 (Easy):</strong> 70-80% success rate. Gaps: 10-14 studs. One simple moving obstacle max.</li>
+                <li><strong>Zone 3 (Medium):</strong> 50-60% success rate. Gaps: 12-16 studs. 1-2 moving obstacles or one complex pattern.</li>
+                <li><strong>Zone 4 (Hard):</strong> 30-40% success rate. Gaps: 14-18 studs. Multiple moving obstacles, tighter timing.</li>
+                <li><strong>Zone 5 (Expert/Climax):</strong> 20-30% success rate on first try. Gaps: 16-20 studs. Combines all learned mechanics, but still fair.</li>
+            </ul>
+        </div>
+
+        <p>If any zone feels out of order (e.g., Zone 2 is harder than Zone 4), adjust it to fit the curve.</p>
+
+        <h2>Step 6: Conduct Playtest 2 (Verification)</h2>
+        <p>After making adjustments, test again with a new player (or the same player if enough time has passed).</p>
+
+        <div class="try-it-box">
+            <h3>Try It: Playtest with Player 2</h3>
+            <ol>
+                <li>Find a second playtester who hasn't played yet (or wait a day and use the same person)</li>
+                <li>Run the same playtest protocol: observe silently, take notes, ask questions afterward</li>
+                <li>Compare results to Playtest 1:
+                    <ul>
+                        <li>Did they get further than Player 1?</li>
+                        <li>Did they struggle with the same areas?</li>
+                        <li>Did your adjustments fix the issues, or create new ones?</li>
+                    </ul>
+                </li>
+                <li>Make additional small adjustments if needed</li>
+            </ol>
+        </div>
+
+        <h2>Advanced: Tuning Specific Game Feel Elements</h2>
+        <p>Beyond basic difficulty, there are subtle "game feel" adjustments that make a huge difference:</p>
+
+        <div class="game-feel-guide">
+            <h3>Game Feel Tuning Techniques</h3>
+            <ul>
+                <li><strong>Jump timing windows:</strong> If players barely miss jumps, platforms might be too small. Increase width by 10-20% to create a "grace period."</li>
+                <li><strong>Visual anticipation:</strong> Players need to see what's coming. Ensure the camera angle and platform layout give at least 1-2 seconds of visual warning before each obstacle.</li>
+                <li><strong>Rhythm and pacing:</strong> Alternate between easy and hard sections to give players "breathing room." Two hard jumps in a row is frustrating; a hard jump followed by an easy one feels fair.</li>
+                <li><strong>Obstacle speed consistency:</strong> Moving obstacles should move at predictable speeds. If one obstacle is much faster than another, players won't internalize the timing.</li>
+                <li><strong>Death recovery time:</strong> How long does it take to get back to where you died? If it's more than 20-30 seconds, add checkpoints.</li>
+            </ul>
+        </div>
+
+        <h2>Common Tuning Adjustments (Quick Reference)</h2>
+        <p>Here's a cheat sheet for the most common adjustments you'll make:</p>
+
+        <table class="tuning-table">
+            <tr>
+                <th>Problem</th>
+                <th>Adjustment</th>
+                <th>How to Do It</th>
+            </tr>
+            <tr>
+                <td>Gap too wide</td>
+                <td>Reduce gap by 2-4 studs</td>
+                <td>Select platform, Move tool, drag closer</td>
+            </tr>
+            <tr>
+                <td>Obstacle too fast</td>
+                <td>Increase TweenInfo time</td>
+                <td>Edit script, change time parameter (2 → 3 seconds)</td>
+            </tr>
+            <tr>
+                <td>Platform too small</td>
+                <td>Increase Size by 2-4 studs</td>
+                <td>Select part, Properties → Size, increase X and Z</td>
+            </tr>
+            <tr>
+                <td>Obstacle invisible</td>
+                <td>Change color to bright/contrasting</td>
+                <td>Select part, Properties → BrickColor → Bright red</td>
+            </tr>
+            <tr>
+                <td>Zone too punishing</td>
+                <td>Add checkpoint</td>
+                <td>Insert Part → SpawnLocation, position at zone start</td>
+            </tr>
+            <tr>
+                <td>Zone too easy</td>
+                <td>Add one obstacle or widen gap</td>
+                <td>Duplicate existing obstacle or increase gap by 2 studs</td>
+            </tr>
+        </table>
+
+        <h2>Step 7: Final Playtest (Acceptance Test)</h2>
+        <p>After all adjustments, do one final playtest to confirm the game feels good.</p>
+
+        <div class="acceptance-criteria">
+            <h3>Acceptance Criteria</h3>
+            <p>Your game is ready for launch if:</p>
+            <ul>
+                <li>At least 2 out of 3 playtesters can reach Zone 3 or beyond</li>
+                <li>Players describe the difficulty as "challenging but fair," not "impossible" or "frustrating"</li>
+                <li>No single obstacle causes more than 5 consecutive deaths</li>
+                <li>The difficulty ramps up smoothly—no sudden spikes</li>
+                <li>Players say they want to try again after failing, rather than quitting in frustration</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Final Acceptance Playtest</h3>
+            <ol>
+                <li>Find one more playtester (or test yourself if you've made significant changes)</li>
+                <li>Watch them play the full course start to finish</li>
+                <li>Ask the final question: <strong>"Would you play this again, or recommend it to a friend?"</strong></li>
+                <li>If the answer is yes, you're done. If no, identify the remaining issue and make one more adjustment.</li>
+            </ol>
+        </div>
+
+        <h2>Documenting Your Changes</h2>
+        <p>It's helpful to keep a log of what you changed based on playtesting. This helps you learn what works and builds better games in the future.</p>
+
+        <div class="documentation-example">
+            <h3>Example Playtest Log</h3>
+            <p><strong>Playtest 1 (Player: Sarah):</strong></p>
+            <ul>
+                <li>Died 3 times in Zone 1 on second jump → Reduced gap from 14 to 10 studs</li>
+                <li>Couldn't see spinning obstacle in Zone 3 → Changed color from gray to bright red</li>
+                <li>Gave up at Zone 4 start → Added checkpoint at Zone 4 entrance</li>
+            </ul>
+            <p><strong>Playtest 2 (Player: Marcus):</strong></p>
+            <ul>
+                <li>Reached Zone 5 but found it easier than Zone 4 → Added one more moving platform in Zone 5</li>
+                <li>Said Zone 2 was "too easy and boring" → Widened one gap from 10 to 13 studs</li>
+            </ul>
+            <p><strong>Playtest 3 (Player: Emma):</strong></p>
+            <ul>
+                <li>Completed the course, said it felt "hard but fair" → No further changes needed</li>
+            </ul>
+        </div>
+
+        <h2>The Iterative Mindset</h2>
+        <p>Game development is never "finished"—it's only shipped. Even professional games get updates and balance patches after launch. The key is knowing when to stop iterating and call it done.</p>
+        <p>For this project, you're done when:</p>
+        <ul>
+            <li>The game is completable by most players with practice</li>
+            <li>The difficulty curve feels smooth</li>
+            <li>No single moment feels unfair or broken</li>
+            <li>You've addressed all major playtest feedback</li>
+        </ul>
+
+        <div class="tip-box">
+            <h3>When to Stop Tuning</h3>
+            <p>You could tune forever. At some point, you need to ship. Stop tuning when:</p>
+            <ul>
+                <li>Two consecutive playtests yield similar positive results</li>
+                <li>You're making changes of less than 1 stud (micro-optimization)</li>
+                <li>You've spent more time tuning than building (diminishing returns)</li>
+                <li>You're changing things back to how they were before (you're second-guessing yourself)</li>
+            </ul>
+            <p>Perfect is the enemy of good. Ship it.</p>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before completing Star 6, verify you have:</p>
+        <ul>
+            <li><strong>Conducted at least 2 playtests</strong> with different players (or the same player with time between tests)</li>
+            <li><strong>Observed players silently</strong> and taken notes on where they struggled</li>
+            <li><strong>Made at least 3-5 adjustments</strong> based on playtest feedback (gap sizes, obstacle speeds, colors, etc.)</li>
+            <li><strong>Verified the difficulty curve</strong> ramps up smoothly from Zone 1 (easy) to Zone 5 (hard)</li>
+            <li><strong>Added checkpoints</strong> if players were getting frustrated by losing progress</li>
+            <li><strong>Tested final version yourself</strong> to confirm changes improved the experience</li>
+            <li><strong>Received positive feedback</strong> on at least one final acceptance playtest ("challenging but fair")</li>
+        </ul>
+        <p><strong>Quality check:</strong> Ask yourself, "If I had never played this game before, would I enjoy it?" If the answer is yes, you've successfully tuned your game.</p>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Congratulations: Star 6 Complete!</h2>
+        <p>You've finished the Polish Round. Your island runner is now:</p>
+        <ul>
+            <li>Beautifully lit with a custom skybox and atmospheric effects</li>
+            <li>Richly detailed with location-specific props and decorations</li>
+            <li>Immersively soundscaped with ambient audio</li>
+            <li>Carefully tuned for a fair and engaging difficulty curve</li>
+        </ul>
+        <p>Your game doesn't just work—it <em>feels</em> professional. It has polish. It has character. It represents your real-world location in a way that's specific, authentic, and fun to experience.</p>
+        <p><strong>Next Star: Launch Day</strong></p>
+        <p>In Star 7, you'll prepare your game for the world. You'll publish it to Roblox, write a compelling description, create a thumbnail, and share it with players beyond your classroom. Your island runner is about to go live.</p>
+    </div>
+</body>
+</html>

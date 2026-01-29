@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 4.1: Scripts and Output</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Your First Line of Code</h1>
+        <p>Everything you've built so far - your island, your paths, your landmarks - they're all just sitting there, waiting. What if your game could actually <em>do</em> something? What if it could react, respond, and come alive?</p>
+        <p>Welcome to the world of coding. You're about to write your first script, and trust me - this is where the real magic begins.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Create a Script, write print(), and find it in the Output window</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>What is a Script?</h2>
+        <p>Think of a script like a recipe. Just like a recipe tells you step-by-step how to make cookies, a script tells Roblox step-by-step what to do in your game. Want a door to open when a player touches it? You need a script. Want to keep track of points? You need a script. Want your game to do literally anything interactive? You guessed it - scripts!</p>
+
+        <p>In Roblox, we write scripts using a programming language called <strong>Lua</strong>. Don't worry - Lua is one of the friendliest coding languages out there, designed specifically for games.</p>
+
+        <h2>Step 1: Create Your First Script</h2>
+        <ol>
+            <li>In the <strong>Explorer</strong> panel, find <strong>ServerScriptService</strong></li>
+            <li>Right-click on <strong>ServerScriptService</strong></li>
+            <li>Select <strong>Insert Object</strong> > <strong>Script</strong></li>
+            <li>A new script appears! Rename it to <strong>HelloWorld</strong></li>
+        </ol>
+
+        <div class="info-box">
+            <h3>Why ServerScriptService?</h3>
+            <p>This is where we put scripts that run on the game server (the computer hosting your game). These scripts control the main game logic that everyone playing needs to follow. Later, you'll learn about other places to put scripts, but for now, ServerScriptService is your home base.</p>
+        </div>
+
+        <h2>Step 2: Your First Line of Code</h2>
+        <p>Double-click your <strong>HelloWorld</strong> script to open it. You'll see it already has some code in it - something that says <code>print("Hello world!")</code>. That's Roblox being helpful!</p>
+
+        <p>Let's understand what this code means:</p>
+
+        <div class="code-example">
+            <pre><code>print("Hello world!")</code></pre>
+        </div>
+
+        <h3>Breaking It Down Line by Line</h3>
+        <ul>
+            <li><strong>print</strong> - This is a function (a pre-made tool) that displays messages</li>
+            <li><strong>(</strong> - The opening parenthesis starts the function's instructions</li>
+            <li><strong>"Hello world!"</strong> - This is the message we want to display. The quotation marks tell Lua "this is text, not code"</li>
+            <li><strong>)</strong> - The closing parenthesis ends the function's instructions</li>
+        </ul>
+
+        <p>Think of it like this: You're asking Lua to print something, and inside the parentheses, you tell it exactly what to print.</p>
+
+        <h2>Step 3: Customize Your Message</h2>
+        <p>Let's make this script your own! Change the message to something personal:</p>
+
+        <div class="code-example">
+            <pre><code>print("Welcome to my island runner!")
+print("Get ready for an adventure!")
+print("Created by [Your Name]")</code></pre>
+        </div>
+
+        <div class="try-it">
+            <h3>Try It: Multiple Messages</h3>
+            <p>Notice how we have three different print statements? Each one is its own line of code. Try adding your own messages! You can print anything you want - song lyrics, jokes, facts about yourself. Just remember to keep the text inside quotation marks.</p>
+        </div>
+
+        <h2>Step 4: Find the Output Window</h2>
+        <p>Now comes the exciting part - seeing your code work!</p>
+
+        <ol>
+            <li>At the top of Roblox Studio, click the <strong>View</strong> tab</li>
+            <li>Click <strong>Output</strong> to open the Output window (if it's not already visible)</li>
+            <li>The Output window usually appears at the bottom of your screen</li>
+        </ol>
+
+        <div class="info-box">
+            <h3>The Output Window is Your Best Friend</h3>
+            <p>Seriously. Every coder - beginner or expert - relies on the Output window. It's where you see messages from your code, and more importantly, it's where you see error messages that help you fix problems. Get comfortable with this window!</p>
+        </div>
+
+        <h2>Step 5: Run Your Code</h2>
+        <p>Time to see your code in action!</p>
+
+        <ol>
+            <li>Click the <strong>Play</strong> button at the top of Roblox Studio (the blue arrow)</li>
+            <li>Look at the <strong>Output</strong> window</li>
+            <li>You should see your messages appear!</li>
+        </ol>
+
+        <p>It should look something like this:</p>
+
+        <div class="code-example">
+            <pre><code>Welcome to my island runner!
+Get ready for an adventure!
+Created by Alex</code></pre>
+        </div>
+
+        <p>CONGRATULATIONS! You just wrote and ran your first code! That feeling you have right now? That's the feeling every programmer gets when their code works. Hold onto that.</p>
+
+        <h2>Understanding What Just Happened</h2>
+        <p>When you clicked Play, here's what happened behind the scenes:</p>
+
+        <ol>
+            <li>Roblox started running your game</li>
+            <li>It looked in ServerScriptService for scripts to run</li>
+            <li>It found your HelloWorld script</li>
+            <li>It read each line of code from top to bottom</li>
+            <li>When it saw <code>print()</code>, it sent those messages to the Output window</li>
+        </ol>
+
+        <div class="try-it">
+            <h3>Experiment Time!</h3>
+            <p>Try these experiments to learn more:</p>
+            <ul>
+                <li><strong>Change the order:</strong> Move your print statements around. What happens?</li>
+                <li><strong>Break it (on purpose):</strong> Delete one of the quotation marks and run your code. What error message do you get? This is how you learn to debug!</li>
+                <li><strong>Print numbers:</strong> Try <code>print(42)</code> without quotes. Numbers don't need quotes!</li>
+                <li><strong>Do math:</strong> Try <code>print(10 + 5)</code>. Lua can do calculations!</li>
+            </ul>
+        </div>
+
+        <h2>Common Mistakes (And How to Fix Them)</h2>
+
+        <div class="troubleshooting">
+            <h3>Problem: I don't see any messages in the Output window</h3>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Make sure you clicked the Play button</li>
+                <li>Check that the Output window is actually open (View > Output)</li>
+                <li>Verify your script is in ServerScriptService, not somewhere else</li>
+            </ul>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>Problem: I see a red error message</h3>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Check that every opening quotation mark " has a closing quotation mark "</li>
+                <li>Make sure every opening parenthesis ( has a closing parenthesis )</li>
+                <li>Verify you spelled "print" correctly (lowercase, no spaces)</li>
+                <li>Read the error message - Roblox tries to tell you what's wrong!</li>
+            </ul>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>Problem: My script disappeared!</h3>
+            <p><strong>Solution:</strong> It's probably still there, just in a different folder. Use the search bar at the top of the Explorer to find it by name.</p>
+        </div>
+
+        <h2>Why This Matters</h2>
+        <p>I know - printing messages doesn't seem like much. But you just learned something HUGE:</p>
+
+        <ul>
+            <li>How to create and organize scripts</li>
+            <li>How to write code that Lua understands</li>
+            <li>How to see if your code is working</li>
+            <li>How to use the Output window for debugging</li>
+        </ul>
+
+        <p>Every complex game mechanic - from checkpoint systems to boss battles - starts with these basics. You're building your foundation.</p>
+
+        <div class="pro-tip">
+            <h3>Pro Coder Tip</h3>
+            <p>Professional game developers use print() ALL THE TIME. When something isn't working, they add print statements to figure out what's happening. It's like leaving yourself notes to see what your code is doing. Never think print() is "too basic" - it's one of the most powerful debugging tools you have!</p>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before moving on, make sure you can:</p>
+        <ul>
+            <li>Create a new Script in ServerScriptService</li>
+            <li>Write at least three different print() statements</li>
+            <li>Open the Output window and keep it visible</li>
+            <li>Run your game and see your messages appear</li>
+            <li>Explain (in your own words) what print() does</li>
+        </ul>
+        <p>If you can do all of these things, you're ready to move forward!</p>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>What's Next?</h2>
+        <p>Printing messages is cool, but you know what's cooler? Making your game react to what players do. In the next mission, you're going to write a script that detects when a player touches a part. Get ready - things are about to get interactive!</p>
+    </div>
+</body>
+</html>

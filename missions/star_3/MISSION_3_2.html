@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 3.2: Terrain Foundations</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Mission 3.2: Terrain Foundations</h1>
+        <p>Your satellite reference is lying on the ground, showing you exactly what your island should look like. Now comes one of the most satisfying moments in game development: taking that flat 2D image and building it up into a three-dimensional world.</p>
+        <p>This is where your island starts to feel real. You're not just planning anymore—you're constructing. Every game world starts this way: with rough foundations that capture the basic shape before details get added. Think of yourself as a sculptor working with digital clay, building up the landmass that will eventually become your complete island runner course.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Create the rough shape of your island using parts or terrain tools, matching the outline and basic form shown in your satellite reference image.</p>
+        <p><strong>Success Criteria:</strong> Your island's landmass roughly matches your reference image's shape when viewed from above, with basic elevation changes in place.</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Choosing Your Building Method</h2>
+        <p>Roblox gives you two main approaches for creating terrain: using basic parts (blocks) or using the terrain system. Each has advantages, and we'll explore both so you can choose what works best for your project.</p>
+
+        <div class="comparison-box">
+            <h3>Parts Method</h3>
+            <p><strong>Pros:</strong> Easier to control, simple to adjust, great for beginners, works well for stylized/blocky islands</p>
+            <p><strong>Cons:</strong> Less organic-looking, requires more pieces for complex shapes</p>
+
+            <h3>Terrain Method</h3>
+            <p><strong>Pros:</strong> Natural-looking results, good for organic shapes, powerful sculpting tools</p>
+            <p><strong>Cons:</strong> Steeper learning curve, harder to make precise changes</p>
+        </div>
+
+        <p>For this mission, we'll focus on the parts method because it's more beginner-friendly and gives you direct control. You can always enhance with terrain later.</p>
+
+        <h2>Step 1: Analyze Your Reference</h2>
+        <p>Before building, take a moment to really study your satellite reference. Understanding what you're building makes the process much easier.</p>
+
+        <div class="instruction-block">
+            <p><strong>Look for these key features:</strong></p>
+            <ol>
+                <li>Press <strong>F</strong> while your reference platform is selected to focus on it</li>
+                <li>Position your camera directly above, looking straight down</li>
+                <li>Identify the overall shape of your island—is it circular? Elongated? Irregular?</li>
+                <li>Notice where the land appears higher or lower (shadows often indicate hills)</li>
+                <li>Spot major features like beaches, forests, or developed areas</li>
+                <li>Estimate rough proportions—is one side wider than the other?</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Thinking in Shapes</h3>
+            <p>Complex shapes are made of simple ones. Does your island look like a circle with a peninsula attached? An oval with a bite taken out? Breaking your island down into basic geometric shapes makes it much easier to build.</p>
+        </div>
+
+        <h2>Step 2: Create Your Base Island Structure</h2>
+        <p>Start with a single large part that captures the very basic footprint of your island.</p>
+
+        <div class="instruction-block">
+            <p><strong>Build the main landmass:</strong></p>
+            <ol>
+                <li>In the Home tab, click <strong>Part</strong> to insert a new part</li>
+                <li>In Properties, rename it to <code>IslandBase</code></li>
+                <li>Move the part above your reference image (you should be able to see both)</li>
+                <li>Adjust the part's <strong>Size</strong> to roughly match your island's overall dimensions</li>
+                <li>Start with something like <code>150, 10, 120</code> and adjust based on your reference</li>
+                <li>Set <strong>Anchored</strong> to checked</li>
+                <li>Set <strong>Position</strong> Y value to <code>5</code> so the bottom sits at ground level</li>
+            </ol>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Toggle Reference Visibility</h3>
+            <p>Select your reference platform in the Explorer and look at Properties. Check and uncheck the <strong>Transparency</strong> value between 0 and 1 to hide and show your reference. This helps you see how your terrain looks on its own versus compared to the reference.</p>
+        </div>
+
+        <h2>Step 3: Refine the Outline</h2>
+        <p>Your island probably isn't a perfect rectangle. Now we'll add more parts to capture the actual shape.</p>
+
+        <div class="instruction-block">
+            <p><strong>Add additional parts to match your outline:</strong></p>
+            <ol>
+                <li>Look at your reference—where does your island extend beyond your base part?</li>
+                <li>Insert additional parts and position them to fill in those areas</li>
+                <li>Where your island is smaller than the base, we'll address that in a moment</li>
+                <li>Use the <strong>Move</strong> and <strong>Scale</strong> tools to position parts precisely</li>
+                <li>Make sure all terrain parts have <strong>Anchored</strong> checked</li>
+                <li>Name each part descriptively: <code>IslandNorthSection</code>, <code>IslandPeninsula</code>, etc.</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Working with Overlapping Parts</h3>
+            <p>It's perfectly fine for your terrain parts to overlap each other. In fact, this is often easier than trying to make them fit together perfectly. The important thing is the overall silhouette when viewed from above matches your reference.</p>
+        </div>
+
+        <h2>Step 4: Add Basic Elevation</h2>
+        <p>Real islands aren't flat. Let's create some basic height variation to make your island more interesting.</p>
+
+        <div class="instruction-block">
+            <p><strong>Create hills or elevated areas:</strong></p>
+            <ol>
+                <li>Study your reference for areas that appear darker or show shadows (these are often higher ground)</li>
+                <li>Insert new parts where you want elevated areas</li>
+                <li>Make these parts smaller in X and Z dimensions but taller in Y</li>
+                <li>Position them on top of your base terrain</li>
+                <li>Example: <code>60, 20, 60</code> creates a hill-sized elevation</li>
+                <li>Name these parts clearly: <code>CentralHill</code>, <code>NorthRidge</code>, etc.</li>
+            </ol>
+        </div>
+
+        <div class="instruction-block">
+            <p><strong>Create lower areas (beaches or shores):</strong></p>
+            <ol>
+                <li>Beaches appear lighter in satellite images (sand reflects more light)</li>
+                <li>Insert thin, flat parts around your island's edges</li>
+                <li>Example size: <code>40, 1, 20</code> creates a beach-like strip</li>
+                <li>Position them just above or at water level (Y position around 1-2)</li>
+                <li>These will serve as your coastal zones</li>
+            </ol>
+        </div>
+
+        <h2>Step 5: Organize Your Terrain</h2>
+        <p>As you add parts, your Explorer panel gets messy. Let's keep things organized.</p>
+
+        <div class="instruction-block">
+            <ol>
+                <li>In the Explorer, right-click in the Workspace</li>
+                <li>Select <strong>Insert Object</strong> and choose <strong>Folder</strong></li>
+                <li>Name it <code>IslandTerrain</code></li>
+                <li>Drag all your island parts into this folder</li>
+                <li>Your reference platform should stay separate (in a different folder or loose in Workspace)</li>
+            </ol>
+        </div>
+
+        <h2>Step 6: Compare and Iterate</h2>
+        <p>The key to good reference-based building is constant comparison. Let's develop that workflow.</p>
+
+        <div class="instruction-block">
+            <p><strong>Check your work:</strong></p>
+            <ol>
+                <li>Position your camera directly above your island, looking down</li>
+                <li>Zoom out until you can see your whole island and most of the reference</li>
+                <li>Look for areas where your terrain doesn't match the reference outline</li>
+                <li>Ask yourself: Is the general shape right? Are the proportions similar?</li>
+                <li>Make adjustments: move parts, resize them, add new ones, or delete ones that aren't working</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Perfect vs. Good Enough</h3>
+            <p>At this stage, you're creating foundations, not final terrain. Your island doesn't need to match your reference perfectly—it needs to match <em>roughly</em>. You'll add details and refinements throughout the rest of this Star. Right now, aim for "clearly recognizable as the same island" rather than "exactly identical."</p>
+        </div>
+
+        <h2>Understanding Scale in Game Development</h2>
+        <p>One challenge you might face is scale. Your reference image represents a real place that might be hundreds of meters across. But in your game, you need it to be playable—big enough to feel like an island but small enough that players can traverse it in a reasonable time.</p>
+        <p>Here's a useful guideline: Roblox characters are about 5 studs tall. A part that's 100 studs across takes about 10 seconds to run across. Use this to judge your island size. For a runner game, you probably want your island to be 200-500 studs across—large enough for an interesting course but not so huge that it takes minutes to traverse.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: Test the Scale</h3>
+            <p>Press the <strong>Play</strong> button in the Test section of the Home tab. When your character spawns, run around on your island terrain. Does it feel too big? Too small? Stop the test (press the Stop button) and adjust your terrain part sizes accordingly. This trial-and-error process is normal and important.</p>
+        </div>
+
+        <h2>Bonus: Introduction to Terrain Tools</h2>
+        <p>If you're feeling adventurous, you can experiment with Roblox's built-in terrain system alongside or instead of parts.</p>
+
+        <div class="instruction-block">
+            <p><strong>Access terrain tools:</strong></p>
+            <ol>
+                <li>In the Home tab, find the <strong>Terrain</strong> section</li>
+                <li>Click <strong>Generate</strong> to create an initial terrain area, or use <strong>Add</strong> to manually sculpt</li>
+                <li>The <strong>Add</strong> tool lets you paint terrain material (grass, sand, rock) directly into your world</li>
+                <li>Adjust the brush size and strength in the Terrain Editor panel</li>
+                <li>Use your reference image to guide where you paint land versus leaving empty space (which becomes water)</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Terrain Tips for Beginners</h3>
+            <p>Start with a large brush size to quickly block out the general shape, then switch to smaller brushes for details. The <strong>Grow</strong> tool is useful for expanding terrain areas, while <strong>Erode</strong> smooths out blocky edges. Don't worry about making it perfect—terrain sculpting is an art that improves with practice.</p>
+        </div>
+
+        <h2>Common Building Challenges</h2>
+        <div class="troubleshooting">
+            <p><strong>Challenge:</strong> My parts keep falling when I test the game.</p>
+            <p><strong>Solution:</strong> Make sure every terrain part has <strong>Anchored</strong> checked in Properties. Anchored parts ignore gravity and stay exactly where you place them.</p>
+
+            <p><strong>Challenge:</strong> I can't see my reference image anymore under all my terrain parts.</p>
+            <p><strong>Solution:</strong> Select all your terrain parts (click one, then hold Ctrl and click others) and in Properties, adjust <strong>Transparency</strong> to something like 0.3-0.5. This makes them semi-transparent so you can see through to your reference below.</p>
+
+            <p><strong>Challenge:</strong> My island shape doesn't match my reference well.</p>
+            <p><strong>Solution:</strong> This is normal in early stages. Focus on getting the general proportions right first. Also, take a screenshot of your reference and draw over it in a simple paint program to outline the basic geometric shapes you see—this makes it easier to recreate in 3D.</p>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Verify your island foundations are ready before continuing:</p>
+        <ul>
+            <li>Created a base landmass that roughly matches your island's footprint</li>
+            <li>Added additional parts to capture the overall shape of your island</li>
+            <li>Included at least one elevated area (hill) and one lower area (beach/shore)</li>
+            <li>All terrain parts are anchored and organized in a folder</li>
+            <li>When viewed from above, your terrain clearly resembles your reference image's outline</li>
+            <li>Tested scale by running around on your island—it feels appropriately sized</li>
+        </ul>
+        <p>Your island doesn't need to be perfect, but it should be recognizable as the place in your satellite photo.</p>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Next Mission Preview</h2>
+        <p>You've built the bones of your island—the basic landmass is in place. But right now it probably looks pretty bland: gray blocks sitting on the ground. In Mission 3.3, you'll learn about part properties like materials, colors, and transparency. You'll transform those dull gray blocks into grass-covered hills, sandy beaches, and rocky cliffs. Your island is about to start looking like an actual place.</p>
+        <p><strong>Coming up:</strong> Part Properties Deep Dive—adding visual variety and realism to your terrain.</p>
+    </div>
+</body>
+</html>

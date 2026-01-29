@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 5.5: Flow Testing</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>The Refining Process</h1>
+        <p>Every game you've ever loved went through this phase—hundreds of hours of testing, tweaking, and polishing. The first build of Super Mario wasn't perfect. The first build of any great game wasn't perfect. What made them great was the refining process: playing, finding problems, fixing them, and playing again.</p>
+        <p>Your island runner is built, but it's not finished. Finishing means testing it until you can complete it smoothly, until the difficulty curve feels right, until frustration points are eliminated, until the flow from Zone 1 to Zone 5 feels intentional and satisfying.</p>
+        <p>This mission is about iteration—making your game better through systematic testing and improvement. This is where you learn to think like a game designer.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Complete at least five full playthroughs of your island runner, documenting problems and implementing fixes to create a smooth, well-paced game experience.</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>The Flow Testing Process</h2>
+        <p>Flow testing isn't just "playing your game." It's a systematic process with specific goals. Here's the methodology:</p>
+
+        <h3>The Five-Run Framework</h3>
+        <ol>
+            <li><strong>Run 1: The Experience Run</strong> - Play through completely, focus on how it FEELS</li>
+            <li><strong>Run 2: The Data Run</strong> - Track specific metrics (deaths, times, etc.)</li>
+            <li><strong>Run 3: The Problem Run</strong> - Identify every frustration point</li>
+            <li><strong>Run 4: The Fix Verification Run</strong> - Test your improvements</li>
+            <li><strong>Run 5: The Polish Run</strong> - Final sweep for small issues</li>
+        </ol>
+
+        <p>Each run has a different focus. Let's break them down.</p>
+
+        <h2>Run 1: The Experience Run</h2>
+        <p>Reset your spawn point (or delete checkpoint progress). Play through your game from spawn to Zone 5 completion. Don't take notes yet—just experience it as a player would.</p>
+
+        <p>After completing, immediately write down your gut reactions:</p>
+
+        <ul>
+            <li>Which zone was the most fun? Why?</li>
+            <li>Which zone was the most frustrating? Why?</li>
+            <li>Did any zone feel too long or too short?</li>
+            <li>Were there moments where you didn't know where to go?</li>
+            <li>Did difficulty feel like a smooth ramp or were there spikes?</li>
+            <li>How did the ending feel? Satisfying or anticlimactic?</li>
+        </ul>
+
+        <div class="try-it-box">
+            <h3>Try It: The Gut Check</h3>
+            <p>Write down three things that felt GOOD and three things that felt BAD. Be honest. Your gut reaction is often right—if something felt frustrating to you, it'll frustrate players too.</p>
+        </div>
+
+        <h2>Run 2: The Data Run</h2>
+        <p>Now play through again, but this time collect data. Use a stopwatch (phone timer works) and paper to track:</p>
+
+        <h3>Metrics to Track</h3>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <th>Zone</th>
+                <th>Completion Time</th>
+                <th>Death Count</th>
+                <th>Hardest Obstacle</th>
+            </tr>
+            <tr>
+                <td>Zone 1</td>
+                <td>_____ seconds</td>
+                <td>_____ deaths</td>
+                <td>_____</td>
+            </tr>
+            <tr>
+                <td>Zone 2</td>
+                <td>_____ seconds</td>
+                <td>_____ deaths</td>
+                <td>_____</td>
+            </tr>
+            <tr>
+                <td>Zone 3</td>
+                <td>_____ seconds</td>
+                <td>_____ deaths</td>
+                <td>_____</td>
+            </tr>
+            <tr>
+                <td>Zone 4</td>
+                <td>_____ seconds</td>
+                <td>_____ deaths</td>
+                <td>_____</td>
+            </tr>
+            <tr>
+                <td>Zone 5</td>
+                <td>_____ seconds</td>
+                <td>_____ deaths</td>
+                <td>_____</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td><strong>_____</strong></td>
+                <td><strong>_____</strong></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <h3>Analyzing Your Data</h3>
+        <p>Look at your numbers. Here's what healthy data looks like:</p>
+
+        <ul>
+            <li><strong>Completion times</strong>: Should increase from Zone 1 to Zone 4, then stay similar or decrease slightly in Zone 5</li>
+            <li><strong>Death counts</strong>: Should increase progressively (Zone 1: 0-3, Zone 2: 3-6, Zone 3: 5-10, Zone 4: 10-15, Zone 5: 8-12)</li>
+            <li><strong>Total time</strong>: 4-10 minutes is ideal for skilled players (you)</li>
+            <li><strong>Total deaths</strong>: 25-40 deaths is reasonable for a challenging platformer</li>
+        </ul>
+
+        <p>If your numbers deviate significantly, you have work to do.</p>
+
+        <div class="tips-box">
+            <h3>Red Flags in Data</h3>
+            <ul>
+                <li><strong>Zone 2 harder than Zone 4</strong>: Difficulty curve is broken. Revise Zone 2 or Zone 4.</li>
+                <li><strong>50+ deaths in one zone</strong>: That zone is too hard. Simplify obstacles or add checkpoints.</li>
+                <li><strong>0 deaths in Zone 3+</strong>: Later zones are too easy. Add challenge.</li>
+                <li><strong>One obstacle causing 10+ deaths</strong>: That's a frustration point. Fix it.</li>
+            </ul>
+        </div>
+
+        <h2>Run 3: The Problem Run</h2>
+        <p>This run focuses on finding specific problems. As you play, pause and write down every issue you encounter:</p>
+
+        <h3>Common Problems to Look For</h3>
+
+        <h4>1. Frustration Points</h4>
+        <p>An obstacle that kills you repeatedly without feeling fair. Characteristics:</p>
+        <ul>
+            <li>5+ deaths on the same obstacle</li>
+            <li>Success feels like luck, not skill</li>
+            <li>You can't see the solution or what you're doing wrong</li>
+        </ul>
+        <p><strong>Fix</strong>: Make the obstacle easier (shorter gap, larger platform), add visual guides, or add a safe platform before it so players can study it.</p>
+
+        <h4>2. Dead Zones</h4>
+        <p>Areas where nothing happens for too long. Characteristics:</p>
+        <ul>
+            <li>Long stretches of walking with no challenge</li>
+            <li>Safe platforms that are too large or too long</li>
+            <li>Gaps between zones that feel empty</li>
+        </ul>
+        <p><strong>Fix</strong>: Shorten safe platforms, add small obstacles to "dead" areas, or tighten zone transitions.</p>
+
+        <h4>3. Confusion Points</h4>
+        <p>Places where you don't know where to go next. Characteristics:</p>
+        <ul>
+            <li>Multiple paths and the correct one isn't obvious</li>
+            <li>Next platform is hidden or hard to see</li>
+            <li>Visual clutter makes navigation unclear</li>
+        </ul>
+        <p><strong>Fix</strong>: Add visual guides (bright colors, arrows, or lights pointing to the next platform), remove ambiguous paths, or improve sightlines.</p>
+
+        <h4>4. Pacing Issues</h4>
+        <p>Zones that feel too long, too short, or poorly timed. Characteristics:</p>
+        <ul>
+            <li>A zone takes 2+ minutes to complete (too long)</li>
+            <li>A zone takes less than 30 seconds (too short)</li>
+            <li>Difficulty spikes suddenly instead of ramping</li>
+        </ul>
+        <p><strong>Fix</strong>: Add or remove obstacles to adjust length. Insert easier obstacles between hard ones to smooth difficulty spikes.</p>
+
+        <h4>5. Technical Issues</h4>
+        <p>Bugs or scripting problems. Characteristics:</p>
+        <ul>
+            <li>Checkpoint doesn't save progress</li>
+            <li>Kill brick doesn't kill</li>
+            <li>Moving platform glitches or moves incorrectly</li>
+            <li>Player falls through anchored platforms</li>
+        </ul>
+        <p><strong>Fix</strong>: Check scripts, verify properties (Anchored, CanCollide, etc.), and test each element individually.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: The Problem List</h3>
+            <p>Create a numbered list of every problem you find. Be specific: "Zone 3, the fourth moving platform—gap is too large" not just "Zone 3 is hard." Specific problems get specific fixes.</p>
+        </div>
+
+        <h2>Making Fixes</h2>
+        <p>Now that you have a problem list, it's time to fix them. Work through your list systematically:</p>
+
+        <h3>Prioritization</h3>
+        <p>Fix problems in this order:</p>
+        <ol>
+            <li><strong>Technical bugs</strong>: Broken scripts, non-functional checkpoints, etc.</li>
+            <li><strong>Frustration points</strong>: Obstacles that feel unfair or impossible</li>
+            <li><strong>Confusion points</strong>: Places where players get lost</li>
+            <li><strong>Pacing issues</strong>: Zones that are too long/short</li>
+            <li><strong>Dead zones</strong>: Empty or boring areas</li>
+        </ol>
+
+        <h3>Common Fixes</h3>
+
+        <h4>Adjusting Jump Difficulty</h4>
+        <ul>
+            <li><strong>Too hard</strong>: Move platforms closer (reduce gap by 0.5-1 studs)</li>
+            <li><strong>Too easy</strong>: Move platforms farther (increase gap by 0.5-1 studs)</li>
+            <li><strong>Inconsistent</strong>: Standardize gaps—make similar jumps the same distance</li>
+        </ul>
+
+        <h4>Adjusting Moving Platforms</h4>
+        <ul>
+            <li><strong>Too fast</strong>: Increase tween duration (change 2 seconds to 3 seconds)</li>
+            <li><strong>Too slow</strong>: Decrease tween duration</li>
+            <li><strong>Unpredictable</strong>: Use Linear easing style for consistent speed</li>
+            <li><strong>Too hard to land on</strong>: Make platforms larger or slow them down</li>
+        </ul>
+
+        <h4>Adjusting Zone Length</h4>
+        <ul>
+            <li><strong>Too long</strong>: Remove 2-3 obstacles or add a midpoint checkpoint</li>
+            <li><strong>Too short</strong>: Add 2-3 obstacles that match the zone's theme</li>
+        </ul>
+
+        <h4>Improving Clarity</h4>
+        <ul>
+            <li><strong>Add color coding</strong>: Make the "correct" path a bright color, alternate paths duller</li>
+            <li><strong>Add guide parts</strong>: Small arrows or markers pointing to the next platform</li>
+            <li><strong>Improve lighting</strong>: Make important platforms brighter (use Neon material)</li>
+        </ul>
+
+        <div class="tips-box">
+            <h3>The Small Changes Rule</h3>
+            <p>Make small adjustments. Don't move a platform 10 studs if 2 studs might fix it. Test after each change. Small, iterative changes are safer than big overhauls.</p>
+        </div>
+
+        <h2>Run 4: Fix Verification Run</h2>
+        <p>After making fixes, play through again. This run verifies your changes worked:</p>
+
+        <ul>
+            <li>Did the frustration points improve?</li>
+            <li>Are confusion points now clear?</li>
+            <li>Does pacing feel better?</li>
+            <li>Did you accidentally create new problems while fixing old ones?</li>
+        </ul>
+
+        <p>Track deaths and times again. Compare to Run 2 data. Your numbers should improve:</p>
+
+        <ul>
+            <li>Fewer deaths in zones you adjusted</li>
+            <li>Smoother time progression across zones</li>
+            <li>Fewer deaths on specific obstacles you fixed</li>
+        </ul>
+
+        <p>If problems persist, adjust further. Sometimes fixes take multiple iterations.</p>
+
+        <h2>Run 5: The Polish Run</h2>
+        <p>Final playthrough focuses on small details:</p>
+
+        <ul>
+            <li><strong>Visual polish</strong>: Are there floating parts? Misaligned platforms? Color clashes?</li>
+            <li><strong>Script polish</strong>: Do all checkpoints show console messages? Do kill bricks kill consistently?</li>
+            <li><strong>Experience polish</strong>: Does the game feel complete? Is there a satisfying ending?</li>
+        </ul>
+
+        <h3>Polish Checklist</h3>
+        <ul>
+            <li>All platforms anchored</li>
+            <li>No z-fighting (overlapping parts that flicker)</li>
+            <li>Consistent color schemes within each zone</li>
+            <li>Checkpoints placed logically and working</li>
+            <li>Moving platforms move smoothly without glitching</li>
+            <li>Kill bricks clearly visible and functional</li>
+            <li>Spawn point is in the correct location</li>
+            <li>Victory/finish trigger at the end works (if you built one)</li>
+        </ul>
+
+        <div class="try-it-box">
+            <h3>Try It: The Final Details Pass</h3>
+            <p>Walk through your game in Edit mode (not Play mode). Look at every zone with fresh eyes. Find three small things to improve—maybe a platform needs recoloring, maybe a gap needs adjusting by 0.5 studs, maybe a kill brick needs to be slightly larger. Small details compound into big quality.</p>
+        </div>
+
+        <h2>Getting Outside Feedback</h2>
+        <p>If possible, have someone else play your game. Here's how to run a good playtest:</p>
+
+        <h3>Playtest Protocol</h3>
+        <ol>
+            <li><strong>Don't give instructions</strong>: Just say "try to reach the end." See if they figure it out.</li>
+            <li><strong>Don't help</strong>: Watch where they struggle but don't intervene. Their struggles show design flaws.</li>
+            <li><strong>Take notes</strong>: Write down where they die, where they get confused, where they quit.</li>
+            <li><strong>Ask questions after</strong>: "What was most fun? Most frustrating? Did anything feel unfair?"</li>
+        </ol>
+
+        <h3>Interpreting Feedback</h3>
+        <p>Not all feedback is useful, but patterns are:</p>
+
+        <ul>
+            <li><strong>One person struggles at spot X</strong>: Maybe they're not skilled. Monitor.</li>
+            <li><strong>Three people struggle at spot X</strong>: Spot X is too hard. Fix it.</li>
+            <li><strong>Someone says "this is too easy"</strong>: They might be skilled. Don't overreact.</li>
+            <li><strong>Someone quits in frustration</strong>: Big red flag. Find out exactly where and why, then fix it.</li>
+        </ul>
+
+        <div class="tips-box">
+            <h3>The Silent Playtest</h3>
+            <p>Watch someone play without talking. Don't explain, don't hint, don't coach. Just watch. You'll learn more in five minutes of silent observation than in an hour of explanation. Their confusion is your design talking.</p>
+        </div>
+
+        <h2>Difficulty Curve Visualization</h2>
+        <p>After your five runs and fixes, create a final difficulty curve visualization:</p>
+
+        <ol>
+            <li>On paper, draw X-axis (zones 1-5) and Y-axis (difficulty 1-10)</li>
+            <li>Plot your final death counts for each zone</li>
+            <li>Connect the dots</li>
+        </ol>
+
+        <p>Ideal curve: starts low (Zone 1), rises gradually (Zones 2-3), peaks at Zone 4, drops slightly in Zone 5. If your curve spikes randomly or stays flat, more adjustments needed.</p>
+
+        <h2>Knowing When You're Done</h2>
+        <p>How do you know when to stop testing and refining? Here are the signs:</p>
+
+        <ul>
+            <li>You can complete the full game in under 8 minutes</li>
+            <li>Death counts follow a progressive curve (increasing toward Zone 4)</li>
+            <li>No single obstacle kills you more than 3-4 times</li>
+            <li>Each zone feels distinct and intentional</li>
+            <li>The ending feels satisfying</li>
+            <li>You're proud to show it to others</li>
+        </ul>
+
+        <p>Perfection is impossible. "Good enough to be proud of" is the goal. If you've done five playthroughs, fixed major problems, and the game feels solid, you're done with flow testing.</p>
+
+        <h2>Documenting Your Final State</h2>
+        <p>Before finishing this mission, document your final game state:</p>
+
+        <ul>
+            <li><strong>Final completion time</strong>: _____ minutes</li>
+            <li><strong>Final death count</strong>: _____ total deaths</li>
+            <li><strong>Hardest zone</strong>: Zone _____</li>
+            <li><strong>Most fun zone</strong>: Zone _____</li>
+            <li><strong>Biggest improvement made</strong>: _____</li>
+        </ul>
+
+        <p>Keep this documentation. When you revisit this project later or build future games, you'll want to remember what worked.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: The Reflection</h3>
+            <p>Write three sentences about what you learned from flow testing. What surprised you? What was harder than expected? What would you do differently next time? Reflection solidifies learning.</p>
+        </div>
+
+        <h2>What Flow Testing Teaches</h2>
+        <p>Flow testing isn't just about fixing bugs. It's about learning to see your work objectively, to prioritize problems, to make data-driven decisions. These skills transfer to every game you'll ever make.</p>
+
+        <p>Professional game developers spend MONTHS in this phase. You're spending one mission, but you're learning the same process: build, test, identify, fix, repeat. That's game development.</p>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before proceeding, verify:</p>
+        <ul>
+            <li>Completed at least five full playthroughs of your game</li>
+            <li>Tracked data (deaths, times) for each zone</li>
+            <li>Identified and documented frustration points</li>
+            <li>Made adjustments to improve difficulty curve and flow</li>
+            <li>Verified all technical elements work (checkpoints, kill bricks, moving platforms)</li>
+            <li>Difficulty curve follows progressive pattern (peaks at Zone 4)</li>
+            <li>Game completion time is reasonable (4-10 minutes for skilled players)</li>
+            <li>No single obstacle causes excessive repeated deaths</li>
+        </ul>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>What's Next</h2>
+        <p>Your island runner is built and refined. The gameplay is solid. But great games aren't just functional—they're beautiful. In Star 6: Polish Round, you'll add lighting, skyboxes, particles, and final details that transform your game from "working" to "professional." That's where the magic happens.</p>
+        <p>You've learned to build. You've learned to refine. Now you'll learn to polish.</p>
+    </div>
+</body>
+</html>

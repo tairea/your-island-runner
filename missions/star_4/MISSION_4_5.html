@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 4.5: End Goal Detection</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Create Your Victory!</h1>
+        <p>You've built an island. You've created challenging obstacles. You've added checkpoints that save progress and hazards that punish mistakes. Players can run, jump, die, and respawn.</p>
+        <p>But here's the question: how do they WIN?</p>
+        <p>Every great game needs a clear goal - a moment where players pump their fist in the air and shout "YES!" Today, you're going to create that moment. You're building a finish line that recognizes victory and celebrates it in style!</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Script your finish zone to recognize when players complete the course</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>What Makes a Good Finish Line?</h2>
+        <p>Think about finishing a race in real life. There's usually:</p>
+
+        <ul>
+            <li>A clear visual marker (a big banner, a flag, a ribbon)</li>
+            <li>People cheering</li>
+            <li>Maybe confetti or fireworks</li>
+            <li>Someone officially recording that you finished</li>
+            <li>A feeling of ACCOMPLISHMENT</li>
+        </ul>
+
+        <p>We're going to create all of that in your game! Well, except for the people cheering - unless you want to add NPC spectators (that's advanced!).</p>
+
+        <h2>Step 1: Create the Finish Line Part</h2>
+        <p>Let's make a finish zone that's impossible to miss!</p>
+
+        <ol>
+            <li>In the <strong>Workspace</strong>, create a new <strong>Part</strong></li>
+            <li>Rename it to <strong>FinishLine</strong></li>
+            <li>Make it BIG and tall - like size (15, 20, 2) - players should see it from far away</li>
+            <li>Position it at the end of your island runner course</li>
+            <li>Change its color to <strong>Bright yellow</strong> or <strong>Gold</strong></li>
+            <li>Set Material to <strong>Neon</strong> so it glows gloriously</li>
+            <li>Make sure <strong>Anchored</strong> is checked</li>
+            <li>Make sure <strong>CanCollide is UNCHECKED</strong> so players can walk through it</li>
+        </ol>
+
+        <div class="info-box">
+            <h3>Why CanCollide = False?</h3>
+            <p>We want players to walk THROUGH the finish line, not bounce off it! Having CanCollide unchecked means they'll pass right through it (like a hologram), which triggers the Touched event but doesn't block their movement.</p>
+        </div>
+
+        <h2>Step 2: Write the Basic Finish Line Script</h2>
+        <p>Right-click your <strong>FinishLine</strong> part and insert a <strong>Script</strong>. Rename it to <strong>FinishScript</strong>.</p>
+
+        <p>Here's the starter code:</p>
+
+        <div class="code-example">
+            <pre><code>local finishLine = script.Parent
+local winners = {}
+
+finishLine.Touched:Connect(function(hit)
+    local humanoid = hit.Parent:FindFirstChild("Humanoid")
+
+    if humanoid then
+        local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+
+        if player and not winners[player] then
+            winners[player] = true
+            print(player.Name .. " finished the course!")
+        end
+    end
+end)</code></pre>
+        </div>
+
+        <h3>Breaking Down the Code</h3>
+
+        <h4>Line 2: The Winners Table</h4>
+        <div class="code-example">
+            <pre><code>local winners = {}</code></pre>
+        </div>
+        <p>We create an empty table to track who has already finished. This prevents the same player from "winning" multiple times if they walk back and forth through the finish line.</p>
+
+        <h4>Lines 4-14: The Touched Event</h4>
+        <p>This should look familiar by now!</p>
+        <ul>
+            <li><strong>Line 5:</strong> Find the Humanoid (is this a character?)</li>
+            <li><strong>Line 8:</strong> Get the player from the character</li>
+            <li><strong>Line 10:</strong> Check if we found a player AND they're not already in the winners table</li>
+            <li><strong>Line 11:</strong> Add them to the winners table</li>
+            <li><strong>Line 12:</strong> Announce their victory!</li>
+        </ul>
+
+        <h2>Step 3: Test Your Basic Finish Line</h2>
+        <ol>
+            <li>Click <strong>Play</strong></li>
+            <li>Run through your course (or just teleport to the finish line for testing)</li>
+            <li>Walk through the FinishLine part</li>
+            <li>Check the Output window - you should see "[Your Name] finished the course!"</li>
+        </ol>
+
+        <p>Nice! But that's pretty boring. Let's make winning feel AMAZING!</p>
+
+        <h2>Step 4: Add Visual Celebration</h2>
+        <p>Let's make the finish line put on a show! Update your script:</p>
+
+        <div class="code-example">
+            <pre><code>local finishLine = script.Parent
+local winners = {}
+
+finishLine.Touched:Connect(function(hit)
+    local humanoid = hit.Parent:FindFirstChild("Humanoid")
+
+    if humanoid then
+        local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+
+        if player and not winners[player] then
+            winners[player] = true
+            print(player.Name .. " finished the course!")
+
+            -- CELEBRATION TIME!
+
+            -- Flash the finish line
+            for i = 1, 5 do
+                finishLine.BrickColor = BrickColor.new("Bright red")
+                wait(0.1)
+                finishLine.BrickColor = BrickColor.new("Bright yellow")
+                wait(0.1)
+            end
+
+            -- Make the player jump for joy!
+            humanoid.Jump = true
+        end
+    end
+end)</code></pre>
+        </div>
+
+        <h3>What's New?</h3>
+
+        <h4>The For Loop (Lines 17-22)</h4>
+        <div class="code-example">
+            <pre><code>for i = 1, 5 do
+    finishLine.BrickColor = BrickColor.new("Bright red")
+    wait(0.1)
+    finishLine.BrickColor = BrickColor.new("Bright yellow")
+    wait(0.1)
+end</code></pre>
+        </div>
+        <p>This is your first <strong>for loop</strong>! It repeats code multiple times. Here's what it does:</p>
+        <ul>
+            <li><strong>for i = 1, 5 do</strong> - Repeat this code 5 times</li>
+            <li><strong>i</strong> is a counter variable (1, then 2, then 3, then 4, then 5)</li>
+            <li>Each time through: turn red, wait 0.1 seconds, turn yellow, wait 0.1 seconds</li>
+            <li>This creates a flashing effect!</li>
+        </ul>
+
+        <h4>Making the Player Jump</h4>
+        <div class="code-example">
+            <pre><code>humanoid.Jump = true</code></pre>
+        </div>
+        <p>This makes the character jump automatically - like they're celebrating!</p>
+
+        <p>Test it now! When you cross the finish line, it flashes and your character jumps. Much better!</p>
+
+        <h2>Step 5: Add Sound Effects</h2>
+        <p>Audio makes victory feel even better! Let's add a victory sound.</p>
+
+        <ol>
+            <li>In the <strong>FinishLine</strong> part, insert a <strong>Sound</strong> object</li>
+            <li>Name it <strong>VictorySound</strong></li>
+            <li>In the Properties, find <strong>SoundId</strong></li>
+            <li>Click it and search for "victory" or "fanfare" in the sound library</li>
+            <li>Pick a sound you like! (Try <code>rbxassetid://5153845714</code> for a classic victory fanfare)</li>
+        </ol>
+
+        <p>Now add this line right after <code>winners[player] = true</code>:</p>
+
+        <div class="code-example">
+            <pre><code>finishLine.VictorySound:Play()</code></pre>
+        </div>
+
+        <p>Now there's an epic sound when players win!</p>
+
+        <div class="try-it">
+            <h3>Try Different Sounds!</h3>
+            <p>Search the Roblox audio library for different victory sounds:</p>
+            <ul>
+                <li>"applause" - Crowd cheering</li>
+                <li>"fireworks" - Celebration explosions</li>
+                <li>"success" - Success jingles</li>
+                <li>"fanfare" - Trumpet victory music</li>
+            </ul>
+        </div>
+
+        <h2>Step 6: Add Particle Effects</h2>
+        <p>Let's add some visual pizzazz with particles!</p>
+
+        <ol>
+            <li>In the <strong>FinishLine</strong> part, insert a <strong>ParticleEmitter</strong></li>
+            <li>Name it <strong>Confetti</strong></li>
+            <li>In Properties, customize it:
+                <ul>
+                    <li><strong>Texture:</strong> Search for confetti or sparkles</li>
+                    <li><strong>Rate:</strong> 100 (how many particles per second)</li>
+                    <li><strong>Speed:</strong> 10</li>
+                    <li><strong>Lifetime:</strong> 2 to 4 (how long each particle lasts)</li>
+                    <li><strong>Enabled:</strong> UNCHECK this (we'll turn it on with code)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <p>Add this code to your script (after playing the sound):</p>
+
+        <div class="code-example">
+            <pre><code>-- Burst of confetti!
+finishLine.Confetti.Enabled = true
+wait(2)
+finishLine.Confetti.Enabled = false</code></pre>
+        </div>
+
+        <p>Now when players win, there's a 2-second burst of confetti particles!</p>
+
+        <h2>Step 7: Track Wins on the Leaderboard</h2>
+        <p>Let's count how many times each player has completed the course!</p>
+
+        <p>First, update your <strong>LeaderboardSetup</strong> script from Mission 4.3 (in ServerScriptService). If you don't have it, create it now:</p>
+
+        <div class="code-example">
+            <pre><code>game.Players.PlayerAdded:Connect(function(player)
+    local leaderstats = Instance.new("Folder")
+    leaderstats.Name = "leaderstats"
+    leaderstats.Parent = player
+
+    local checkpointReached = Instance.new("IntValue")
+    checkpointReached.Name = "Checkpoint"
+    checkpointReached.Value = 0
+    checkpointReached.Parent = leaderstats
+
+    -- NEW: Add wins counter
+    local wins = Instance.new("IntValue")
+    wins.Name = "Wins"
+    wins.Value = 0
+    wins.Parent = leaderstats
+end)</code></pre>
+        </div>
+
+        <p>Now update your <strong>FinishScript</strong> to increment the win count:</p>
+
+        <div class="code-example">
+            <pre><code>if player and not winners[player] then
+    winners[player] = true
+    print(player.Name .. " finished the course!")
+
+    -- Update win count
+    local leaderstats = player:FindFirstChild("leaderstats")
+    if leaderstats then
+        local wins = leaderstats:FindFirstChild("Wins")
+        if wins then
+            wins.Value = wins.Value + 1
+        end
+    end
+
+    -- [Rest of celebration code here...]
+end</code></pre>
+        </div>
+
+        <p>Now the leaderboard tracks how many times each player has beaten your course!</p>
+
+        <h2>Step 8: Add a Victory Message</h2>
+        <p>Let's display a big message on the player's screen when they win! This requires a bit more advanced code, but you can do it!</p>
+
+        <p>Add this code to your FinishScript (after updating the win count):</p>
+
+        <div class="code-example">
+            <pre><code>-- Create victory message on player's screen
+local message = Instance.new("Message")
+message.Text = "🎉 " .. player.Name .. " completed the Island Runner! 🎉"
+message.Parent = player.PlayerGui
+wait(5)
+message:Destroy()</code></pre>
+        </div>
+
+        <h3>What This Does</h3>
+        <ul>
+            <li><strong>Instance.new("Message")</strong> - Creates a Message GUI element</li>
+            <li><strong>message.Text</strong> - Sets what it says (with emoji!)</li>
+            <li><strong>message.Parent = player.PlayerGui</strong> - Shows it on this player's screen</li>
+            <li><strong>wait(5)</strong> - Keep it visible for 5 seconds</li>
+            <li><strong>message:Destroy()</strong> - Remove it from the screen</li>
+        </ul>
+
+        <p>Now players get a personal victory message that appears across the middle of their screen!</p>
+
+        <h2>Step 9: Optional - Allow Replay</h2>
+        <p>Right now, players can only win once (because we add them to the winners table). What if we want them to be able to play again?</p>
+
+        <p>You have two options:</p>
+
+        <h3>Option 1: Allow Unlimited Replays</h3>
+        <p>Simply remove the winners table check! This lets players win over and over:</p>
+
+        <div class="code-example">
+            <pre><code>if player then  -- Remove the "and not winners[player]" part
+    -- They can win every time they cross!
+end</code></pre>
+        </div>
+
+        <h3>Option 2: Reset After Some Time</h3>
+        <p>Let them win once, but allow replays after a cooldown:</p>
+
+        <div class="code-example">
+            <pre><code>if player and not winners[player] then
+    winners[player] = true
+
+    -- [All your celebration code...]
+
+    -- Allow replay after 10 seconds
+    wait(10)
+    winners[player] = nil
+    print(player.Name .. " can play again!")
+end</code></pre>
+        </div>
+
+        <h2>Step 10: Make Your Finish Line Beautiful</h2>
+        <p>Now that it works, make it look AMAZING!</p>
+
+        <div class="try-it">
+            <h3>Design Ideas</h3>
+            <ul>
+                <li><strong>Build an arch:</strong> Create multiple parts forming a doorway to run through</li>
+                <li><strong>Add a flag:</strong> Put a flag part on top of the finish line</li>
+                <li><strong>Light it up:</strong> Add PointLight objects inside the finish line with bright colors</li>
+                <li><strong>Create a platform:</strong> Build a winner's podium beyond the finish line</li>
+                <li><strong>Add decorations:</strong> Balloons, banners, signs saying "FINISH!"</li>
+            </ul>
+        </div>
+
+        <h2>The Complete Final Script</h2>
+        <p>Here's what your finished FinishScript might look like with all the features:</p>
+
+        <div class="code-example">
+            <pre><code>local finishLine = script.Parent
+local winners = {}
+
+finishLine.Touched:Connect(function(hit)
+    local humanoid = hit.Parent:FindFirstChild("Humanoid")
+
+    if humanoid then
+        local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+
+        if player and not winners[player] then
+            winners[player] = true
+            print(player.Name .. " finished the course!")
+
+            -- Update win count
+            local leaderstats = player:FindFirstChild("leaderstats")
+            if leaderstats then
+                local wins = leaderstats:FindFirstChild("Wins")
+                if wins then
+                    wins.Value = wins.Value + 1
+                end
+            end
+
+            -- Victory message
+            local message = Instance.new("Message")
+            message.Text = "🎉 " .. player.Name .. " completed the Island Runner! 🎉"
+            message.Parent = player.PlayerGui
+
+            -- Play sound
+            finishLine.VictorySound:Play()
+
+            -- Confetti burst
+            finishLine.Confetti.Enabled = true
+
+            -- Flash the finish line
+            for i = 1, 5 do
+                finishLine.BrickColor = BrickColor.new("Bright red")
+                wait(0.1)
+                finishLine.BrickColor = BrickColor.new("Bright yellow")
+                wait(0.1)
+            end
+
+            -- Make player jump for joy
+            humanoid.Jump = true
+
+            -- Clean up effects
+            wait(2)
+            finishLine.Confetti.Enabled = false
+            message:Destroy()
+
+            -- Allow replay after cooldown
+            wait(10)
+            winners[player] = nil
+        end
+    end
+end)</code></pre>
+        </div>
+
+        <h2>Common Problems and Solutions</h2>
+
+        <div class="troubleshooting">
+            <h3>Problem: The finish line doesn't detect me</h3>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Make sure CanCollide is UNCHECKED (you need to pass through it)</li>
+                <li>Verify the script is inside the FinishLine part</li>
+                <li>Check that the part is big enough to actually touch</li>
+                <li>Look for errors in the Output window</li>
+            </ul>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>Problem: The victory message doesn't show up</h3>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Make sure you're setting <code>message.Parent = player.PlayerGui</code> (not workspace)</li>
+                <li>Check that you got the player object correctly</li>
+                <li>Try using a print statement to verify the code is running</li>
+            </ul>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>Problem: The sound doesn't play</h3>
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li>Verify the Sound object is named correctly and is inside the FinishLine</li>
+                <li>Check that SoundId is set to a valid audio asset</li>
+                <li>Make sure your computer volume is up!</li>
+            </ul>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>Problem: Particles keep spraying forever</h3>
+            <p><strong>Solution:</strong> Make sure you set <code>finishLine.Confetti.Enabled = false</code> after the wait() time. Also verify the ParticleEmitter starts with Enabled unchecked in Properties.</p>
+        </div>
+
+        <h2>Why This Matters</h2>
+        <p>You just completed something huge: a full game loop!</p>
+
+        <ul>
+            <li><strong>Players spawn</strong> at the beginning</li>
+            <li><strong>They navigate obstacles,</strong> using checkpoints to save progress</li>
+            <li><strong>They face challenges</strong> with kill zones that test their skills</li>
+            <li><strong>They reach the goal</strong> and receive satisfying feedback</li>
+            <li><strong>They can see their achievement</strong> on the leaderboard</li>
+        </ul>
+
+        <p>This is the core structure of almost every platformer, runner, and obstacle course game ever made. You understand game design now!</p>
+
+        <div class="pro-tip">
+            <h3>Pro Game Designer Tip</h3>
+            <p>The feeling of victory should be proportional to the challenge. If your game is super hard, make the celebration EPIC - huge explosions, dramatic music, confetti everywhere! If it's easier, a simple message and sound is fine. The celebration is the emotional payoff for the player's effort. Make it count!</p>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before moving on, make sure you can:</p>
+        <ul>
+            <li>Create a finish line part that detects player touches</li>
+            <li>Use a winners table to track who has completed the course</li>
+            <li>Add visual effects (flashing colors, particles)</li>
+            <li>Play sound effects on victory</li>
+            <li>Display victory messages on players' screens</li>
+            <li>Update leaderboard stats to track wins</li>
+            <li>Use for loops to create repeating effects</li>
+            <li>Design a finish line that looks celebratory and clear</li>
+        </ul>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Congratulations!</h2>
+        <p>You've completed Star 4 - Scripting Essentials! You went from knowing NOTHING about coding to building:</p>
+        <ul>
+            <li>Scripts that print messages</li>
+            <li>Interactive parts that respond to touches</li>
+            <li>A complete checkpoint system</li>
+            <li>Dangerous obstacles that test player skill</li>
+            <li>A satisfying finish line with celebrations</li>
+        </ul>
+
+        <p>More importantly, you learned the fundamental concepts that ALL programmers use: variables, functions, events, conditionals (if statements), loops, and parameters. These concepts work in every programming language, not just Roblox!</p>
+
+        <p>In the next star - World Building Round 2 - you'll use these scripting skills to add even more advanced mechanics to your island. Get ready to create moving platforms, rotating obstacles, timed challenges, and more!</p>
+
+        <p>You're not just a builder anymore. You're a game developer.</p>
+    </div>
+</body>
+</html>

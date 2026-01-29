@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 3.5: Connect the Path</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Mission 3.5: Connect the Path</h1>
+        <p>Imagine playing a runner game where you spawn into the world with no idea where to go. You can see interesting structures in the distance, but there's no clear way to reach them. You wander aimlessly until you get bored and quit. This is what happens when level designers forget to create paths.</p>
+        <p>Paths aren't just walkways—they're silent guides. They're visual communication that says "go this way" without using words or arrows. Professional game designers spend enormous time on path layout because paths control pacing, create flow, and make players feel like they're on a journey rather than wandering randomly. You're about to learn these same techniques, connecting your spawn point to your landmark with a path that feels natural, clear, and exciting to follow.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Build a clear, visually distinct path from your game's spawn point to your first landmark that naturally guides player movement and feels satisfying to traverse.</p>
+        <p><strong>Success Criteria:</strong> A complete path with visual guidance elements, tested for clarity, that a new player can follow without confusion from spawn to landmark.</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Understanding Spawn Points</h2>
+        <p>Before you can build a path, you need to know where it starts. In Roblox, spawn points determine where players appear when they join your game.</p>
+
+        <div class="concept-box">
+            <p>By default, Roblox places a <strong>SpawnLocation</strong> in every new game. This is a special part (usually a gray platform) that marks where players spawn. When a player joins or respawns after falling, they appear standing on this part.</p>
+        </div>
+
+        <div class="instruction-block">
+            <p><strong>Locate or create your spawn point:</strong></p>
+            <ol>
+                <li>Look in your Workspace Explorer for an object called <strong>SpawnLocation</strong></li>
+                <li>If you don't see one, insert it: Home tab > <strong>Gameplay</strong> section > <strong>Spawn</strong></li>
+                <li>Position your spawn point at the starting area of your island</li>
+                <li>This should be away from your landmark—you want players to travel to reach it</li>
+                <li>Place it on stable ground, not floating in air or underwater</li>
+                <li>Set its <strong>Position</strong> Y value a few studs above terrain (e.g., if terrain is at Y=5, spawn at Y=7)</li>
+            </ol>
+        </div>
+
+        <div class="instruction-block">
+            <p><strong>Configure spawn properties:</strong></p>
+            <ol>
+                <li>Select the SpawnLocation in Explorer</li>
+                <li>In Properties, ensure <strong>Anchored</strong> is checked</li>
+                <li>Find <strong>CanCollide</strong> and make sure it's checked (players need to stand on it)</li>
+                <li>Set <strong>Transparency</strong> to 0.5 (semi-transparent, so it's visible but not obtrusive)</li>
+                <li>The spawn has a property called <strong>Duration</strong>—this controls respawn time, keep it at default (10 seconds) for now</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Spawn Point Placement Strategy</h3>
+            <p>Place your spawn in a location that gives players a good view of where they should go. If possible, position it so that when they spawn, they're facing toward your landmark or the path entrance. This instant visual communication ("I should go that way") is crucial for good level design.</p>
+        </div>
+
+        <h2>Step 1: Plan Your Path Route</h2>
+        <p>Don't start building the path immediately. First, plan the route it will take.</p>
+
+        <div class="instruction-block">
+            <p><strong>Route planning:</strong></p>
+            <ol>
+                <li>Look at your satellite reference—does a natural path already exist between spawn and landmark?</li>
+                <li>If yes, try to follow that real-world route (roads, sidewalks, trails)</li>
+                <li>If no, design a route that feels natural to the terrain</li>
+                <li>Avoid perfectly straight paths—slight curves feel more organic and interesting</li>
+                <li>Consider what terrain the path crosses (flat ground? Up a hill? Around obstacles?)</li>
+                <li>Estimate the path length—aim for 10-20 seconds of running time</li>
+            </ol>
+        </div>
+
+        <div class="design-principle">
+            <h3>Path Design Principles</h3>
+            <ul>
+                <li><strong>Clarity:</strong> Players should never wonder "where do I go next?"</li>
+                <li><strong>Interest:</strong> The path should have some visual variety (not just a long straight hallway)</li>
+                <li><strong>Pacing:</strong> The journey should feel purposeful, not tedious</li>
+                <li><strong>Integration:</strong> The path should feel like it belongs in the environment, not randomly placed</li>
+            </ul>
+        </div>
+
+        <h2>Step 2: Build the Basic Path</h2>
+        <p>Now let's construct the physical path itself.</p>
+
+        <div class="instruction-block">
+            <p><strong>Create path segments:</strong></p>
+            <ol>
+                <li>Insert a new part near your spawn point</li>
+                <li>Scale it to path-like dimensions: roughly <code>6, 0.5, 20</code> (wide enough to run on, thin, long)</li>
+                <li>Position it starting at your spawn, pointing toward your landmark</li>
+                <li>Apply a path-appropriate material: <strong>Concrete</strong>, <strong>Slate</strong>, <strong>Ground</strong>, or <strong>Wood</strong> depending on your island's theme</li>
+                <li>Choose a color that contrasts with the surrounding terrain (so the path stands out)</li>
+                <li>Anchor the part</li>
+                <li>Name it <code>Path_01</code></li>
+            </ol>
+        </div>
+
+        <div class="instruction-block">
+            <p><strong>Extend the path:</strong></p>
+            <ol>
+                <li>Duplicate your first path segment (Ctrl+D on Windows, Cmd+D on Mac)</li>
+                <li>Move the duplicate to continue the path forward</li>
+                <li>Overlap segments slightly so there are no gaps players could fall through</li>
+                <li>Rotate segments as needed to create curves using the Rotate tool</li>
+                <li>Continue duplicating and positioning until your path reaches the landmark</li>
+                <li>Name subsequent segments <code>Path_02</code>, <code>Path_03</code>, etc.</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Path Width Guidelines</h3>
+            <p>A path width of 6-8 studs is comfortable for running—wide enough that players don't constantly fall off, narrow enough that it feels like a defined route. For challenge sections, you can make narrower paths (3-4 studs) that require more careful movement.</p>
+        </div>
+
+        <h2>Step 3: Adjust for Terrain</h2>
+        <p>Your path crosses varying terrain elevations. Let's make it conform naturally to the landscape.</p>
+
+        <div class="instruction-block">
+            <p><strong>Terrain-conform techniques:</strong></p>
+            <ol>
+                <li>Where the path goes uphill, position path segments higher in the Y axis</li>
+                <li>Create gentle slopes by positioning each segment slightly higher than the last</li>
+                <li>Avoid sudden height changes (stairs-like jumps between segments)</li>
+                <li>For steep hills, consider adding actual steps: smaller parts (like <code>6, 1, 3</code>) arranged in a staircase</li>
+                <li>Make sure each segment sits just above the terrain surface (0.5-1 studs above)</li>
+            </ol>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: The Running Test</h3>
+            <p>Hit Play and spawn into your world. Run along the path you've built so far. Does it feel smooth? Are there any gaps you fall through? Any bumps that stop your movement? Any confusing sections where you're not sure which way to go? Stop the test and fix these issues before continuing.</p>
+        </div>
+
+        <h2>Step 4: Add Visual Guidance</h2>
+        <p>A physical path is good. A path with clear visual signals is better. Let's add elements that guide the player's eye.</p>
+
+        <div class="instruction-block">
+            <p><strong>Create path markers:</strong></p>
+            <ol>
+                <li>Insert small parts along the edges of your path</li>
+                <li>Size them like posts or markers: <code>1, 3, 1</code> creates a thin vertical post</li>
+                <li>Space them evenly along the path (every 15-20 studs)</li>
+                <li>Apply a bright or contrasting color (if path is brown, make markers white or yellow)</li>
+                <li>These markers create a visual rhythm that says "follow this route"</li>
+                <li>Organize them in a folder called <code>PathMarkers</code></li>
+            </ol>
+        </div>
+
+        <div class="instruction-block">
+            <p><strong>Add directional hints:</strong></p>
+            <ol>
+                <li>At path curves or intersections, add larger markers or differently colored parts</li>
+                <li>You can use triangular parts (wedges) pointing in the direction players should go</li>
+                <li>Home tab > Part dropdown > <strong>Wedge</strong> to insert triangular parts</li>
+                <li>Rotate wedges to point along the path direction</li>
+                <li>These subtle arrows guide players without being heavy-handed</li>
+            </ol>
+        </div>
+
+        <div class="design-principle">
+            <h3>The Breadcrumb Technique</h3>
+            <p>Game designers use "breadcrumbing"—leaving a trail of visual hints that draw players forward. This can be literal markers (like you just built), or it can be subtle: a line of trees, a color gradient, interesting objects spaced along the route. The key is creating a visual rhythm that pulls the eye forward, making players want to see what's next.</p>
+        </div>
+
+        <h2>Step 5: Create Interest Along the Path</h2>
+        <p>A path that's just a flat strip of concrete is functional but boring. Let's make the journey itself interesting.</p>
+
+        <div class="instruction-block">
+            <p><strong>Add path variations:</strong></p>
+            <ol>
+                <li><strong>Width changes:</strong> Make some sections wider (safe areas) and some narrower (challenge sections)</li>
+                <li><strong>Small obstacles:</strong> Place parts on the path that players must jump over (size <code>4, 1, 1</code> works well)</li>
+                <li><strong>Decorations:</strong> Add rocks, plants, or other thematic objects near the path edges</li>
+                <li><strong>Elevation variety:</strong> Include a few small jumps between path sections (2-3 stud gaps or height differences)</li>
+                <li><strong>Material changes:</strong> Transition from one material to another (concrete to wood, stone to dirt) to show progression</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Pacing Through Path Design</h3>
+            <p>The beginning of your path (near spawn) should be easy and clear—this teaches players how to navigate. The middle can introduce mild challenges (small jumps, narrow sections). Near the landmark, you can increase difficulty as a transition into the landmark's obstacles. This gradual difficulty curve feels natural and builds player confidence.</p>
+        </div>
+
+        <h2>Step 6: Organize Your Path</h2>
+        <p>Keep your workspace organized as path complexity grows.</p>
+
+        <div class="instruction-block">
+            <ol>
+                <li>Create a folder in Workspace called <code>MainPath</code></li>
+                <li>Inside it, create sub-folders: <code>PathSegments</code>, <code>PathMarkers</code>, <code>PathObstacles</code>, <code>PathDecorations</code></li>
+                <li>Move all path-related parts into appropriate folders</li>
+                <li>This organization makes it easy to hide/show path elements while building other areas</li>
+            </ol>
+        </div>
+
+        <h2>Step 7: Test Navigation Flow</h2>
+        <p>Now test the complete experience: spawn to landmark via your path.</p>
+
+        <div class="instruction-block">
+            <p><strong>Complete playthrough test:</strong></p>
+            <ol>
+                <li>Click <strong>Play</strong> in the Test section</li>
+                <li>When you spawn, immediately look around—can you see the path? Is it obvious?</li>
+                <li>Run along the path without jumping (just normal running)</li>
+                <li>Do you ever feel lost or confused about direction?</li>
+                <li>Time how long it takes to reach the landmark (should be 10-30 seconds)</li>
+                <li>Does the journey feel too long? Too short? Just right?</li>
+                <li>When you reach the landmark, does it feel like a satisfying arrival?</li>
+            </ol>
+        </div>
+
+        <div class="instruction-block">
+            <p><strong>Iterate based on feedback:</strong></p>
+            <ol>
+                <li>If you felt lost: add more visual guidance (markers, colors, directional hints)</li>
+                <li>If the path felt too long: create a more direct route or remove unnecessary curves</li>
+                <li>If the path felt too short: extend it or add more interesting elements along the way</li>
+                <li>If the path was boring: add obstacles, variations, decorations</li>
+                <li>Make adjustments and test again until the flow feels right</li>
+            </ol>
+        </div>
+
+        <h2>Advanced Path Techniques</h2>
+        <p>Once your basic path works well, consider these advanced techniques.</p>
+
+        <div class="advanced-techniques">
+            <p><strong>Branching paths:</strong> Create two route options—an easy, longer path and a harder, shorter path. Let players choose.</p>
+            <p><strong>Checkpoint systems:</strong> Place spawn points along the path so players don't restart from the beginning if they fail.</p>
+            <p><strong>Environmental storytelling:</strong> Use objects along the path to tell a story (ruins getting more intact as you travel, vegetation changing types, etc.).</p>
+            <p><strong>Lighting guides:</strong> If you have advanced lighting knowledge, use brighter areas to draw players forward.</p>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: The New Player Test</h3>
+            <p>If possible, have someone else (friend, classmate, family member) test your game. Watch them play without giving instructions. Do they naturally follow the path? Where do they get confused? Watching new players reveals design issues you might not notice yourself because you built it.</p>
+        </div>
+
+        <h2>Connecting Path to Landmark</h2>
+        <p>The path's endpoint at your landmark needs special attention—it's a transition point between navigation and gameplay challenge.</p>
+
+        <div class="instruction-block">
+            <p><strong>Create a landmark entrance:</strong></p>
+            <ol>
+                <li>The last path segment should lead clearly into the landmark's first obstacle</li>
+                <li>Consider adding a "threshold" marker: a different colored part or small archway that signals "you're entering the challenge zone"</li>
+                <li>Make sure there's a clear, safe platform where the path meets the landmark</li>
+                <li>The transition should feel natural, not abrupt</li>
+            </ol>
+        </div>
+
+        <h2>Common Path Design Issues</h2>
+        <div class="troubleshooting">
+            <p><strong>Issue:</strong> Players keep falling off the path.</p>
+            <p><strong>Solution:</strong> Your path is either too narrow, has gaps between segments, or has sudden height changes. Widen the path, close gaps, and smooth elevation transitions.</p>
+
+            <p><strong>Issue:</strong> Players don't notice the path and wander off in wrong directions.</p>
+            <p><strong>Solution:</strong> Increase visual contrast. Make the path a very different color from terrain. Add more markers. Ensure the path is visible from the spawn point.</p>
+
+            <p><strong>Issue:</strong> The path feels endless and tedious.</p>
+            <p><strong>Solution:</strong> Add variety and pacing. Include small challenges, visual changes, decorations. Or simply shorten the path—sometimes less is more in level design.</p>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Confirm your path system is complete:</p>
+        <ul>
+            <li>Configured spawn point in a logical starting location</li>
+            <li>Built a continuous path from spawn to your first landmark</li>
+            <li>Path is visually distinct from surrounding terrain (clear material/color contrast)</li>
+            <li>Added visual guidance elements (markers, directional hints, or environmental cues)</li>
+            <li>Path includes some variety (not perfectly straight and flat throughout)</li>
+            <li>Tested complete spawn-to-landmark navigation multiple times</li>
+            <li>Path feels clear to follow without confusion</li>
+            <li>Journey takes an appropriate amount of time (10-30 seconds typical)</li>
+            <li>Organized all path elements in folders in Explorer</li>
+        </ul>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Star 3 Complete</h2>
+        <p>You've transformed your satellite screenshot into a three-dimensional, playable world. You built terrain, added visual character through materials and colors, created a recognizable landmark with gameplay challenges, and connected everything with a path that guides players naturally. This is world-building—the foundation of level design.</p>
+        <p>Your island isn't finished (games are never truly finished), but it's now a functional runner course. A player can spawn, follow your path, reach a landmark, and navigate obstacles. That's a complete gameplay loop.</p>
+
+        <h3>What You've Learned in Star 3:</h3>
+        <ul>
+            <li>Importing and using reference images in 3D workspace</li>
+            <li>Building terrain from 2D references to 3D forms</li>
+            <li>Using materials, colors, and transparency to create environmental character</li>
+            <li>Transforming real locations into playable game spaces</li>
+            <li>Designing obstacles and platforming challenges</li>
+            <li>Creating paths that guide player movement</li>
+            <li>Testing and iterating based on playtest feedback</li>
+        </ul>
+
+        <h3>Looking Ahead to Star 4: Scripting Essentials</h3>
+        <p>Right now, your world is static. Parts don't move, nothing responds to player actions, and there's no way to track progress or create game logic. That's all about to change. In Star 4, you'll learn Lua scripting—the programming language that brings Roblox games to life. You'll add moving platforms, create a timer system, spawn obstacles, and build interactive elements. Your static world will transform into a dynamic, reactive game.</p>
+        <p>But before you move on, take a moment to appreciate what you've built. Run through your island one more time. This place didn't exist a few missions ago. You created it from a satellite image, your planning, and your work. That's real game development.</p>
+    </div>
+</body>
+</html>

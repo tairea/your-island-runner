@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 3.4: First Landmark Zone</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Mission 3.4: First Landmark Zone</h1>
+        <p>You've built the island. You've made it look believable. Now comes the most exciting part: making it playable. This is where environment building meets game design—where you stop thinking like a landscape artist and start thinking like a level designer.</p>
+        <p>Every great platformer has memorable locations. Think about games you've played: the castle level, the forest ruins, the industrial zone. These aren't just decorations—they're challenges built into recognizable places. You're about to do the same thing with a real location from your own neighborhood. That playground from your satellite image? It's about to become a jumping challenge. That parking lot? Maybe it's now a maze of obstacles. This is where your local island becomes your personal game world.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Build one landmark from your satellite reference as an interactive obstacle area that players can navigate, jump through, or overcome as part of your runner course.</p>
+        <p><strong>Success Criteria:</strong> A recognizable landmark structure with at least 3 distinct obstacles, tested for playability, that feels fun to navigate.</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Choosing Your First Landmark</h2>
+        <p>Back in Star 2, you identified several landmarks on your island. Now you need to pick one to build first. Here's what to consider:</p>
+
+        <div class="selection-guide">
+            <p><strong>Good first landmarks:</strong></p>
+            <ul>
+                <li>Distinct, recognizable structures (playgrounds, buildings, monuments)</li>
+                <li>Areas with natural height variation (hills, structures with levels)</li>
+                <li>Locations that are relatively simple in shape (not too many complex details)</li>
+                <li>Places you remember well or have personal connection to</li>
+            </ul>
+
+            <p><strong>Landmarks to save for later:</strong></p>
+            <ul>
+                <li>Extremely complex architecture (save until you're more experienced)</li>
+                <li>Landmarks that require scripting to function (moving parts, interactive elements)</li>
+                <li>Very small or very large features (harder to balance gameplay)</li>
+            </ul>
+        </div>
+
+        <div class="instruction-block">
+            <p><strong>Select your landmark:</strong></p>
+            <ol>
+                <li>Look at your satellite reference in Roblox Studio</li>
+                <li>Review the landmarks you identified in Star 2</li>
+                <li>Choose one that excites you and seems buildable</li>
+                <li>Take a moment to imagine how players might move through it</li>
+            </ol>
+        </div>
+
+        <h2>Step 1: Position Your Landmark Zone</h2>
+        <p>Before building, decide where on your island this landmark should sit.</p>
+
+        <div class="instruction-block">
+            <ol>
+                <li>Look at your reference image to see where this landmark is located in real life</li>
+                <li>Find that corresponding area on your 3D island terrain</li>
+                <li>Insert a single part as a placeholder/marker</li>
+                <li>Name it <code>LandmarkMarker_[name]</code> (e.g., <code>LandmarkMarker_Playground</code>)</li>
+                <li>Position it where your landmark will be centered</li>
+                <li>This helps you maintain accurate placement as you build</li>
+            </ol>
+        </div>
+
+        <h2>Step 2: Break Down the Landmark</h2>
+        <p>Professional level designers don't build everything at once. They break complex structures into simple components. Let's do that.</p>
+
+        <div class="instruction-block">
+            <p><strong>Analyze your landmark:</strong></p>
+            <ol>
+                <li>If possible, look up additional photos of this landmark online or recall what it looks like in person</li>
+                <li>Identify the main geometric shapes: rectangles? Cylinders? Wedges?</li>
+                <li>List the main components (e.g., playground = slide, swing set, climbing structure, platform)</li>
+                <li>Decide which components are essential and which can be simplified or omitted</li>
+                <li>Sketch a quick mental map of how these components relate spatially</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Simplification is Not Cheating</h3>
+            <p>You don't need to recreate every detail of the real landmark. A building might have 100 windows in real life—in your game, 6-8 windows might be enough to communicate "building." A playground might have 15 different pieces of equipment—you might build 4-5 key pieces. Game design is about capturing the essence, not replicating every detail.</p>
+        </div>
+
+        <h2>Step 3: Build the Base Structure</h2>
+        <p>Start with the largest, most fundamental component of your landmark.</p>
+
+        <div class="instruction-block">
+            <p><strong>Create the foundation:</strong></p>
+            <ol>
+                <li>Identify the main "body" of your landmark (the biggest or most central part)</li>
+                <li>Insert a part and scale it to roughly match that component's size</li>
+                <li>Position it near your landmark marker</li>
+                <li>Apply appropriate material and color (brick for buildings, plastic for playground equipment, etc.)</li>
+                <li>Make sure it's <strong>Anchored</strong></li>
+                <li>Name it descriptively: <code>Playground_MainPlatform</code> or <code>Building_MainStructure</code></li>
+            </ol>
+        </div>
+
+        <h2>Step 4: Add Platforming Elements</h2>
+        <p>Now transform your structure from a static object into a gameplay space. This is where level design thinking becomes crucial.</p>
+
+        <div class="instruction-block">
+            <p><strong>Create your first obstacle:</strong></p>
+            <ol>
+                <li>Insert a new part near your base structure</li>
+                <li>Size it as a platform: about <code>8, 1, 8</code> studs (big enough to land on)</li>
+                <li>Position it higher than your base structure by about 5-7 studs (this is a comfortable jump height)</li>
+                <li>Anchor it, apply material/color, and name it <code>Landmark_Platform1</code></li>
+                <li>This is your first jumping platform</li>
+            </ol>
+        </div>
+
+        <div class="gameplay-principle">
+            <h3>Jump Height Guidelines</h3>
+            <p>Roblox characters can jump about 7.5 studs high. For comfortable gameplay:</p>
+            <ul>
+                <li><strong>Easy jump:</strong> 4-5 studs high</li>
+                <li><strong>Medium jump:</strong> 6-7 studs high</li>
+                <li><strong>Challenging jump:</strong> 7-8 studs high (requires timing)</li>
+            </ul>
+            <p>For horizontal gaps, characters can jump about 10-12 studs forward. Start with gaps of 5-6 studs to be safe.</p>
+        </div>
+
+        <div class="instruction-block">
+            <p><strong>Add more obstacles:</strong></p>
+            <ol>
+                <li>Create 2-3 more platforms at varying heights</li>
+                <li>Arrange them so players must jump from one to another in sequence</li>
+                <li>Think about flow: left to right? Spiral upward? Player's choice of routes?</li>
+                <li>Use the Move tool to position platforms precisely</li>
+                <li>Leave gaps between platforms (4-8 studs) that require jumping</li>
+            </ol>
+        </div>
+
+        <h2>Step 5: Add Landmark Character</h2>
+        <p>Right now you have gameplay platforms, but they might not look much like your real landmark. Let's add recognizable details.</p>
+
+        <div class="instruction-block">
+            <p><strong>Build identifying features:</strong></p>
+            <ol>
+                <li>What makes this landmark distinctive? (A specific shape, color, or structure?)</li>
+                <li>Add parts that communicate these features</li>
+                <li>For a building: add walls, windows (using decals or colored parts), a roof shape</li>
+                <li>For a playground: add slide shapes (wedges), swing chains (cylinders), recognizable equipment</li>
+                <li>These parts don't all need to be functional obstacles—some can be purely visual</li>
+                <li>Use materials and colors to reinforce what the landmark is</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h3>Balancing Form and Function</h3>
+            <p>Some parts serve gameplay (platforms to jump on). Some parts serve recognition (details that make it look like the real place). The best landmark designs integrate both: a building's windowsills become ledges to jump to, a playground's equipment becomes the obstacle course itself.</p>
+        </div>
+
+        <h2>Step 6: Test Your Landmark</h2>
+        <p>This is the most important step. A landmark that looks great but plays poorly isn't meeting your goal.</p>
+
+        <div class="instruction-block">
+            <p><strong>Playtest your creation:</strong></p>
+            <ol>
+                <li>Click the <strong>Play</strong> button in the Test section</li>
+                <li>When your character spawns, navigate to your landmark</li>
+                <li>Try to jump through the obstacles you created</li>
+                <li>Ask yourself: Is this fun? Is it too easy? Too hard? Frustrating?</li>
+                <li>Are any jumps impossible? Are any platforms too small to land on?</li>
+                <li>Can you find the intended path, or is it confusing?</li>
+                <li>Click <strong>Stop</strong> when done testing</li>
+            </ol>
+        </div>
+
+        <div class="instruction-block">
+            <p><strong>Iterate based on testing:</strong></p>
+            <ol>
+                <li>If jumps are too hard: lower platforms, move them closer together, or make landing zones bigger</li>
+                <li>If jumps are too easy: increase height, increase gaps, or make platforms smaller</li>
+                <li>If the path is confusing: add visual guides (brightly colored parts showing the route)</li>
+                <li>Make your adjustments, then test again</li>
+                <li>Repeat this test-adjust cycle until it feels right</li>
+            </ol>
+        </div>
+
+        <div class="gameplay-principle">
+            <h3>The Three-Test Rule</h3>
+            <p>Professional game designers test their levels at least three times before considering them done. First test: identify major issues (impossible jumps). Second test: refine difficulty (too easy or hard). Third test: polish experience (does it feel fun?). Don't skip testing—this is where good levels become great ones.</p>
+        </div>
+
+        <h2>Step 7: Organize Your Landmark</h2>
+        <p>As you build, your Explorer gets cluttered. Let's keep things organized.</p>
+
+        <div class="instruction-block">
+            <ol>
+                <li>In the Explorer, create a new <strong>Folder</strong> in Workspace</li>
+                <li>Name it <code>Landmark_[name]</code> (e.g., <code>Landmark_Playground</code>)</li>
+                <li>Drag all parts related to this landmark into the folder</li>
+                <li>You can create sub-folders inside for further organization (Platforms, Decorations, etc.)</li>
+                <li>Delete your landmark marker part—you don't need it anymore</li>
+            </ol>
+        </div>
+
+        <h2>Adding Variety to Obstacles</h2>
+        <p>Not every obstacle needs to be a simple platform. Let's explore different types of challenges you can create with basic parts.</p>
+
+        <div class="obstacle-ideas">
+            <p><strong>Moving platforms:</strong> For now, just parts to jump across—you'll add movement with scripting in Star 4</p>
+            <p><strong>Narrow ledges:</strong> Long, thin parts (like <code>10, 1, 2</code>) that require careful landing</p>
+            <p><strong>Spiral paths:</strong> Platforms arranged in a circle, ascending around a central structure</p>
+            <p><strong>Gaps with visual hints:</strong> Large gaps with decorative parts showing where to jump</p>
+            <p><strong>Tiered challenges:</strong> An easy route and a hard route, letting players choose difficulty</p>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Add One Advanced Obstacle</h3>
+            <p>Choose one of the obstacle types above and add it to your landmark. Test it. Does it work? Is it fun? Even if you end up removing it, the practice of experimenting with different obstacle types is valuable. Game design improves through experimentation.</p>
+        </div>
+
+        <h2>Connecting Landmarks to Environment</h2>
+        <p>Your landmark shouldn't feel like it's floating in space—it should feel integrated with the island terrain around it.</p>
+
+        <div class="instruction-block">
+            <p><strong>Integration techniques:</strong></p>
+            <ol>
+                <li>Make sure your landmark sits properly on the terrain (not floating above or sunk below)</li>
+                <li>Use the same or similar materials as nearby terrain to create visual cohesion</li>
+                <li>Add a few decorative parts around the landmark (rocks, plants, paths) to blend it in</li>
+                <li>Ensure the landmark's scale feels appropriate relative to the terrain</li>
+            </ol>
+        </div>
+
+        <h2>Common Landmark Design Mistakes</h2>
+        <div class="troubleshooting">
+            <p><strong>Mistake:</strong> Making every platform the exact same size and shape.</p>
+            <p><strong>Solution:</strong> Vary your platform dimensions. Some can be large and safe, others small and challenging. Some can be round, others rectangular. Variety creates interest.</p>
+
+            <p><strong>Mistake:</strong> Creating jumps that are only possible with perfect timing.</p>
+            <p><strong>Solution:</strong> Unless you're intentionally creating an expert challenge, make jumps forgiving. Slightly bigger platforms and slightly shorter gaps make gameplay more accessible without feeling too easy.</p>
+
+            <p><strong>Mistake:</strong> Building the landmark too large or too small relative to the character.</p>
+            <p><strong>Solution:</strong> Test early and often. Run around your landmark with the character. Does it feel like a place a person could actually navigate? Scale issues are easier to fix early than after you've built 50 parts.</p>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Verify your landmark is ready before proceeding:</p>
+        <ul>
+            <li>Built a structure recognizable as your chosen real-world landmark</li>
+            <li>Created at least 3 distinct obstacles or platforms that require jumping/navigation</li>
+            <li>Tested the landmark by actually playing through it with your character</li>
+            <li>Adjusted obstacles based on testing (made jumps possible and reasonably fun)</li>
+            <li>Organized all landmark parts into a named folder in the Explorer</li>
+            <li>Landmark feels integrated with the surrounding island terrain</li>
+            <li>You're proud of it—it represents both the real place and a fun gameplay challenge</li>
+        </ul>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Next Mission Preview</h2>
+        <p>You have a landmark. You have terrain. But right now, they might not connect smoothly. In Mission 3.5, you'll build the crucial element that ties everything together: the path. You'll create a running route from your spawn point to your first landmark, learning how to guide players, create flow, and make navigation feel natural. This is where your island transforms from scattered locations into a cohesive runner course.</p>
+        <p><strong>Coming up:</strong> Connect the Path—building routes that guide players through your island world.</p>
+    </div>
+</body>
+</html>

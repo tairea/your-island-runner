@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 6.3: Detail Parts</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>It's the Little Things</h1>
+        <p>Right now, your island runner has solid zones, good lighting, and a beautiful sky. But if someone from your actual location played it, would they recognize it? Would they say, "Oh wow, that's totally [your place]!"?</p>
+        <p>Probably not yet. Because while you've built the big pieces—the platforms, the landmarks, the overall environment—you haven't added the <em>small details</em> that make a place feel real and specific.</p>
+        <p>Think about your actual location. What are the little things that make it unique? The specific type of trees or cacti? The style of signs? The street lamps? The kind of rocks? The architectural details on buildings? The cultural symbols?</p>
+        <p>Those details don't affect gameplay, but they affect <em>feeling</em>. And feeling is what transforms a game from "fun" to "memorable."</p>
+        <p>In this mission, you'll become a location detective, identifying and adding the small decorative elements that make your island unmistakably <em>yours</em>.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p><strong>Add small decorative elements that reference the real-world location to enhance specificity and immersion</strong></p>
+        <p>By the end of this mission, your island will have:</p>
+        <ul>
+            <li>At least 3-5 location-specific detail elements per zone</li>
+            <li>Props and decorations that reference real features of your location</li>
+            <li>Visual richness that doesn't interfere with gameplay</li>
+            <li>Environmental storytelling that makes the setting feel authentic</li>
+        </ul>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Understanding Detail Parts</h2>
+        <p>Detail parts are decorative elements that serve narrative and aesthetic purposes, not gameplay purposes. They include:</p>
+        <ul>
+            <li><strong>Natural elements:</strong> Specific plants, rocks, flowers, mushrooms, coral, shells</li>
+            <li><strong>Cultural objects:</strong> Signs, flags, statues, monuments, art, symbols</li>
+            <li><strong>Architectural features:</strong> Lamp posts, benches, mailboxes, fences, gates</li>
+            <li><strong>Environmental props:</strong> Driftwood, fallen logs, boulders, tide pools, trash cans</li>
+            <li><strong>Atmospheric touches:</strong> Banners, string lights, wind chimes, weathervanes</li>
+        </ul>
+
+        <p><strong>Critical rule:</strong> Detail parts must NOT interfere with the running path. Players should never collide with, trip over, or be blocked by decorative elements. If a detail is in the way, either move it to the side or make it non-collidable (CanCollide = false).</p>
+
+        <h2>Step 1: Identify Your Location's Signature Details</h2>
+        <p>Before you start adding parts, you need to know what makes your location visually distinctive. Spend 5 minutes brainstorming:</p>
+
+        <div class="brainstorm-box">
+            <h3>Location Detail Inventory</h3>
+            <p>Answer these questions about your real-world location:</p>
+            <ul>
+                <li><strong>What plants grow there?</strong> (palm trees, pine trees, cacti, ferns, mangroves, wildflowers, etc.)</li>
+                <li><strong>What's the terrain like?</strong> (sandy, rocky, volcanic, mossy, snowy, dusty, etc.)</li>
+                <li><strong>What animals or creatures are common?</strong> (seagulls, deer, lizards, squirrels, fish, etc.)</li>
+                <li><strong>What architectural style dominates?</strong> (beach shacks, log cabins, adobe, modern glass, colonial, etc.)</li>
+                <li><strong>Are there cultural symbols or colors?</strong> (flags, team colors, historical markers, tribal patterns, etc.)</li>
+                <li><strong>What human-made objects are everywhere?</strong> (surf boards, ski equipment, fishing nets, cowboy hats, etc.)</li>
+                <li><strong>What's a "weird but accurate" detail?</strong> (something oddly specific to your place that outsiders wouldn't know)</li>
+            </ul>
+        </div>
+
+        <p>Write down 5-10 specific details. These are your targets for this mission.</p>
+
+        <h2>Step 2: Search the Toolbox for Detail Models</h2>
+        <p>Roblox's Toolbox has thousands of free models you can use as details. The key is knowing what to search for.</p>
+
+        <ol>
+            <li>Open the <strong>Toolbox</strong> (View tab → Toolbox)</li>
+            <li>Make sure you're searching <strong>Models</strong> (not Sky, Meshes, or other categories)</li>
+            <li>Search for your specific details, one at a time:
+                <ul>
+                    <li>Tropical islands: "palm tree," "coconut," "beach chair," "surfboard," "tiki torch," "hibiscus flower"</li>
+                    <li>Mountain/Forest: "pine tree," "boulder," "log," "mushroom," "deer," "campfire," "trail sign"</li>
+                    <li>Desert: "cactus," "sagebrush," "tumbleweed," "red rock," "cowboy hat," "wagon wheel"</li>
+                    <li>Urban: "street lamp," "bench," "trash can," "newspaper stand," "graffiti," "fire hydrant"</li>
+                    <li>Coastal: "lighthouse," "anchor," "buoy," "fishing net," "seagull," "dock piling"</li>
+                </ul>
+            </li>
+            <li>Look at the thumbnail previews and choose models that:
+                <ul>
+                    <li>Are relatively simple (low part count for better performance)</li>
+                    <li>Match your visual style (cartoony, realistic, stylized, etc.)</li>
+                    <li>Are free (check the price—stick to free models for this project)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="tip-box">
+            <h3>Model Quality Tips</h3>
+            <ul>
+                <li><strong>Check the creator:</strong> Models from verified or popular creators tend to be higher quality</li>
+                <li><strong>Preview before inserting:</strong> Click the model to see a larger preview and read the description</li>
+                <li><strong>Watch out for viruses:</strong> Some models contain malicious scripts. If you insert a model and see unexpected behaviors, delete it immediately</li>
+                <li><strong>Prefer mesh models over part-built models:</strong> They usually look better and have fewer parts</li>
+            </ul>
+        </div>
+
+        <h2>Step 3: Insert and Place Your First Detail</h2>
+        <p>Let's start by adding one detail element to Zone 1.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: Add a Location-Specific Prop</h3>
+            <ol>
+                <li>Search for a detail that fits your location (e.g., "palm tree" for a tropical island)</li>
+                <li>Click on a model you like in the Toolbox</li>
+                <li>Click the green checkmark or "Get" button to insert it into your workspace</li>
+                <li>The model will appear somewhere in your world—use the Move tool (Ctrl+2 or Cmd+2) to reposition it</li>
+                <li>Place it <strong>off to the side</strong> of your running path—NOT in the middle where players will hit it</li>
+                <li>Good locations:
+                    <ul>
+                        <li>Next to platforms (left or right edge)</li>
+                        <li>On the ground below platforms (if visible)</li>
+                        <li>Near your landmark structures</li>
+                        <li>Between zones as visual dividers</li>
+                    </ul>
+                </li>
+                <li>Press Play and run past it—does it feel like it belongs? Does it interfere with gameplay?</li>
+            </ol>
+        </div>
+
+        <h2>Step 4: Anchor Your Details</h2>
+        <p>Decorative models should not move, fall, or tumble when the game runs. You need to anchor them.</p>
+
+        <ol>
+            <li>In the Explorer, find the model you just inserted (it's probably named something like "Palm Tree" or "Rock")</li>
+            <li>Click the arrow to expand the model and see all its parts</li>
+            <li>Select the <strong>main part</strong> (usually the largest or base part, often named "Base" or "Main")</li>
+            <li>In Properties, find <strong>Anchored</strong> and set it to <strong>True</strong></li>
+            <li>If the model has multiple parts, you may need to anchor each one—or use the "Select Children" trick:
+                <ul>
+                    <li>Right-click the model in Explorer</li>
+                    <li>Choose "Select Children"</li>
+                    <li>In Properties, set Anchored to True (this anchors all selected parts at once)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="warning-box">
+            <h3>Why Anchoring Matters</h3>
+            <p>If you don't anchor decorative models, they'll fall when the game starts (due to gravity) or get knocked around if the player touches them. This breaks immersion and can cause performance issues as the physics engine tries to simulate hundreds of falling objects.</p>
+        </div>
+
+        <h2>Step 5: Add 3-5 Details Per Zone</h2>
+        <p>Now that you've added one detail successfully, repeat the process for each of your five zones. Aim for 3-5 distinct details per zone.</p>
+
+        <div class="strategy-guide">
+            <h3>Detail Placement Strategy</h3>
+            <ul>
+                <li><strong>Zone 1 (Intro area):</strong> Add welcoming, iconic elements (flags, signs, entry markers, signature plants)</li>
+                <li><strong>Zone 2-4 (Mid-game):</strong> Add variety—mix natural and human-made elements, change scale (some big, some small)</li>
+                <li><strong>Zone 5 (Landmark zone):</strong> Add celebratory or dramatic details (special decorations, climax elements, views)</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Detail Each Zone</h3>
+            <p>For each zone, follow this process:</p>
+            <ol>
+                <li><strong>Choose 3-5 detail types</strong> from your brainstorm list</li>
+                <li><strong>Search and insert</strong> models for each detail type</li>
+                <li><strong>Position</strong> them around the zone—sides of platforms, near landmarks, along paths</li>
+                <li><strong>Anchor</strong> all parts to prevent physics issues</li>
+                <li><strong>Test</strong> by playing through the zone—ensure details enhance, not interfere</li>
+                <li><strong>Adjust scale</strong> if needed (use the Scale tool or change Size property) to make details feel proportional</li>
+            </ol>
+        </div>
+
+        <h2>Step 6: Create Visual Rhythm and Variety</h2>
+        <p>Don't just scatter details randomly. Think about visual rhythm—the pattern of detail placement that keeps the environment interesting without overwhelming.</p>
+
+        <div class="design-principles">
+            <h3>Visual Rhythm Principles</h3>
+            <ul>
+                <li><strong>Vary scale:</strong> Mix large elements (big trees, boulders) with small ones (flowers, shells, signs)</li>
+                <li><strong>Group in odd numbers:</strong> 1, 3, or 5 items clustered together look more natural than 2 or 4</li>
+                <li><strong>Alternate sides:</strong> If Zone 1 has details on the left, put Zone 2's on the right—keeps eyes moving</li>
+                <li><strong>Create focal points:</strong> Place more details near landmarks to draw attention</li>
+                <li><strong>Leave breathing room:</strong> Not every platform needs decoration—emptiness creates contrast</li>
+                <li><strong>Repeat signature elements:</strong> If palm trees are your thing, sprinkle them throughout—but vary their placement</li>
+            </ul>
+        </div>
+
+        <h2>Location-Specific Detail Examples</h2>
+        <p>Here are concrete examples for different island types:</p>
+
+        <div class="example-box">
+            <h3>Tropical Beach Island (Hawaii, Caribbean)</h3>
+            <p><strong>Details to add:</strong></p>
+            <ul>
+                <li>Palm trees and coconut clusters (Toolbox: "palm tree," "coconut")</li>
+                <li>Surfboards and beach chairs (Toolbox: "surfboard," "beach chair")</li>
+                <li>Tiki torches or luau decorations (Toolbox: "tiki torch," "tiki statue")</li>
+                <li>Hibiscus or plumeria flowers (Toolbox: "tropical flower," "hibiscus")</li>
+                <li>Shells and starfish on ground (Toolbox: "seashell," "starfish")</li>
+                <li>Wooden signs with island names (Toolbox: "wooden sign" then edit text with SurfaceGui)</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>Mountain/Forest Region (Rockies, Appalachia, Pacific Northwest)</h3>
+            <p><strong>Details to add:</strong></p>
+            <ul>
+                <li>Pine or fir trees in clusters (Toolbox: "pine tree," "evergreen")</li>
+                <li>Large boulders and rock formations (Toolbox: "boulder," "rock formation")</li>
+                <li>Fallen logs and stumps (Toolbox: "log," "tree stump")</li>
+                <li>Mushrooms and ferns (Toolbox: "mushroom," "fern")</li>
+                <li>Trail markers or park signs (Toolbox: "trail sign," "park sign")</li>
+                <li>Campfire or backpacks (Toolbox: "campfire," "backpack")</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>Desert/Canyon (Southwest US, Arizona, Utah)</h3>
+            <p><strong>Details to add:</strong></p>
+            <ul>
+                <li>Saguaro or prickly pear cacti (Toolbox: "cactus," "saguaro")</li>
+                <li>Red sandstone rocks and arches (Toolbox: "red rock," "sandstone")</li>
+                <li>Tumbleweed and desert brush (Toolbox: "tumbleweed," "sagebrush")</li>
+                <li>Old wagon wheels or cowboy props (Toolbox: "wagon wheel," "cowboy hat")</li>
+                <li>Lizards or desert critters (Toolbox: "lizard")</li>
+                <li>Sun-bleached wood posts or fences (Toolbox: "wooden fence," "fence post")</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>Urban/City Environment</h3>
+            <p><strong>Details to add:</strong></p>
+            <ul>
+                <li>Street lamps and utility poles (Toolbox: "street lamp," "lamp post")</li>
+                <li>Benches and trash cans (Toolbox: "park bench," "trash can")</li>
+                <li>Fire hydrants and mailboxes (Toolbox: "fire hydrant," "mailbox")</li>
+                <li>Graffiti walls or murals (Toolbox: "graffiti," or create using Decals)</li>
+                <li>Newspapers, coffee cups, urban clutter (Toolbox: "newspaper stand," "coffee cup")</li>
+                <li>Traffic cones or barriers (Toolbox: "traffic cone," "barrier")</li>
+            </ul>
+        </div>
+
+        <h2>Advanced: Creating Simple Custom Details</h2>
+        <p>If you can't find the exact detail you need in the Toolbox, you can build simple ones yourself:</p>
+
+        <div class="try-it-box">
+            <h3>Try It: Build a Simple Rock Cluster</h3>
+            <ol>
+                <li>Insert a <strong>Part</strong> (Home tab → Part → Ball or Wedge)</li>
+                <li>Resize it to look rock-like (use Scale tool or manually adjust Size property)</li>
+                <li>Change the <strong>Color</strong> to a natural rock color (grays, browns, reds)</li>
+                <li>Optionally, change <strong>Material</strong> to "Slate," "Concrete," or "Rock" for texture</li>
+                <li>Duplicate the part (Ctrl+D) and resize/reposition to create 2-3 rocks together</li>
+                <li>Select all the rock parts (Ctrl+Click to multi-select)</li>
+                <li>Right-click → Group (Ctrl+G) to create a Model named "Rock Cluster"</li>
+                <li>Anchor the entire model</li>
+            </ol>
+        </div>
+
+        <h2>Performance Considerations</h2>
+        <p>Details add visual richness, but they also add rendering load. Keep your game performant:</p>
+
+        <div class="performance-guide">
+            <h3>Performance Best Practices</h3>
+            <ul>
+                <li><strong>Aim for 15-25 detail models total</strong> across all five zones (3-5 per zone)</li>
+                <li><strong>Prefer low-poly models:</strong> Models with fewer parts run better</li>
+                <li><strong>Anchor everything:</strong> Anchored parts don't need physics calculations</li>
+                <li><strong>Disable collisions on small details:</strong> If a detail is purely visual (like a flower), set CanCollide to False</li>
+                <li><strong>Avoid excessive transparency:</strong> Transparent parts (Glass material, low Transparency values) are expensive to render</li>
+                <li><strong>Test on a lower-end device if possible:</strong> Ask a classmate with an older computer to test—does the game run smoothly?</li>
+            </ul>
+        </div>
+
+        <h2>Testing Your Details</h2>
+        <p>After adding all your details, do a full playthrough test:</p>
+
+        <ol>
+            <li><strong>Play from start to finish</strong> and notice the details as you run past</li>
+            <li><strong>Check for interference:</strong> Did you accidentally place anything in the running path?</li>
+            <li><strong>Verify anchoring:</strong> Do any details fall or move when the game starts?</li>
+            <li><strong>Evaluate specificity:</strong> Do the details make your location recognizable, or do they still feel generic?</li>
+            <li><strong>Ask for outside feedback:</strong> Show someone unfamiliar with your location and ask, "Where do you think this game is set?"</li>
+        </ol>
+
+        <div class="tip-box">
+            <h3>Common Detail Mistakes</h3>
+            <ul>
+                <li><strong>Too many details:</strong> Over-cluttering makes the game feel busy and can hurt performance</li>
+                <li><strong>Details blocking gameplay:</strong> A palm tree in the middle of the path ruins the flow</li>
+                <li><strong>Not anchoring:</strong> Details falling everywhere when you press Play</li>
+                <li><strong>Inconsistent style:</strong> Mixing realistic trees with cartoony rocks—pick a visual style and stick to it</li>
+                <li><strong>Generic choices:</strong> Adding "tree" instead of the specific type of tree from your location</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before moving to the next mission, verify you have:</p>
+        <ul>
+            <li><strong>Brainstormed 5-10 location-specific details</strong> that represent your real-world place</li>
+            <li><strong>Added 3-5 detail models to each of the five zones</strong> (15-25 total details)</li>
+            <li><strong>Anchored all detail parts/models</strong> to prevent physics issues</li>
+            <li><strong>Positioned details off the running path</strong> so they don't interfere with gameplay</li>
+            <li><strong>Created visual rhythm</strong> by varying scale, alternating sides, and grouping strategically</li>
+            <li><strong>Tested the full course</strong> to ensure details enhance rather than distract</li>
+            <li><strong>Verified performance:</strong> Game still runs smoothly with all details added</li>
+        </ul>
+        <p><strong>Quality check:</strong> If you showed a screenshot to someone from your location, would they recognize it? If yes, you've succeeded.</p>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Next Mission: Sound Atmosphere</h2>
+        <p>Your island now looks the part—lighting, sky, and decorative details all work together to create a sense of place. But there's one more sensory layer missing: sound. In the next mission, you'll add ambient audio that completes the immersion, making your island not just look like your location, but <em>sound</em> like it too.</p>
+    </div>
+</body>
+</html>

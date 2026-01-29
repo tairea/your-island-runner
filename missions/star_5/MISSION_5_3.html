@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=="width=device-width, initial-scale=1.0">
+    <title>Mission 5.3: Moving Platforms</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Bringing Zones to Life</h1>
+        <p>Think about classic platformers like Super Mario or Sonic. What makes them exciting isn't just jumping over gaps—it's jumping onto platforms that move. Platforms that test your timing, your reflexes, your ability to predict motion. A moving platform transforms a simple jump into a dynamic puzzle.</p>
+        <p>In Roblox, we create moving parts using TweenService, a powerful animation system that smoothly moves objects from one position to another. No complex physics, no janky teleporting—just smooth, professional-looking motion.</p>
+        <p>Your mission: add moving platforms to one of your zones and watch it come alive.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p>Use TweenService to create at least three moving platforms in one of your landmark zones, creating a dynamic obstacle challenge that requires timing and prediction.</p>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Understanding TweenService</h2>
+        <p>TweenService is Roblox's built-in animation system. "Tween" is short for "in-between"—it automatically fills in the motion between a start position and end position. You tell it where to start, where to end, and how long it should take. TweenService handles the rest.</p>
+
+        <p>Here's what you need to know:</p>
+
+        <ul>
+            <li><strong>Start position</strong>: Where the part currently is (its current CFrame)</li>
+            <li><strong>End position</strong>: Where you want it to go (a new CFrame you define)</li>
+            <li><strong>Duration</strong>: How many seconds the movement takes</li>
+            <li><strong>Easing style</strong>: How the movement feels (smooth, bouncy, sharp, etc.)</li>
+            <li><strong>Repeat</strong>: Whether it loops forever or plays once</li>
+        </ul>
+
+        <h2>Your First Moving Platform</h2>
+        <p>Let's build a simple platform that moves back and forth horizontally. Choose one of your zones (Zone 2 or 3 works well) and find a spot where a moving platform would add challenge.</p>
+
+        <h3>Step 1: Create the Platform</h3>
+        <ol>
+            <li>Insert a Part into your workspace</li>
+            <li>Size it: 8x1x8 studs (a nice platform size)</li>
+            <li>Color it differently from static platforms (maybe bright green)</li>
+            <li>Material: Neon (makes it obvious it's special)</li>
+            <li>Anchor it: YES (tweens work on anchored parts)</li>
+            <li>Position it where you want the movement to START</li>
+            <li>Name it "MovingPlatform1"</li>
+        </ol>
+
+        <h3>Step 2: Create the Script</h3>
+        <p>Right-click the platform in Explorer, select "Insert Object," then "Script." This creates a script inside the part. Delete any default code and add this:</p>
+
+        <div class="code-block">
+<pre>-- Moving Platform Script
+local platform = script.Parent
+local TweenService = game:GetService("TweenService")
+
+-- Define start and end positions
+local startPosition = platform.CFrame
+local endPosition = startPosition + Vector3.new(20, 0, 0)  -- Moves 20 studs in X direction
+
+-- Tween settings
+local tweenInfo = TweenInfo.new(
+    3,  -- Duration in seconds
+    Enum.EasingStyle.Linear,  -- Movement style
+    Enum.EasingDirection.InOut,  -- Easing direction
+    -1,  -- Repeat count (-1 = infinite)
+    true,  -- Reverses (goes back and forth)
+    0  -- Delay between repeats
+)
+
+-- Create the tween
+local tweenForward = TweenService:Create(
+    platform,
+    tweenInfo,
+    {CFrame = endPosition}
+)
+
+-- Start the tween
+tweenForward:Play()
+</pre>
+        </div>
+
+        <h3>Understanding the Code</h3>
+        <p>Let's break down what each part does:</p>
+
+        <ul>
+            <li><code>local platform = script.Parent</code> - Gets the part this script is inside</li>
+            <li><code>local TweenService = game:GetService("TweenService")</code> - Accesses Roblox's tween system</li>
+            <li><code>local startPosition = platform.CFrame</code> - Saves where the platform starts</li>
+            <li><code>local endPosition = startPosition + Vector3.new(20, 0, 0)</code> - Calculates end position (20 studs to the right)</li>
+            <li><code>TweenInfo.new(...)</code> - Creates tween settings (duration, style, looping, etc.)</li>
+            <li><code>TweenService:Create(...)</code> - Creates the actual tween animation</li>
+            <li><code>tweenForward:Play()</code> - Starts the animation</li>
+        </ul>
+
+        <div class="try-it-box">
+            <h3>Try It: Your First Moving Platform</h3>
+            <p>Copy the code above into your platform's script. Hit Play. Watch the platform move back and forth. Jump on it while it's moving. Feels different, right? That's the power of dynamic obstacles.</p>
+        </div>
+
+        <h2>Customizing Movement</h2>
+        <p>Now that you have one working, let's explore variations:</p>
+
+        <h3>Vertical Movement</h3>
+        <p>To make a platform move up and down instead of side to side, change the Vector3 line:</p>
+
+        <div class="code-block">
+<pre>local endPosition = startPosition + Vector3.new(0, 15, 0)  -- Moves 15 studs UP
+</pre>
+        </div>
+
+        <h3>Diagonal Movement</h3>
+        <p>Want it to move diagonally? Combine X, Y, and Z values:</p>
+
+        <div class="code-block">
+<pre>local endPosition = startPosition + Vector3.new(10, 10, 0)  -- Moves right and up
+</pre>
+        </div>
+
+        <h3>Adjusting Speed</h3>
+        <p>The first number in TweenInfo is duration in seconds. Lower = faster, higher = slower:</p>
+
+        <div class="code-block">
+<pre>local tweenInfo = TweenInfo.new(
+    2,  -- Faster (2 seconds instead of 3)
+    -- ... rest stays the same
+)
+</pre>
+        </div>
+
+        <h3>Changing Easing Style</h3>
+        <p>Easing style changes how movement feels. Try these options:</p>
+
+        <ul>
+            <li><code>Enum.EasingStyle.Linear</code> - Constant speed (current setting)</li>
+            <li><code>Enum.EasingStyle.Sine</code> - Smooth, gentle motion</li>
+            <li><code>Enum.EasingStyle.Bounce</code> - Bounces at the end</li>
+            <li><code>Enum.EasingStyle.Elastic</code> - Rubber band effect</li>
+            <li><code>Enum.EasingStyle.Quad</code> - Accelerates and decelerates</li>
+        </ul>
+
+        <div class="try-it-box">
+            <h3>Try It: Experiment with Easing</h3>
+            <p>Change the EasingStyle to Bounce or Elastic. Play the game. The movement feels completely different. Choose styles that match your zone's feel—smooth for calm zones, bouncy for chaotic zones.</p>
+        </div>
+
+        <h2>Building a Moving Platform Challenge</h2>
+        <p>One moving platform is cool. Multiple moving platforms create a challenge. Here's how to design a sequence:</p>
+
+        <h3>Pattern 1: The Conveyor</h3>
+        <p>Create 3-4 platforms that all move horizontally in the same direction, but staggered so they're never all in the same position at once. Players must jump from platform to platform as they move.</p>
+
+        <ol>
+            <li>Create 4 platforms, space them 10 studs apart</li>
+            <li>Give each the same movement script (moving 20 studs horizontally)</li>
+            <li>Start each platform at a different point in its cycle (we'll do this with delay)</li>
+        </ol>
+
+        <p>To stagger the start times, add a wait before playing the tween:</p>
+
+        <div class="code-block">
+<pre>-- Add this BEFORE tweenForward:Play()
+wait(0)  -- First platform: no delay
+-- For second platform script, use: wait(0.75)
+-- For third platform: wait(1.5)
+-- For fourth platform: wait(2.25)
+
+tweenForward:Play()
+</pre>
+        </div>
+
+        <h3>Pattern 2: The Elevator</h3>
+        <p>Create platforms that move vertically at different speeds, creating a climbing challenge.</p>
+
+        <ol>
+            <li>Build 3 platforms vertically stacked</li>
+            <li>First platform: moves up 10 studs in 4 seconds</li>
+            <li>Second platform: moves up 15 studs in 3 seconds (faster)</li>
+            <li>Third platform: moves up 20 studs in 5 seconds (slower but farther)</li>
+        </ol>
+
+        <h3>Pattern 3: The Crossroads</h3>
+        <p>Create two sets of platforms that move perpendicular to each other (one horizontal, one vertical). Players must time jumps to avoid getting knocked off.</p>
+
+        <div class="tips-box">
+            <h3>Design Tips for Moving Platforms</h3>
+            <ul>
+                <li><strong>Predictability</strong>: Players should be able to see the pattern. Don't make movement random.</li>
+                <li><strong>Safe spots</strong>: Include static platforms nearby where players can wait and observe movement.</li>
+                <li><strong>Visual distinction</strong>: Make moving platforms look different (color, material, or add trails/particles later).</li>
+                <li><strong>Test timing</strong>: Can you complete the sequence in under 30 seconds? If not, it's too slow or complex.</li>
+                <li><strong>Checkpoint placement</strong>: Put a checkpoint AFTER moving platform challenges, not before. They're hard—reward completion.</li>
+            </ul>
+        </div>
+
+        <h2>Advanced: Circular Motion</h2>
+        <p>Want platforms that move in circles? This requires a different approach using CFrame rotation:</p>
+
+        <div class="code-block">
+<pre>-- Circular Moving Platform
+local platform = script.Parent
+local TweenService = game:GetService("TweenService")
+
+local centerPoint = platform.CFrame  -- Center of rotation
+local radius = 15  -- How far from center
+local duration = 8  -- Seconds for one full rotation
+
+-- Create rotation tween
+local tweenInfo = TweenInfo.new(
+    duration,
+    Enum.EasingStyle.Linear,
+    Enum.EasingDirection.InOut,
+    -1,  -- Infinite loop
+    false,  -- Don't reverse
+    0
+)
+
+-- Rotate around Y axis
+for i = 0, 360, 10 do
+    local angle = math.rad(i)
+    local offsetX = math.cos(angle) * radius
+    local offsetZ = math.sin(angle) * radius
+    local newPosition = centerPoint + Vector3.new(offsetX, 0, offsetZ)
+
+    platform.CFrame = newPosition
+    wait(duration / 36)  -- Smooth rotation
+end
+</pre>
+        </div>
+
+        <p>This script is more advanced—it uses math to calculate circular motion. You don't need to fully understand the math yet, but you can use it to create cool circular platform paths.</p>
+
+        <h2>Common Mistakes and Fixes</h2>
+
+        <h3>Mistake 1: Platform Not Moving</h3>
+        <p><strong>Problem</strong>: Platform stays still when you play the game.</p>
+        <p><strong>Fix</strong>: Check that the platform is anchored. Unanchored parts don't tween properly. Also verify the script is inside the platform part.</p>
+
+        <h3>Mistake 2: Platform Teleports Instead of Tweening</h3>
+        <p><strong>Problem</strong>: Platform jumps between positions instead of moving smoothly.</p>
+        <p><strong>Fix</strong>: Make sure you're using TweenService:Create correctly and calling :Play() on the tween. Double-check your code matches the examples.</p>
+
+        <h3>Mistake 3: Can't Stand on Moving Platform</h3>
+        <p><strong>Problem</strong>: Player slides off or doesn't move with the platform.</p>
+        <p><strong>Fix</strong>: This is normal Roblox behavior. For better platform riding, you can add AssemblyLinearVelocity, but that's advanced. For now, design jumps that don't require staying on the platform long.</p>
+
+        <h3>Mistake 4: Platforms Collide with Each Other</h3>
+        <p><strong>Problem</strong>: Multiple moving platforms bump into each other and stop.</p>
+        <p><strong>Fix</strong>: Set CanCollide to false on one or both platforms, OR space them farther apart so paths don't overlap.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: The Timing Challenge</h3>
+            <p>Build a sequence of three moving platforms. Time yourself jumping across all three. If it takes more than 15 seconds, players will get frustrated. Speed up the platforms or shorten the movement distance.</p>
+        </div>
+
+        <h2>Where to Add Moving Platforms</h2>
+        <p>You have three zones built. Where should moving platforms go? Here's guidance:</p>
+
+        <ul>
+            <li><strong>Zone 1</strong>: Probably skip. It's your intro zone—keep it simple.</li>
+            <li><strong>Zone 2</strong>: Good candidate if Zone 2 is currently easier than Zone 3.</li>
+            <li><strong>Zone 3</strong>: Best candidate. It's your midpoint—adding moving platforms here raises the stakes.</li>
+        </ul>
+
+        <p>You don't need to replace the entire zone. Add moving platforms to one section—maybe replace 3-4 static platforms with moving ones. This creates variety within the zone itself.</p>
+
+        <h2>Playtesting Moving Platforms</h2>
+        <p>Moving platforms change everything about difficulty. Retest your zone after adding them:</p>
+
+        <ol>
+            <li>Can you complete the zone with moving platforms in under 1 minute?</li>
+            <li>Are the platforms moving too fast to jump onto? (If yes, increase duration)</li>
+            <li>Are they moving too slow and boring? (If yes, decrease duration)</li>
+            <li>Can you see the pattern and predict movement? (If no, slow them down or simplify)</li>
+            <li>Is it fun? Challenging but fair, not frustrating?</li>
+        </ol>
+
+        <div class="tips-box">
+            <h3>The Fun Factor</h3>
+            <p>Moving platforms should feel like a dance, not a fight. Players should learn the rhythm, predict the motion, and feel skilled when they nail the timing. If it feels random or impossible, revise.</p>
+        </div>
+
+        <h2>Expanding Your Knowledge</h2>
+        <p>TweenService can animate any property, not just position:</p>
+
+        <ul>
+            <li><strong>Size</strong>: Make platforms grow and shrink</li>
+            <li><strong>Transparency</strong>: Make platforms fade in and out</li>
+            <li><strong>Color</strong>: Make platforms change color as they move</li>
+            <li><strong>Rotation</strong>: Make platforms spin</li>
+        </ul>
+
+        <p>Example of tweening transparency (makes platform invisible):</p>
+
+        <div class="code-block">
+<pre>local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true, 0)
+local tween = TweenService:Create(platform, tweenInfo, {Transparency = 1})  -- 1 = invisible
+tween:Play()
+</pre>
+        </div>
+
+        <p>Combining tweens—moving AND fading—creates really cool effects. Experiment after you finish the basic requirements.</p>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before proceeding, verify:</p>
+        <ul>
+            <li>You have at least 3 moving platforms in one of your zones</li>
+            <li>All moving platforms use TweenService (not while loops or manual movement)</li>
+            <li>Platforms move smoothly and predictably</li>
+            <li>You can complete the zone with moving platforms included</li>
+            <li>Scripts are properly attached to each moving platform</li>
+            <li>Movement patterns create a timing challenge, not a frustration</li>
+        </ul>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>What's Next</h2>
+        <p>You've just added one of the most professional features to your game. TweenService is what separates amateur projects from polished games. But you're not done building yet. Next up: Landmark Zones 4 and 5, where you'll complete your island runner with two final challenge areas. Let's finish strong.</p>
+    </div>
+</body>
+</html>

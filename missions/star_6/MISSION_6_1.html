@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 6.1: Lighting and Atmosphere</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>First Impressions Matter</h1>
+        <p>You've built an amazing island runner with five landmark zones that represent your real location. But when you first spawn in, does it <em>feel</em> right? Does it capture the atmosphere of your actual place?</p>
+        <p>Lighting is the difference between a game that looks flat and generic, and one that feels alive and specific. Whether your island should feel like a sunny Caribbean beach, a foggy Pacific Northwest forest, or a golden desert canyon, lighting tells that story instantly.</p>
+        <p>In this mission, you'll become the director of photography for your island runner, using Roblox's Lighting service to set the perfect mood.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p><strong>Configure Lighting service properties to establish mood and time of day that enhances the island theme</strong></p>
+        <p>By the end of this mission, your island will have:</p>
+        <ul>
+            <li>A specific time of day that matches your location's character</li>
+            <li>Atmospheric fog settings that add depth and mood</li>
+            <li>Ambient lighting that complements your color palette</li>
+            <li>Environmental effects that enhance immersion</li>
+        </ul>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Understanding the Lighting Service</h2>
+        <p>The Lighting service is a singleton object in Roblox that controls how light behaves across your entire game. Unlike individual lights you place in the world, the Lighting service sets the global rules—what time of day is it? How bright is the sun? Is there fog in the distance?</p>
+        <p>Think of it like this: if your game were a photograph, the Lighting service would be all the camera settings—exposure, white balance, filters. It doesn't matter what's in the photo; these settings affect everything.</p>
+
+        <h2>Step 1: Access the Lighting Service</h2>
+        <p>The Lighting service lives at the top level of your game hierarchy:</p>
+        <ol>
+            <li>Open the Explorer panel (View tab → Explorer)</li>
+            <li>Scroll to find <strong>Lighting</strong> in the tree (it's alphabetically sorted among services like Workspace, Players, etc.)</li>
+            <li>Click on <strong>Lighting</strong> to select it</li>
+            <li>Open the Properties panel (View tab → Properties)</li>
+        </ol>
+        <p>You should now see dozens of properties. Don't worry—we'll focus on the most important ones for establishing atmosphere.</p>
+
+        <h2>Step 2: Set Your Time of Day</h2>
+        <p>The <strong>ClockTime</strong> property controls where the sun is in the sky, using a 0-24 hour format (14 = 2:00 PM, 18 = 6:00 PM, etc.).</p>
+
+        <div class="property-guide">
+            <h3>Choosing Your Time of Day</h3>
+            <ul>
+                <li><strong>Tropical/Beach Islands (14-16):</strong> Bright midday sun, sharp shadows, vibrant colors—think postcards</li>
+                <li><strong>Forest/Mountain Regions (8-10 or 16-18):</strong> Softer angles, longer shadows, golden or blue tones</li>
+                <li><strong>Desert/Canyon Areas (17-19):</strong> Golden hour warmth, dramatic shadows, orange-red tones</li>
+                <li><strong>Urban/City Settings (12-14):</strong> Neutral overhead lighting, clear visibility</li>
+                <li><strong>Mysterious/Spooky Locations (6-7 or 19-20):</strong> Dawn/dusk blues, low angle light, atmospheric</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Find Your Perfect Hour</h3>
+            <ol>
+                <li>In the Lighting properties, find <strong>ClockTime</strong></li>
+                <li>Enter a starting value based on the guide above</li>
+                <li>Press Play and run through your first zone</li>
+                <li>Stop, adjust the ClockTime by 1-2 hours, and test again</li>
+                <li>Repeat until the lighting feels right for your location</li>
+            </ol>
+            <p><em>Pro tip: Don't just stand still—run through your obstacles. Lighting changes how colors and shapes read during fast movement.</em></p>
+        </div>
+
+        <h2>Step 3: Configure Fog for Depth</h2>
+        <p>Fog serves two purposes: it adds atmospheric depth (making distant objects fade), and it can hide the fact that your game world has boundaries. Even subtle fog improves immersion.</p>
+
+        <div class="property-guide">
+            <h3>Key Fog Properties</h3>
+            <ul>
+                <li><strong>FogEnd:</strong> Distance (in studs) where objects are completely hidden by fog. Start with 1000-1500 for open areas, 500-800 for forests/cities.</li>
+                <li><strong>FogStart:</strong> Distance where fog begins to appear. Usually 0 (fog starts immediately) or FogEnd ÷ 2 for more gradual fade.</li>
+                <li><strong>FogColor:</strong> The color of the fog. Should complement your sky and overall palette—light blues for day, warm oranges for sunset, purple-grays for mystery.</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Add Atmospheric Fog</h3>
+            <ol>
+                <li>Find the <strong>FogEnd</strong> property and set it to 1200</li>
+                <li>Set <strong>FogStart</strong> to 0</li>
+                <li>Click the <strong>FogColor</strong> property to open the color picker</li>
+                <li>Choose a color that matches your time of day:
+                    <ul>
+                        <li>Midday: Light sky blue (RGB: 200, 220, 255)</li>
+                        <li>Golden hour: Warm peach (RGB: 255, 200, 150)</li>
+                        <li>Dawn/Dusk: Soft purple-blue (RGB: 150, 160, 200)</li>
+                    </ul>
+                </li>
+                <li>Test in Play mode—you should see distant platforms fade into fog</li>
+            </ol>
+        </div>
+
+        <h2>Step 4: Adjust Ambient Lighting</h2>
+        <p>Ambient lighting controls how much light fills in the shadows. In real life, shadows aren't pure black—they're filled with reflected light from the sky and surroundings.</p>
+
+        <div class="property-guide">
+            <h3>Ambient Properties</h3>
+            <ul>
+                <li><strong>Ambient:</strong> The color of light that fills indoor shadows and dark areas</li>
+                <li><strong>OutdoorAmbient:</strong> The color of light that fills outdoor shadows (usually skylight color)</li>
+                <li><strong>Brightness:</strong> Overall light intensity (1-3 range; 2 is standard outdoor daylight)</li>
+            </ul>
+        </div>
+
+        <p>For most island runners, you'll want:</p>
+        <ul>
+            <li><strong>OutdoorAmbient:</strong> A desaturated version of your sky color (light blue for day, warm gray for sunset)</li>
+            <li><strong>Ambient:</strong> Slightly darker than OutdoorAmbient, with subtle warmth (for indoor/shadowed areas)</li>
+            <li><strong>Brightness:</strong> 2 for sunny days, 1.5 for overcast or dawn/dusk, 1 for night/mysterious</li>
+        </ul>
+
+        <h2>Step 5: Environmental Effects (Optional Advanced)</h2>
+        <p>Roblox's Lighting service supports additional atmospheric effects you can add as child objects:</p>
+
+        <div class="property-guide">
+            <h3>Effect Options</h3>
+            <ul>
+                <li><strong>Atmosphere:</strong> Adds realistic aerial perspective and sky gradients (makes distant objects hazier and bluer)</li>
+                <li><strong>BloomEffect:</strong> Makes bright lights glow and spread (good for magical/tropical vibes)</li>
+                <li><strong>SunRaysEffect:</strong> Creates god rays/light shafts through trees or fog</li>
+                <li><strong>ColorCorrectionEffect:</strong> Applies overall color grading (warm up, cool down, increase contrast)</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Add an Atmosphere Effect</h3>
+            <ol>
+                <li>Right-click on <strong>Lighting</strong> in the Explorer</li>
+                <li>Select Insert Object → <strong>Atmosphere</strong></li>
+                <li>Select the new Atmosphere object and open Properties</li>
+                <li>Set <strong>Density</strong> to 0.3 (subtle atmospheric haze)</li>
+                <li>Set <strong>Offset</strong> to 0.25 (controls where the atmosphere effect begins)</li>
+                <li>Adjust <strong>Color</strong> to match your sky (usually leave as default light blue/gray)</li>
+                <li>Test in Play mode—distant objects should have more atmospheric depth</li>
+            </ol>
+            <p><em>Note: Atmosphere effects can impact performance on lower-end devices. Test on target hardware if possible.</em></p>
+        </div>
+
+        <h2>Location-Specific Examples</h2>
+        <p>Here are complete lighting setups for different island types:</p>
+
+        <div class="example-box">
+            <h3>Tropical Beach Island (Hawaii, Caribbean, Philippines)</h3>
+            <ul>
+                <li>ClockTime: 14 (bright midday)</li>
+                <li>Brightness: 2</li>
+                <li>FogColor: RGB(190, 215, 255) - light sky blue</li>
+                <li>FogEnd: 1500</li>
+                <li>OutdoorAmbient: RGB(140, 160, 180)</li>
+                <li>Add Atmosphere (Density: 0.25) and BloomEffect (Intensity: 0.3)</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>Forest/Mountain Region (Pacific Northwest, Appalachia)</h3>
+            <ul>
+                <li>ClockTime: 9 (morning light through trees)</li>
+                <li>Brightness: 1.5</li>
+                <li>FogColor: RGB(180, 190, 200) - neutral gray-blue</li>
+                <li>FogEnd: 800</li>
+                <li>OutdoorAmbient: RGB(100, 120, 140)</li>
+                <li>Add Atmosphere (Density: 0.4) and SunRaysEffect (Intensity: 0.15)</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>Desert/Canyon (Southwest US, Australia)</h3>
+            <ul>
+                <li>ClockTime: 17 (golden hour)</li>
+                <li>Brightness: 1.8</li>
+                <li>FogColor: RGB(255, 190, 140) - warm peach</li>
+                <li>FogEnd: 2000</li>
+                <li>OutdoorAmbient: RGB(180, 140, 100)</li>
+                <li>Add ColorCorrectionEffect (Saturation: 0.1, TintColor: RGB(255, 240, 220))</li>
+            </ul>
+        </div>
+
+        <h2>Testing Your Lighting</h2>
+        <p>Don't just test from the spawn point. Your lighting needs to work across all five zones:</p>
+        <ol>
+            <li><strong>Play through the entire course</strong> and note any zones where visibility becomes a problem</li>
+            <li><strong>Check readability:</strong> Can you clearly see obstacles against the background at running speed?</li>
+            <li><strong>Verify mood consistency:</strong> Does the lighting feel coherent across all zones, or does one area feel disconnected?</li>
+            <li><strong>Test with others:</strong> Have a classmate play and ask if the lighting "feels right" for the location</li>
+        </ol>
+
+        <div class="tip-box">
+            <h3>Common Lighting Mistakes to Avoid</h3>
+            <ul>
+                <li><strong>Too dark:</strong> If you can't clearly see obstacles, your lighting is too moody. Gameplay clarity comes first.</li>
+                <li><strong>Mismatched fog color:</strong> Fog should blend with the sky, not contrast against it.</li>
+                <li><strong>Overuse of effects:</strong> More isn't better. One or two subtle effects beat five dramatic ones.</li>
+                <li><strong>Ignoring performance:</strong> Heavy fog or multiple effects can slow down older devices.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before moving to the next mission, verify you have:</p>
+        <ul>
+            <li><strong>Set a specific ClockTime</strong> that enhances your island's real-world character</li>
+            <li><strong>Configured fog properties</strong> (FogEnd, FogColor) that add atmospheric depth</li>
+            <li><strong>Adjusted Ambient and OutdoorAmbient</strong> to fill shadows appropriately</li>
+            <li><strong>Tested the lighting</strong> by playing through all five zones at running speed</li>
+            <li><strong>Confirmed readability:</strong> Obstacles are clearly visible against backgrounds</li>
+            <li><strong>Optional: Added at least one environmental effect</strong> (Atmosphere, Bloom, SunRays, or ColorCorrection)</li>
+        </ul>
+        <p><strong>Quality check:</strong> Ask yourself, "If I showed someone a screenshot, would they get a sense of what kind of place this is?" If yes, your lighting is working.</p>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Next Mission: Skybox Selection</h2>
+        <p>You've set the lighting and atmosphere for your island, but there's one more piece to the environmental puzzle: the sky itself. In the next mission, you'll choose and apply a skybox that completes your island's sense of place—turning that default Roblox sky into one that matches your real-world location perfectly.</p>
+    </div>
+</body>
+</html>

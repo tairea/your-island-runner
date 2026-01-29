@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 6.4: Sound Atmosphere</title>
+</head>
+<body>
+    <div class="mission-hook">
+        <h1>Close Your Eyes and Listen</h1>
+        <p>Imagine you're standing in your real-world location right now. Close your eyes. What do you hear?</p>
+        <p>If it's a beach: the rhythmic crash of waves, seagulls calling, maybe palm fronds rustling in the breeze.</p>
+        <p>If it's a forest: wind through the trees, birds chirping, the occasional crack of a branch, the distant sound of a stream.</p>
+        <p>If it's a city: traffic humming, horns honking, footsteps on pavement, the murmur of crowds.</p>
+        <p>If it's a desert: wind sweeping across sand, the distant cry of a hawk, maybe the faint rattle of tumbleweeds.</p>
+        <p>Sound is 50% of the experience—but right now, your island runner is silent. It's time to fix that.</p>
+        <p>In this mission, you'll add ambient audio that makes your island not just look like your location, but <em>sound</em> like it. You'll learn to create a soundscape that's present but not overwhelming, authentic but not distracting.</p>
+    </div>
+
+    <div class="mission-objective">
+        <h2>Mission Objective</h2>
+        <p><strong>Implement ambient audio using Sound objects to enhance environmental immersion and location authenticity</strong></p>
+        <p>By the end of this mission, your island will have:</p>
+        <ul>
+            <li>At least 1-2 ambient background sounds that loop continuously</li>
+            <li>Optional zone-specific sounds that enhance particular areas</li>
+            <li>Properly configured volume levels that support gameplay without overwhelming</li>
+            <li>Audio that authentically represents your real-world location</li>
+        </ul>
+    </div>
+
+    <div class="mission-content-main">
+        <h2>Understanding Sound Objects</h2>
+        <p>In Roblox, sound is controlled by <strong>Sound</strong> objects. A Sound object is like a speaker—it has an audio file (SoundId), volume settings, and playback controls.</p>
+        <p>Sound objects can be placed in two ways:</p>
+        <ul>
+            <li><strong>Global sounds (in SoundService or Workspace):</strong> Heard everywhere at the same volume—good for background music or universal ambience</li>
+            <li><strong>Positional sounds (in Parts or Models):</strong> Volume changes based on player distance—good for localized effects like a waterfall or campfire</li>
+        </ul>
+
+        <p>For ambient atmosphere, we'll primarily use global sounds that players hear throughout the entire island.</p>
+
+        <h2>Step 1: Identify Your Location's Soundscape</h2>
+        <p>Before searching for audio, define what your location sounds like:</p>
+
+        <div class="brainstorm-box">
+            <h3>Soundscape Inventory</h3>
+            <p>Answer these questions about your real-world location:</p>
+            <ul>
+                <li><strong>What's the dominant background sound?</strong> (ocean, wind, traffic, birdsong, etc.)</li>
+                <li><strong>Are there rhythmic/repeated sounds?</strong> (waves crashing, crickets chirping, bell tower, train)</li>
+                <li><strong>What animal sounds are present?</strong> (seagulls, crows, coyotes, frogs, etc.)</li>
+                <li><strong>What weather sounds occur?</strong> (gentle breeze, strong wind, rain, thunder)</li>
+                <li><strong>Are there human-made ambient sounds?</strong> (distant traffic, construction, music, chatter)</li>
+                <li><strong>What's a sound that would be instantly recognizable?</strong> (a specific bird call, a unique feature)</li>
+            </ul>
+        </div>
+
+        <p>Write down 2-3 sounds that would immediately make someone think of your location. These are your targets.</p>
+
+        <h2>Step 2: Search the Toolbox for Audio</h2>
+        <p>Roblox's Toolbox includes a library of free sound effects you can use.</p>
+
+        <ol>
+            <li>Open the <strong>Toolbox</strong> (View tab → Toolbox)</li>
+            <li>Click the dropdown at the top and select <strong>Audio</strong></li>
+            <li>Search for ambient sound terms:
+                <ul>
+                    <li>Beach/Ocean: "ocean waves," "beach ambience," "seagulls," "water waves"</li>
+                    <li>Forest: "forest ambience," "birds chirping," "wind trees," "nature sounds"</li>
+                    <li>Desert: "desert wind," "desert ambience," "coyote," "sandstorm"</li>
+                    <li>City: "city ambience," "traffic," "urban sounds," "street noise"</li>
+                    <li>Mountain: "mountain wind," "eagle call," "stream water," "wilderness"</li>
+                </ul>
+            </li>
+            <li>Click on audio clips to preview them (a play button should appear)</li>
+            <li>Look for clips that:
+                <ul>
+                    <li>Are loopable (seamless when repeated—no obvious start/end)</li>
+                    <li>Are subtle and atmospheric (not harsh or jarring)</li>
+                    <li>Match your location's character</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="tip-box">
+            <h3>Audio Search Tips</h3>
+            <ul>
+                <li><strong>Use "ambience" or "ambient":</strong> These keywords find loopable background sounds</li>
+                <li><strong>Preview before inserting:</strong> Listen to the entire clip—does it loop well? Is the volume consistent?</li>
+                <li><strong>Check length:</strong> Longer clips (30+ seconds) tend to loop more naturally than short ones</li>
+                <li><strong>Stick to free audio:</strong> Don't use sounds that cost Robux unless you have permission/budget</li>
+            </ul>
+        </div>
+
+        <h2>Step 3: Insert Your First Ambient Sound</h2>
+        <p>Let's add a primary ambient sound that will play throughout the entire game.</p>
+
+        <div class="try-it-box">
+            <h3>Try It: Add a Background Ambient Sound</h3>
+            <ol>
+                <li>In the Toolbox, search for your primary ambient sound (e.g., "ocean waves ambience")</li>
+                <li>Find a sound that feels right and click it to preview</li>
+                <li>If it sounds good, click the green checkmark or "Get" button</li>
+                <li>The sound will be inserted into your game—check the Explorer to see where it went (often into Workspace)</li>
+                <li>If it's in Workspace, that's fine for now—we'll configure it next</li>
+            </ol>
+        </div>
+
+        <h2>Step 4: Configure the Sound Object</h2>
+        <p>Now you need to set up the Sound object so it plays continuously and at the right volume.</p>
+
+        <ol>
+            <li>In the Explorer, find the <strong>Sound</strong> object you just inserted (it might be named after the audio file)</li>
+            <li>Click on it to select it, then open the <strong>Properties</strong> panel</li>
+            <li>Configure these key properties:</li>
+        </ol>
+
+        <div class="property-guide">
+            <h3>Essential Sound Properties</h3>
+            <ul>
+                <li><strong>Looped:</strong> Set to <strong>True</strong> (this makes the sound repeat continuously)</li>
+                <li><strong>Volume:</strong> Set to <strong>0.3-0.5</strong> to start (ambient sounds should be present but subtle)</li>
+                <li><strong>Playing:</strong> Set to <strong>True</strong> (this starts the sound immediately when the game loads)</li>
+                <li><strong>RollOffMode:</strong> Set to <strong>InverseTapered</strong> if you want it to fade with distance, or <strong>Linear</strong> for more dramatic falloff. For global ambience, you can also set RollOffMaxDistance to a very high number like 10000 so it's heard everywhere.</li>
+                <li><strong>SoundId:</strong> This should already be filled in with the audio asset ID—don't change it unless you're replacing the sound</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Make the Sound Loop and Play</h3>
+            <ol>
+                <li>Select your Sound object in Explorer</li>
+                <li>In Properties, find <strong>Looped</strong> and check the box (set to True)</li>
+                <li>Find <strong>Volume</strong> and set it to 0.4</li>
+                <li>Find <strong>Playing</strong> and check the box (set to True)</li>
+                <li>Press <strong>Play</strong> to test your game</li>
+                <li>You should immediately hear the ambient sound looping in the background</li>
+                <li>If it's too loud or too quiet, stop the game, adjust Volume, and test again</li>
+            </ol>
+        </div>
+
+        <h2>Step 5: Move Sound to SoundService for Global Playback</h2>
+        <p>If you want the sound to be heard equally everywhere (not affected by player position), move it to the <strong>SoundService</strong>.</p>
+
+        <ol>
+            <li>In the Explorer, find your Sound object (probably in Workspace)</li>
+            <li>Click and drag it to <strong>SoundService</strong> (it's in the list of services at the top level of Explorer)</li>
+            <li>Drop it inside SoundService</li>
+            <li>Now the sound will play at consistent volume no matter where the player is on the island</li>
+        </ol>
+
+        <p><em>Alternative: If you want the sound to fade based on distance (like waves louder near the beach area), keep it in a Part or Model in Workspace and adjust RollOffMaxDistance and RollOffMinDistance.</em></p>
+
+        <h2>Step 6: Add a Secondary Ambient Sound (Optional)</h2>
+        <p>Layering multiple sounds creates a richer, more realistic soundscape. Consider adding a second subtle sound:</p>
+
+        <div class="layering-examples">
+            <h3>Sound Layering Ideas</h3>
+            <ul>
+                <li><strong>Beach:</strong> Primary = ocean waves, Secondary = distant seagulls or breeze</li>
+                <li><strong>Forest:</strong> Primary = wind through trees, Secondary = bird chirps or stream</li>
+                <li><strong>Desert:</strong> Primary = wind/breeze, Secondary = occasional coyote or hawk cry</li>
+                <li><strong>City:</strong> Primary = distant traffic hum, Secondary = occasional horn or siren</li>
+                <li><strong>Mountain:</strong> Primary = mountain wind, Secondary = eagle call or distant thunder</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <h3>Try It: Add a Layered Sound</h3>
+            <ol>
+                <li>Search the Toolbox for a secondary ambient sound (e.g., "seagull calls")</li>
+                <li>Insert it into your game</li>
+                <li>Configure it with the same settings: Looped = True, Playing = True</li>
+                <li>Set Volume slightly lower than your primary sound (0.2-0.3)</li>
+                <li>Move it to SoundService (or position it in the world if you want localized audio)</li>
+                <li>Test in Play mode—the two sounds should blend naturally</li>
+            </ol>
+        </div>
+
+        <h2>Step 7: Add Zone-Specific Sounds (Advanced Optional)</h2>
+        <p>For extra polish, you can add positional sounds that only play when the player is near certain areas. For example:</p>
+        <ul>
+            <li>A <strong>waterfall sound</strong> near your waterfall landmark (Zone 3)</li>
+            <li>A <strong>campfire crackling</strong> near a campsite detail</li>
+            <li><strong>Wind chimes</strong> near a cultural structure</li>
+            <li><strong>Drumming or music</strong> near a festival area</li>
+        </ul>
+
+        <p>To create a positional sound:</p>
+        <ol>
+            <li>Insert or create a <strong>Part</strong> at the location where you want the sound to originate (e.g., inside the waterfall model)</li>
+            <li>Make the part <strong>Invisible</strong> (Transparency = 1) and <strong>CanCollide = False</strong></li>
+            <li>Insert a <strong>Sound</strong> object as a child of that part (right-click Part → Insert Object → Sound)</li>
+            <li>Set the Sound's SoundId to your audio asset</li>
+            <li>Configure: Looped = True, Playing = True, Volume = 0.5</li>
+            <li>Set <strong>RollOffMaxDistance</strong> to 100-200 (players hear it clearly within 100 studs, then it fades)</li>
+            <li>Set <strong>RollOffMinDistance</strong> to 10-20 (sound is at full volume within 10-20 studs)</li>
+            <li>Test by running past the area—you should hear the sound grow louder as you approach</li>
+        </ol>
+
+        <div class="tip-box">
+            <h3>When to Use Positional vs. Global Sounds</h3>
+            <ul>
+                <li><strong>Global (SoundService):</strong> Background ambience that should be heard everywhere (ocean, wind, traffic)</li>
+                <li><strong>Positional (in Parts):</strong> Specific sound sources tied to locations (waterfall, campfire, animals, machines)</li>
+            </ul>
+        </div>
+
+        <h2>Volume Balance and Mixing</h2>
+        <p>Audio mixing is about balancing volumes so everything can be heard without overwhelming the player.</p>
+
+        <div class="mixing-guide">
+            <h3>Volume Guidelines</h3>
+            <ul>
+                <li><strong>Primary ambient sound:</strong> 0.3-0.5 (present but not dominant)</li>
+                <li><strong>Secondary ambient sound:</strong> 0.2-0.3 (adds texture, doesn't compete)</li>
+                <li><strong>Positional sounds:</strong> 0.4-0.6 (should be noticeable when near, but fade quickly)</li>
+                <li><strong>Jump/landing sounds (if you add them):</strong> 0.5-0.7 (clear feedback, but not jarring)</li>
+            </ul>
+        </div>
+
+        <p>The total "loudness" of your soundscape should feel like you're in the environment, not like you're being shouted at. When in doubt, start quieter and increase gradually.</p>
+
+        <h2>Testing Your Soundscape</h2>
+        <p>After adding all your sounds, do a full listening test:</p>
+
+        <ol>
+            <li><strong>Play through the entire course</strong> and focus on the audio</li>
+            <li><strong>Check for loop quality:</strong> Do you hear obvious "seams" where sounds restart? If so, search for a better looping version</li>
+            <li><strong>Verify volume balance:</strong> Can you hear all sounds, or does one dominate?</li>
+            <li><strong>Test with headphones and speakers:</strong> Audio can sound very different on different devices</li>
+            <li><strong>Ask for feedback:</strong> Have a classmate play and ask, "Does the audio feel right? Too loud? Too quiet?"</li>
+        </ol>
+
+        <div class="warning-box">
+            <h3>Common Audio Mistakes</h3>
+            <ul>
+                <li><strong>Too loud:</strong> Ambient sounds should support, not overpower. If you can't think while playing, it's too loud.</li>
+                <li><strong>Harsh loops:</strong> A bad loop (with a click or sudden restart) breaks immersion every few seconds.</li>
+                <li><strong>Too many layers:</strong> More than 3-4 simultaneous sounds becomes muddy and confusing.</li>
+                <li><strong>Wrong mood:</strong> Spooky sounds for a tropical beach, or cheerful birds for a desert—audio must match theme.</li>
+                <li><strong>Forgetting to set Looped = True:</strong> Sound plays once and stops, leaving silence.</li>
+            </ul>
+        </div>
+
+        <h2>Location-Specific Soundscape Examples</h2>
+        <p>Here are complete soundscape setups for different island types:</p>
+
+        <div class="example-box">
+            <h3>Tropical Beach Island</h3>
+            <p><strong>Primary sound:</strong> Ocean waves ambience (Volume: 0.4, in SoundService)</p>
+            <p><strong>Secondary sound:</strong> Seagull calls or light breeze (Volume: 0.25, in SoundService)</p>
+            <p><strong>Optional positional:</strong> Palm fronds rustling near palm tree clusters (Volume: 0.3, RollOffMaxDistance: 80)</p>
+        </div>
+
+        <div class="example-box">
+            <h3>Mountain/Forest Region</h3>
+            <p><strong>Primary sound:</strong> Wind through trees (Volume: 0.35, in SoundService)</p>
+            <p><strong>Secondary sound:</strong> Forest birds chirping (Volume: 0.3, in SoundService)</p>
+            <p><strong>Optional positional:</strong> Stream/creek water near a water feature (Volume: 0.5, RollOffMaxDistance: 100)</p>
+        </div>
+
+        <div class="example-box">
+            <h3>Desert/Canyon Landscape</h3>
+            <p><strong>Primary sound:</strong> Desert wind ambience (Volume: 0.3, in SoundService)</p>
+            <p><strong>Secondary sound:</strong> Occasional distant hawk or coyote (Volume: 0.2, in SoundService)</p>
+            <p><strong>Optional positional:</strong> Wind howling through rock formations (Volume: 0.4, RollOffMaxDistance: 120)</p>
+        </div>
+
+        <div class="example-box">
+            <h3>Urban/City Environment</h3>
+            <p><strong>Primary sound:</strong> City traffic ambience (Volume: 0.35, in SoundService)</p>
+            <p><strong>Secondary sound:</strong> Distant horns and sirens (Volume: 0.2, in SoundService)</p>
+            <p><strong>Optional positional:</strong> Crowd chatter near a plaza area (Volume: 0.4, RollOffMaxDistance: 90)</p>
+        </div>
+
+        <h2>Advanced: Using SoundGroups (Optional)</h2>
+        <p>If you want to control multiple sounds at once (like a master volume control), you can use SoundGroups:</p>
+
+        <ol>
+            <li>In SoundService, right-click and Insert Object → <strong>SoundGroup</strong></li>
+            <li>Name it "Ambience" or "BackgroundSounds"</li>
+            <li>Select each of your ambient Sound objects</li>
+            <li>In their Properties, find <strong>SoundGroup</strong> and set it to the SoundGroup you just created</li>
+            <li>Now you can adjust the SoundGroup's <strong>Volume</strong> property to affect all grouped sounds at once</li>
+        </ol>
+
+        <p>This is useful if you later want to add music or make the ambience quieter during specific events.</p>
+    </div>
+
+    <div class="mission-check">
+        <h2>Mission Check</h2>
+        <p>Before moving to the next mission, verify you have:</p>
+        <ul>
+            <li><strong>Identified 2-3 sounds</strong> that authentically represent your location's soundscape</li>
+            <li><strong>Inserted at least one primary ambient sound</strong> from the Toolbox</li>
+            <li><strong>Configured the sound to loop and play automatically</strong> (Looped = True, Playing = True)</li>
+            <li><strong>Set appropriate volume levels</strong> (0.3-0.5 for primary, quieter for secondary)</li>
+            <li><strong>Moved global sounds to SoundService</strong> for consistent playback throughout the island</li>
+            <li><strong>Optionally added a secondary layered sound</strong> for richer atmosphere</li>
+            <li><strong>Tested the soundscape</strong> by playing through all five zones and listening carefully</li>
+            <li><strong>Verified loop quality:</strong> No obvious clicks, pops, or harsh restarts</li>
+        </ul>
+        <p><strong>Quality check:</strong> Close your eyes and listen while someone else plays your game. Does it sound like your real-world location? If yes, you've created an effective soundscape.</p>
+    </div>
+
+    <div class="mission-bridge">
+        <h2>Next Mission: Difficulty Tuning</h2>
+        <p>Your island looks polished and sounds immersive—but is it fun to play? In the final mission of Star 6, you'll step back from aesthetics and focus on game feel. You'll adjust obstacle spacing, timing, and difficulty curves based on playtest feedback, ensuring that your beautifully polished island is also a joy to run through.</p>
+    </div>
+</body>
+</html>
